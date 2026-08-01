@@ -7,7 +7,7 @@ import { AbstractBlob } from "../ui/AbstractBlob";
 export function Footer() {
   const pathname = usePathname();
 
-  if (pathname === "/") {
+  if (pathname === "/" || pathname === "/kategori") {
     return null;
   }
 

@@ -51,7 +51,7 @@ const categories = [
 
 export default function KategoriPage() {
   return (
-    <main className="min-h-[100dvh] bg-transparent relative pb-32 flex flex-col items-center justify-center overflow-x-hidden">
+    <main className="h-[100dvh] bg-transparent relative flex flex-col items-center justify-center overflow-hidden">
 
       {/* Latar Belakang Warna-Warni ala Tailwind CSS (Mesh Gradient) */}
       <div className="absolute inset-0 -z-10 pointer-events-none bg-white">
