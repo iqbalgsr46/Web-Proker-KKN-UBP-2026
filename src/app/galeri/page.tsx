@@ -162,7 +162,7 @@ export default function GaleriPage() {
           </div>
 
           <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-            <Marquee pauseOnHover className="[--duration:40s]">
+            <Marquee pauseOnHover className="[--duration:80s]">
               {[
                 '/images/coloring_recycle_bin.png', 
                 '/images/coloring_plant_tree.png', 
@@ -176,7 +176,7 @@ export default function GaleriPage() {
                 </div>
               ))}
             </Marquee>
-            <Marquee reverse pauseOnHover className="[--duration:40s] mt-4">
+            <Marquee reverse pauseOnHover className="[--duration:80s] mt-4">
               {[
                 '/images/coloring_bicycle_park.png',
                 '/images/coloring_sorting_trash.png',
