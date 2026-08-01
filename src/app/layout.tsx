@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { SmoothScrolling } from "@/components/shared/SmoothScrolling";
-import { PageTransition } from "@/components/shared/PageTransition";
 
 export default function RootLayout({
   children,
@@ -31,9 +30,7 @@ export default function RootLayout({
         <Navbar />
         <SmoothScrolling>
           <main className="flex-1 w-full">
-            <PageTransition>
-              {children}
-            </PageTransition>
+            {children}
           </main>
           <Footer />
         </SmoothScrolling>
