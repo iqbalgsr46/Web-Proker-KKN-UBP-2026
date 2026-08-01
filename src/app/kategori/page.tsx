@@ -115,7 +115,7 @@ export default function KategoriPage() {
                 <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#FBBC04" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
               </svg>
             </div>
-            <p className="text-sm sm:text-base md:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-12">
+            <p className="text-lg md:text-xl text-gray-700 font-medium mb-8 sm:mb-12 max-w-xl leading-relaxed text-balance mx-auto lg:mx-0">
               Mari belajar memilah sampah dengan cara yang menyenangkan. Pilih salah satu kategori di samping untuk mulai mewarnai!
             </p>
             <Link href="/mewarnai/organik" className="inline-block">
