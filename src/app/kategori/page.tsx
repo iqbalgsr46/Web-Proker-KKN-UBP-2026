@@ -351,9 +351,9 @@ export default function KategoriPage() {
         {/* ========================================= */}
         {/* THANK YOU SECTION (TEXT REVEAL) */}
         {/* ========================================= */}
-        <div className="w-full relative z-10 flex flex-col items-center -mt-[25vh] md:mt-32 mb-32 max-w-[90rem] mx-auto py-0 lg:py-32 px-8 md:px-16 lg:px-24">
+        <div className="w-full relative z-10 flex flex-col items-center -mt-[25vh] md:mt-32 -mb-[15vh] md:mb-32 max-w-[90rem] mx-auto py-0 lg:py-32 px-8 md:px-16 lg:px-24">
           {/* Teks Ucapan (Tengah) */}
-          <div className="w-full max-w-5xl relative py-10 text-center">
+          <div className="w-full max-w-5xl relative pt-10 pb-0 md:py-10 text-center">
             <div className="leading-[1.9] text-gray-800 text-lg md:text-xl">
               <TextReveal>Terima kasih dari kami tim mahasiswa KKN Universitas Buana Perjuangan Karawang atas semua momen, tawa, dan pengalaman berharga di Desa Sukamaju ini. Kami berharap karya EduColoring ini dapat terus menjadi jembatan ilmu yang menyenangkan bagi anak-anak untuk mengenal dan menjaga lingkungan sejak dini. Pengabdian ini mungkin telah usai, namun kenangan indah bersama kalian akan selalu membekas. Sampai jumpa di lain kesempatan yang lebih gemilang!</TextReveal>
             </div>
