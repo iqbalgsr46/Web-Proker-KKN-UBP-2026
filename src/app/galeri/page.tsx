@@ -63,6 +63,11 @@ export default function GaleriPage() {
               Galeri
             </h2>
             <MorphingText texts={["Karya Anak", "Kreativitas", "Edukasi", "Imajinasi"]} className="text-3xl sm:text-4xl md:text-5xl !h-16 md:!h-24 m-0" />
+            
+            {/* Location Pill Badge */}
+            <div className="mt-2 px-5 py-0.5 border-[2px] border-[#202124] rounded-full flex items-center justify-center">
+              <span className="text-[#202124] font-bold text-sm">UBP Karawang</span>
+            </div>
           </div>
 
           {/* Right Bracket (Kurung Kurawal Kuning) */}
