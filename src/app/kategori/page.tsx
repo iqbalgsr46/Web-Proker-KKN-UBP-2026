@@ -233,7 +233,7 @@ export default function KategoriPage() {
             {categories.map((cat) => (
               <Card key={cat.id} customClass="w-full h-full cursor-pointer group">
                 <Link href={`/mewarnai/${cat.id}`} className="outline-none block w-full h-full">
-                  <GlassCard className="h-full w-full flex flex-col items-center text-center p-4 sm:p-6 transition-all duration-500 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.3)] relative !bg-white/80 backdrop-blur-xl">
+                  <GlassCard className="h-full w-full flex flex-col items-center text-center p-4 sm:p-6 transition-all duration-500 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.3)] relative !bg-white/95">
                     
                     {/* Decorative Blobs (Melayang di sudut-sudut kartu) */}
                     {cat.blobs.map((blob, idx) => (
@@ -241,12 +241,12 @@ export default function KategoriPage() {
                         key={idx}
                         type={blob.type as any} 
                         color={blob.color as any} 
-                        className={`absolute ${blob.position} opacity-70 transition-all duration-700 z-0 pointer-events-none`} 
+                        className={`absolute ${blob.position} opacity-70 transition-all duration-700 z-0 pointer-events-none transform-gpu`} 
                       />
                     ))}
 
                     {/* Inner Container */}
-                    <div className="relative z-10 bg-white/20 backdrop-blur-md border border-white/60 shadow-[inset_0_4px_30px_rgba(255,255,255,0.6),0_4px_15px_rgba(0,0,0,0.05)] rounded-[2rem] w-full flex-1 flex flex-col items-center p-6 mb-4 overflow-hidden">
+                    <div className="relative z-10 bg-white/70 border border-white/60 shadow-[inset_0_4px_30px_rgba(255,255,255,0.6),0_4px_15px_rgba(0,0,0,0.05)] rounded-[2rem] w-full flex-1 flex flex-col items-center p-6 mb-4 overflow-hidden transform-gpu">
                       
                       {/* Glare effect */}
                       <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
