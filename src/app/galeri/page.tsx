@@ -1,5 +1,5 @@
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
-import BounceCards from "@/components/ui/BounceCards";
+import Masonry from "@/components/ui/Masonry";
 
 export default function GaleriPage() {
   return (
@@ -42,29 +42,31 @@ export default function GaleriPage() {
       </div>
 
       <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-8 mt-16 md:mt-24 z-10 overflow-hidden">
-        <BounceCards
-          className="custom-bounceCards scale-75 md:scale-100"
-          images={[
-            "https://picsum.photos/400/400?grayscale",
-            "https://picsum.photos/500/500?grayscale",
-            "https://picsum.photos/600/600?grayscale",
-            "https://picsum.photos/700/700?grayscale",
-            "https://picsum.photos/300/300?grayscale"
-          ]}
-          containerWidth={500}
-          containerHeight={250}
-          animationDelay={1}
-          animationStagger={0.08}
-          easeType="elastic.out(1, 0.5)"
-          transformStyles={[
-            "rotate(5deg) translate(-150px)",
-            "rotate(0deg) translate(-70px)",
-            "rotate(-5deg)",
-            "rotate(5deg) translate(70px)",
-            "rotate(-5deg) translate(150px)"
-          ]}
-          enableHover={false}
-        />
+        
+        {/* Masonry Layout */}
+        <div className="w-full max-w-7xl mx-auto h-[600px] sm:h-[800px] mb-24 relative">
+          <Masonry
+            items={[
+              { id: "1", img: "https://picsum.photos/id/1015/600/900?grayscale", url: "#", height: 400 },
+              { id: "2", img: "https://picsum.photos/id/1011/600/750?grayscale", url: "#", height: 250 },
+              { id: "3", img: "https://picsum.photos/id/1020/600/800?grayscale", url: "#", height: 600 },
+              { id: "4", img: "https://picsum.photos/id/1024/600/600?grayscale", url: "#", height: 350 },
+              { id: "5", img: "https://picsum.photos/id/1025/600/900?grayscale", url: "#", height: 450 },
+              { id: "6", img: "https://picsum.photos/id/1035/600/800?grayscale", url: "#", height: 300 },
+              { id: "7", img: "https://picsum.photos/id/1036/600/750?grayscale", url: "#", height: 500 },
+              { id: "8", img: "https://picsum.photos/id/1040/600/900?grayscale", url: "#", height: 350 },
+            ]}
+            ease="power3.out"
+            duration={0.6}
+            stagger={0.05}
+            animateFrom="bottom"
+            scaleOnHover={true}
+            hoverScale={0.95}
+            blurToFocus={true}
+            colorShiftOnHover={false}
+          />
+        </div>
+
       </main>
       
     </div>
