@@ -1,8 +1,7 @@
 "use client";
 
-import { FC, ReactNode, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-
+import { FC, ReactNode } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface TextRevealByWordProps {
@@ -17,57 +16,42 @@ export const TextReveal: FC<TextRevealByWordProps> = ({
   className,
 }) => {
   const content = text || children || "";
-  const targetRef = useRef<HTMLDivElement | null>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "center center"],
-  });
   const words = content.split(" ");
 
   return (
-    <div ref={targetRef} className={cn("relative z-0 h-[120vh]", className)}>
-      <div
+    <div className={cn("relative z-0 w-full max-w-4xl mx-auto py-10", className)}>
+      <p
         className={
-          "sticky top-0 mx-auto flex h-screen max-w-4xl items-center bg-transparent px-[1rem] py-[5rem]"
+          "w-full text-xl font-black text-black/20 md:text-2xl lg:text-3xl xl:text-4xl leading-tight text-center md:text-justify"
         }
       >
-        <p
-          className={
-            "w-full p-5 text-xl font-black text-black/20 md:p-8 md:text-2xl lg:p-10 lg:text-3xl xl:text-4xl leading-tight text-justify"
-          }
-        >
-          {words.map((word, i) => {
-            const start = i / words.length;
-            const end = start + 1 / words.length;
-            return (
-              <span key={i}>
-                <Word progress={scrollYProgress} range={[start, end]}>
-                  {word}
-                </Word>
-                {i < words.length - 1 && " "}
-              </span>
-            );
-          })}
-        </p>
-      </div>
+        {words.map((word, i) => (
+          <span key={i}>
+            <Word index={i}>{word}</Word>
+            {i < words.length - 1 && " "}
+          </span>
+        ))}
+      </p>
     </div>
   );
 };
 
 interface WordProps {
   children: ReactNode;
-  progress: any;
-  range: [number, number];
+  index: number;
 }
 
-const Word: FC<WordProps> = ({ children, progress, range }) => {
-  const opacity = useTransform(progress, range, [0, 1]);
+const Word: FC<WordProps> = ({ children, index }) => {
   return (
     <span className="relative inline-block">
-      <span className="absolute left-0 top-0 opacity-30 select-none" aria-hidden="true">{children}</span>
+      <span className="absolute left-0 top-0 opacity-30 select-none" aria-hidden="true">
+        {children}
+      </span>
       <motion.span
-        style={{ opacity: opacity }}
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-10%" }}
+        transition={{ duration: 0.5, delay: index * 0.02, ease: "easeOut" }}
         className="text-gray-900 inline-block"
       >
         {children}
