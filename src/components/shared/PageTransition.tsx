@@ -1,22 +1,56 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
+
+const variants = {
+  hidden: {
+    opacity: 0,
+    filter: "blur(8px)",
+    scale: 0.97,
+  },
+  enter: {
+    opacity: 1,
+    filter: "blur(0px)",
+    scale: 1,
+  },
+  exit: {
+    opacity: 0,
+    filter: "blur(4px)",
+    scale: 0.99,
+  },
+};
 
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+
+  useEffect(() => {
+    // Skip animation on first page load for faster initial render
+    const timer = setTimeout(() => setIsFirstLoad(false), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isFirstLoad) {
+    return <>{children}</>;
+  }
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={pathname}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
+        variants={variants}
+        initial="hidden"
+        animate="enter"
+        exit="exit"
         transition={{
-          duration: 0.4,
-          ease: [0.25, 0.46, 0.45, 0.94],
+          duration: 0.5,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        onAnimationStart={() => {
+          // Scroll to top when entering a new page
+          window.scrollTo({ top: 0 });
         }}
       >
         {children}
