@@ -194,13 +194,13 @@ export default function GaleriPage() {
             </Marquee>
           </div>
 
-          <div className="mt-16 md:mt-24 max-w-3xl px-6 text-center text-gray-500 font-medium text-lg md:text-xl">
+          <div className="mt-16 md:mt-24 max-w-4xl px-6 text-center text-gray-500 font-medium text-lg md:text-xl leading-relaxed">
             <DecryptedText 
-              text="Setiap coretan warna di atas adalah cerminan dari imajinasi cemerlang anak-anak dalam memahami betapa pentingnya menjaga kelestarian lingkungan kita bersama."
+              text="Setiap coretan warna di atas adalah cerminan dari imajinasi cemerlang anak-anak dalam memahami betapa pentingnya menjaga kelestarian lingkungan kita bersama. Melalui karya sederhana ini, mereka belajar membuang sampah pada tempatnya, merawat pepohonan, serta menjaga sungai tetap bersih demi masa depan bumi yang lebih hijau dan bahagia."
               animateOn="view"
               revealDirection="center"
-              speed={30}
-              maxIterations={15}
+              speed={65}
+              maxIterations={30}
             />
           </div>
         </div>
