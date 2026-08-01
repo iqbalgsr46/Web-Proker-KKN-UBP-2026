@@ -12,7 +12,7 @@ import { TextReveal } from "@/registry/magicui/text-reveal";
 
 export default function TentangPage() {
   return (
-    <div className="relative w-full min-h-[100dvh] flex flex-col bg-transparent overflow-hidden">
+    <div className="relative w-full min-h-[100dvh] flex flex-col bg-transparent overflow-x-hidden">
 
       {/* Latar Belakang Warna-Warni ala Tailwind CSS (Mesh Gradient) */}
       <div className="absolute inset-0 -z-10 pointer-events-none bg-white">
