@@ -43,10 +43,10 @@ export function Navbar() {
               <Link
                 href={item.href}
                 aria-label={item.label}
-                className="w-full h-full flex items-center justify-center relative group"
+                className="w-full h-full flex items-center justify-center relative group active:scale-90 transition-transform duration-200"
               >
-                <item.icon className="w-5 h-5 text-gray-700 group-hover:text-google-blue transition-colors" />
-                <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-900 text-white text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none whitespace-nowrap shadow-md">
+                <item.icon className="w-5 h-5 text-gray-700 lg:group-hover:text-google-blue transition-colors duration-200" />
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 bg-gray-900 text-white text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none whitespace-nowrap shadow-md">
                   {item.label}
                 </span>
               </Link>
@@ -57,12 +57,12 @@ export function Navbar() {
             <Link
               href="/kategori"
               aria-label="Mulai Mewarnai"
-              className="w-full h-full flex items-center justify-center relative group p-1.5"
+              className="w-full h-full flex items-center justify-center relative group p-1.5 active:scale-90 transition-transform duration-200"
             >
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-google-blue via-google-green to-google-yellow flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-google-blue via-google-green to-google-yellow flex items-center justify-center text-white shadow-md lg:group-hover:scale-110 transition-transform duration-200">
                 <span className="text-[1.2rem] leading-none">🎨</span>
               </div>
-              <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-900 text-white text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none whitespace-nowrap shadow-md">
+              <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 bg-gray-900 text-white text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none whitespace-nowrap shadow-md">
                 Mulai Mewarnai
               </span>
             </Link>
