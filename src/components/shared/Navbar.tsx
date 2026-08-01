@@ -62,7 +62,7 @@ export function Navbar() {
           <div className="w-px h-8 bg-gray-300 mx-1" />
           <DockIcon>
             <Link
-              href="/kategori"
+              href="/kumpulan-mewarnai"
               prefetch={true}
               aria-label="Mulai Mewarnai"
               className="w-full h-full flex items-center justify-center relative group p-1.5 active:scale-90 transition-transform duration-200"
