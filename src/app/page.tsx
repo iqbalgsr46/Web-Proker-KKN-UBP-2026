@@ -5,24 +5,24 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="relative w-full h-screen overflow-hidden flex items-center justify-center px-4 md:px-8">
+    <div className="relative w-full min-h-[100dvh] overflow-x-hidden flex items-center justify-center px-4 md:px-8 py-12 md:py-0">
       {/* Background Ornaments (4 Logo Random Placements) */}
       
       {/* 1. Top Left: Green Hexagon (Mid Size) */}
-      <AbstractBlob type="hexagon" color="green" className="w-32 md:w-44 h-32 md:h-44 absolute top-[15%] left-[5%] md:top-[18%] md:left-[10%] -rotate-12" />
+      <AbstractBlob type="hexagon" color="green" className="w-32 md:w-44 h-32 md:h-44 absolute top-[5%] left-[5%] md:top-[18%] md:left-[10%] -rotate-12 transform-gpu" />
       
       {/* 2. Top Right: Red Circle-Spark (Small Size, sedikit blur untuk efek kedalaman) */}
-      <AbstractBlob type="circle-spark" color="red" className="w-20 md:w-28 h-20 md:h-28 absolute top-[10%] right-[8%] md:top-[12%] md:right-[15%] blur-[2px] rotate-45" />
+      <AbstractBlob type="circle-spark" color="red" className="w-20 md:w-28 h-20 md:h-28 absolute top-[10%] right-[8%] md:top-[12%] md:right-[15%] blur-[2px] rotate-45 transform-gpu" />
       
       {/* 3. Bottom Left: Blue Cross-Spark (Large Size, sedikit terpotong di kiri) */}
-      <AbstractBlob type="cross-spark" color="blue" className="w-48 md:w-72 h-48 md:h-72 absolute bottom-[10%] -left-[8%] md:bottom-[10%] md:-left-[2%] rotate-12" />
+      <AbstractBlob type="cross-spark" color="blue" className="w-48 md:w-72 h-48 md:h-72 absolute bottom-[5%] -left-[15%] md:bottom-[10%] md:-left-[2%] rotate-12 transform-gpu" />
       
       {/* 4. Bottom Right: Yellow Cross (Mid-Large Size) */}
-      <AbstractBlob type="cross" color="yellow" className="w-36 md:w-56 h-36 md:h-56 absolute bottom-[15%] right-[5%] md:bottom-[18%] md:right-[10%] -rotate-[25deg]" />
+      <AbstractBlob type="cross" color="yellow" className="w-36 md:w-56 h-36 md:h-56 absolute bottom-[15%] right-[5%] md:bottom-[18%] md:right-[10%] -rotate-[25deg] transform-gpu" />
       
       {/* 5. Center (Behind GlassCard): Blue Hexagon (Tertutup efek blur kaca) */}
-      <AbstractBlob type="hexagon" color="blue" className="w-40 md:w-64 h-40 md:h-64 absolute top-[50%] left-[48%] -translate-x-1/2 -translate-y-1/2 rotate-[15deg]" />
-      <GlassCard withShimmer className="w-full max-w-5xl text-center flex flex-col items-center shadow-2xl relative z-10 mx-auto py-12 sm:py-16">
+      <AbstractBlob type="hexagon" color="blue" className="w-40 md:w-64 h-40 md:h-64 absolute top-[50%] left-[48%] -translate-x-1/2 -translate-y-1/2 rotate-[15deg] transform-gpu" />
+      <GlassCard withShimmer className="w-full max-w-5xl text-center flex flex-col items-center shadow-2xl relative z-10 mx-auto py-12 sm:py-16 mt-8 md:mt-0">
         {/* Logo Utama ala "Build with AI" GDG */}
         <div className="flex items-center justify-center gap-2 md:gap-5 mb-10 scale-90 md:scale-100">
           {/* Left Bracket (Kurung Kurawal Kuning) */}
