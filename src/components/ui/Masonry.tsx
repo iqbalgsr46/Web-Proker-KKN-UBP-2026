@@ -254,7 +254,6 @@ const Masonry: React.FC<MasonryProps> = ({
             data-key={item.id}
             className="item-wrapper"
             style={{ width: item.w, height: item.h, transform: `translate(${item.x}px, ${item.y}px)` }}
-            onClick={() => window.open(item.url, '_blank', 'noopener')}
             onMouseEnter={e => handleMouseEnter(e, item)}
             onMouseLeave={e => handleMouseLeave(e, item)}
           >
