@@ -1,9 +1,46 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Masonry from "@/components/ui/Masonry";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
 
 export default function KumpulanMewarnaiPage() {
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownloadPDF = async () => {
+    try {
+      setIsDownloading(true);
+      const { jsPDF } = await import("jspdf");
+      const doc = new jsPDF("p", "mm", "a4");
+      
+      const images = [
+        "/images/lembar_mewarnai_1.png",
+        "/images/lembar_mewarnai_2.png",
+        "/images/lembar_mewarnai_3.png",
+        "/images/lembar_mewarnai_4.png",
+        "/images/lembar_mewarnai_5.png",
+        "/images/lembar_mewarnai_6.png",
+      ];
+
+      for (let i = 0; i < images.length; i++) {
+        if (i > 0) doc.addPage();
+        
+        // Add image (using width of A4: 210mm, height: auto to fit)
+        // Center the image slightly. A4 dimensions are 210x297mm
+        doc.addImage(images[i], "PNG", 10, 10, 190, 277);
+      }
+      
+      doc.save("Buku_Mewarnai_EduColoring.pdf");
+    } catch (error) {
+      console.error("Gagal membuat PDF", error);
+      alert("Maaf, terjadi kesalahan saat menyiapkan PDF.");
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
   return (
     <main className="min-h-[100dvh] bg-transparent relative flex flex-col items-center justify-start overflow-x-hidden w-full pb-24">
 
@@ -70,7 +107,7 @@ export default function KumpulanMewarnaiPage() {
       <div className="w-full max-w-[90rem] mx-auto px-4 sm:px-8 pt-12 md:pt-24 relative z-10 flex flex-col items-center">
         
         {/* Navigation Back Button */}
-        <div className="w-full flex justify-start mb-8">
+        <div className="w-full flex justify-start mb-8 print:hidden">
           <Link href="/kategori">
             <button className="flex items-center justify-center w-12 h-12 bg-white/70 hover:bg-white text-gray-800 rounded-full shadow-sm hover:shadow-md transition-all border border-gray-200">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,12 +117,12 @@ export default function KumpulanMewarnaiPage() {
           </Link>
         </div>
 
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-12 sm:mb-16 print:hidden">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight uppercase">Kumpulan Lembar Mewarnai</h1>
           <p className="text-gray-600 mt-3 font-medium text-lg">Pilih salah satu karya inspiratif di bawah ini!</p>
         </div>
         
-        <div className="w-full">
+        <div className="w-full print:hidden">
           <Masonry 
             items={[
               { id: "1", img: "/images/lembar_mewarnai_1.png", url: "#", height: 400 },
@@ -99,12 +136,54 @@ export default function KumpulanMewarnaiPage() {
           />
         </div>
         
-        <div className="mt-16">
-          <Link href="/mewarnai/organik">
-            <PillButton variant="green" className="px-10 py-4 text-lg shadow-lg hover:shadow-xl">
-              Mulai Mewarnai Sekarang
-            </PillButton>
-          </Link>
+        <div className="mt-16 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full print:hidden">
+          <button 
+            onClick={handleDownloadPDF}
+            disabled={isDownloading}
+            className="flex items-center justify-center gap-2 bg-google-red text-white font-bold py-4 px-8 rounded-[2rem] shadow-md hover:shadow-lg hover:-translate-y-1 active:translate-y-0 transition-all w-full sm:w-auto text-lg disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            {isDownloading ? (
+              <svg className="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            )}
+            {isDownloading ? "Menyiapkan PDF..." : "Unduh PDF"}
+          </button>
+
+          <button 
+            onClick={() => window.print()}
+            className="flex items-center justify-center gap-2 bg-google-blue text-white font-bold py-4 px-8 rounded-[2rem] shadow-md hover:shadow-lg hover:-translate-y-1 active:translate-y-0 transition-all w-full sm:w-auto text-lg"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Print Langsung
+          </button>
+        </div>
+
+        {/* Layout khusus saat diprint (hidden di layar, muncul saat print) */}
+        <div className="hidden print:block w-full">
+          <div className="flex flex-col gap-12 w-full">
+            {[
+              "/images/lembar_mewarnai_1.png",
+              "/images/lembar_mewarnai_2.png",
+              "/images/lembar_mewarnai_3.png",
+              "/images/lembar_mewarnai_4.png",
+              "/images/lembar_mewarnai_5.png",
+              "/images/lembar_mewarnai_6.png",
+            ].map((img, i) => (
+              <img key={i} src={img} className="w-full max-h-[90vh] object-contain mx-auto" style={{ pageBreakAfter: 'always' }} alt={`Lembar Mewarnai ${i+1}`} />
+            ))}
+          </div>
         </div>
       </div>
     </main>
