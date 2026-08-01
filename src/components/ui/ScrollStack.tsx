@@ -97,8 +97,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       ref={containerRef} 
       className={`relative w-full ${className}`.trim()}
       style={{
-        height: `${total * 60}vh`,
-        paddingBottom: '30vh' 
+        paddingBottom: `${total * 40}vh` 
       }}
     >
       {items.map((child, index) => (
