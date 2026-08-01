@@ -4,56 +4,11 @@ import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
 import { LogoMarquee } from "@/components/ui/LogoMarquee";
 import CircularGallery from "@/components/ui/CircularGallery";
-import CardSwap, { Card } from "@/components/ui/CardSwap";
-import ScrollStack, { ScrollStackItem } from "@/components/ui/ScrollStack";
-import { TextReveal } from "@/registry/magicui/text-reveal";
+import { ScrollStack, ScrollStackItem } from "@/components/ui/ScrollStack";
 
-const categories = [
-  {
-    id: "organik",
-    title: "Sampah Organik",
-    description: "Sisa makanan, dedaunan, dan bahan yang mudah membusuk.",
-    color: "green",
-    image: "/images/sampah_organik_1785520585331.png",
-    blobs: [
-      { type: "hexagon", color: "green", position: "-top-10 -left-10 w-32 h-32 rotate-12" },
-      { type: "spark", color: "yellow", position: "-bottom-6 -right-6 w-24 h-24 -rotate-12" },
-      { type: "circle-spark", color: "blue", position: "-top-4 -right-2 w-14 h-14 rotate-45" },
-      { type: "cross", color: "red", position: "-bottom-4 -left-4 w-10 h-10 -rotate-45" },
-      { type: "cross-spark", color: "green", position: "top-[40%] -right-8 w-16 h-16 rotate-12" }
-    ]
-  },
-  {
-    id: "anorganik",
-    title: "Sampah Anorganik",
-    description: "Plastik, kardus, botol, kaca, dan material daur ulang lainnya.",
-    color: "yellow",
-    image: "/images/sampah_anorganik_1785520823589.png",
-    blobs: [
-      { type: "cross-spark", color: "blue", position: "-top-8 -right-12 w-32 h-32 rotate-45" },
-      { type: "circle-spark", color: "yellow", position: "-bottom-10 -left-8 w-28 h-28" },
-      { type: "hexagon", color: "red", position: "-top-6 -left-4 w-14 h-14 -rotate-12" },
-      { type: "spark", color: "green", position: "-bottom-4 -right-4 w-10 h-10 rotate-90" },
-      { type: "cross", color: "yellow", position: "top-[50%] -left-8 w-16 h-16 rotate-45" }
-    ]
-  },
-  {
-    id: "b3",
-    title: "Sampah Berbahaya (B3)",
-    description: "Baterai, obat-obatan, dan barang elektronik rusak.",
-    color: "red",
-    image: "/images/sampah_b3_1785520616565.png",
-    blobs: [
-      { type: "cross", color: "red", position: "-top-8 -left-8 w-32 h-32 -rotate-12" },
-      { type: "hexagon", color: "blue", position: "-bottom-8 -right-8 w-28 h-28 rotate-12" },
-      { type: "spark", color: "yellow", position: "-bottom-6 -left-4 w-14 h-14 rotate-45" },
-      { type: "circle-spark", color: "green", position: "-top-4 -right-4 w-10 h-10 -rotate-12" },
-      { type: "cross-spark", color: "red", position: "top-[60%] -left-6 w-16 h-16 rotate-90" }
-    ]
-  }
-] as const;
 
-export default function KategoriPage() {
+
+export default function TentangPage() {
   return (
     <div className="relative w-full min-h-[100dvh] flex flex-col bg-gray-50/50">
 
@@ -203,74 +158,7 @@ export default function KategoriPage() {
           </GlassCard>
         </div>
 
-        <div className="flex flex-row items-center justify-between w-full max-w-7xl mx-auto mt-10 mb-12 sm:mb-48 gap-2 sm:gap-4 lg:gap-0 px-2 sm:px-8">
-          
-          <div className="text-left relative z-10 w-[50%] lg:w-[45%] pt-2 sm:pt-4 lg:pt-24 lg:pl-8">
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[4rem] font-black text-gray-900 tracking-tight mb-2 md:mb-6 leading-[1.1]">
-              Pilih <span className="text-google-blue">Tema</span><br className="hidden lg:block" /> Mewarnaimu!
-            </h1>
-            <p className="text-xs sm:text-base md:text-xl text-gray-600 max-w-xl mx-0 mb-4 sm:mb-8">
-              Mari belajar memilah sampah dengan cara yang menyenangkan. Pilih salah satu kategori di samping untuk mulai mewarnai!
-            </p>
-            <Link href="/mewarnai/organik" className="inline-block">
-              <PillButton variant="blue" className="px-4 py-2 sm:px-10 sm:py-4 text-xs sm:text-lg shadow-lg hover:shadow-xl">
-                Mulai
-              </PillButton>
-            </Link>
-          </div>
 
-          <div className="h-[250px] sm:h-[450px] w-[50%] max-w-[550px] relative lg:w-[55%] shrink-0 mx-auto">
-          <CardSwap
-            cardDistance={20}
-            verticalDistance={15}
-            delay={3000}
-            pauseOnHover={false}
-          >
-            {categories.map((cat) => (
-              <Card key={cat.id} customClass="w-full h-full cursor-pointer group">
-                <Link href={`/mewarnai/${cat.id}`} className="outline-none block w-full h-full">
-                  <GlassCard className="h-full w-full flex flex-col items-center text-center p-4 sm:p-6 transition-all duration-500 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.3)] relative !bg-white/95">
-                    
-                    {/* Decorative Blobs (Melayang di sudut-sudut kartu) */}
-                    {cat.blobs.map((blob, idx) => (
-                      <AbstractBlob 
-                        key={idx}
-                        type={blob.type as any} 
-                        color={blob.color as any} 
-                        className={`absolute ${blob.position} opacity-70 transition-all duration-700 z-0 pointer-events-none transform-gpu`} 
-                      />
-                    ))}
-
-                    {/* Inner Container */}
-                    <div className="relative z-10 bg-white/70 border border-white/60 shadow-[inset_0_4px_30px_rgba(255,255,255,0.6),0_4px_15px_rgba(0,0,0,0.05)] rounded-[2rem] w-full flex-1 flex flex-col items-center p-6 mb-4 overflow-hidden transform-gpu">
-                      
-                      {/* Glare effect */}
-                      <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
-
-                      <div className="min-h-[3rem] flex items-center justify-center w-full mb-2">
-                        <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tight relative z-10">
-                          {cat.title}
-                        </h3>
-                      </div>
-                      
-                      <div className="w-40 h-40 mb-4 flex items-center justify-center relative z-10 shrink-0">
-                        <img src={cat.image} alt={cat.title} loading="lazy" decoding="async" className="w-full h-full object-contain drop-shadow-xl" />
-                      </div>
-                      
-                      <div className="flex flex-col justify-start w-full">
-                        <p className="text-[1.05rem] text-gray-700 font-medium leading-relaxed px-2 relative z-10">
-                          {cat.description}
-                        </p>
-                      </div>
-                    </div>
-                    
-                  </GlassCard>
-                </Link>
-              </Card>
-            ))}
-          </CardSwap>
-        </div>
-        </div>
 
         <div className="w-full max-w-5xl mx-auto mt-16 sm:mt-32 relative mb-12 sm:mb-20 px-4 sm:px-8">
           <div className="text-center mt-12 sm:mt-8 mb-0 sm:mb-2 relative z-10 pointer-events-none">
