@@ -12,10 +12,10 @@ import { TextReveal } from "@/registry/magicui/text-reveal";
 
 export default function TentangPage() {
   return (
-    <div className="relative w-full min-h-[100dvh] flex flex-col bg-transparent overflow-x-hidden">
+    <div className="relative w-full min-h-[100dvh] flex flex-col bg-transparent">
 
       {/* Latar Belakang Warna-Warni ala Tailwind CSS (Mesh Gradient) */}
-      <div className="absolute inset-0 -z-10 pointer-events-none bg-white">
+      <div className="absolute inset-0 -z-10 pointer-events-none bg-white overflow-hidden">
         
         {/* Abstract Blobs Scattered in Background */}
         <AbstractBlob type="gemini-spark" color="blue" className="absolute top-[5%] left-[-5%] w-64 md:w-96 h-64 md:h-96 opacity-50 rotate-12 pointer-events-none transform-gpu" />

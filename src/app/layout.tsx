@@ -26,7 +26,7 @@ export default function RootLayout({
       lang="id"
       className={`${plusJakarta.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans overflow-x-hidden relative">
+      <body className="min-h-full flex flex-col font-sans relative">
         <Navbar />
         <SmoothScrolling>
           <main className="flex-1 w-full">
