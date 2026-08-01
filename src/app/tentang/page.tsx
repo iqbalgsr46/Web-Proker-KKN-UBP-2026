@@ -181,17 +181,22 @@ export default function TentangPage() {
         {/* SCROLL STACK SECTION (FOTO KKN) */}
         {/* ========================================= */}
         <GlassCard className="w-full relative z-10 max-w-5xl mx-auto mt-10 mb-0 px-4 sm:px-8 py-10 sm:py-16 rounded-[3rem]">
-          <div className="text-center mb-8 relative z-50 pointer-events-none bg-white/60 backdrop-blur-xl py-4 px-6 rounded-[2rem] border border-white/60 shadow-sm mx-auto w-fit">
-            <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">Dokumentasi Kegiatan</h2>
-            <p className="text-gray-600 font-medium mt-2">Momen kebersamaan kami selama di desa Sukamaju</p>
+          
+          {/* Invisible wrapper to limit sticky duration to the top 60% of the container */}
+          <div className="absolute inset-x-0 top-0 h-[60%] pointer-events-none z-50 pt-10 sm:pt-16">
+            <div className="text-center sticky top-[80px] sm:top-[100px] bg-white/60 backdrop-blur-xl py-4 px-6 rounded-[2rem] border border-white/60 shadow-sm mx-auto w-fit">
+              <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">Dokumentasi Kegiatan</h2>
+              <p className="text-gray-600 font-medium mt-2">Momen kebersamaan kami selama di desa Sukamaju</p>
+            </div>
           </div>
           
-          <ScrollStack 
-            useWindowScroll={true} 
-            itemDistance={20}
-            stackPosition="220px"
-            scaleEndPosition="60px"
-          >
+          <div className="pt-28 sm:pt-36">
+            <ScrollStack 
+              useWindowScroll={true} 
+              itemDistance={20}
+              stackPosition="220px"
+              scaleEndPosition="60px"
+            >
             <ScrollStackItem itemClassName="rounded-[2.5rem] shadow-2xl overflow-hidden !h-auto aspect-[16/9] relative group !p-0">
               <img src="/images/kkn_students_placeholder.png" alt="Divisi Pendidikan" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 sm:p-12 pt-24 sm:pt-32 flex flex-col items-start text-left">
@@ -232,6 +237,7 @@ export default function TentangPage() {
               </div>
             </ScrollStackItem>
           </ScrollStack>
+          </div>
         </GlassCard>
 
         {/* ========================================= */}
