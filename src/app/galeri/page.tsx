@@ -82,14 +82,14 @@ export default function GaleriPage() {
           </svg>
 
           {/* Center Content */}
-          <div className="flex flex-col items-center justify-center px-0 w-[210px] md:w-[280px]">
+          <div className="flex flex-col items-center justify-center px-0 w-[210px] md:w-[380px]">
             <h2 className="text-2xl md:text-4xl font-black text-gray-900 tracking-tight text-center mb-1">
               Galeri
             </h2>
-            <MorphingText texts={["Karya Anak", "Kreativitas", "Edukasi", "Imajinasi"]} className="text-3xl sm:text-4xl md:text-5xl !h-16 md:!h-24 m-0" />
+            <MorphingText texts={["Karya Anak", "Kreativitas", "Edukasi", "Imajinasi"]} className="text-3xl sm:text-4xl md:!text-5xl lg:!text-5xl !h-16 md:!h-24 m-0 md:mb-2" />
             
             {/* Location Pill Badge */}
-            <div className="-mt-6 relative z-10 px-5 py-0.5 border-[2px] border-[#202124] rounded-full flex items-center justify-center bg-white">
+            <div className="-mt-6 md:mt-2 relative z-10 px-5 py-0.5 border-[2px] border-[#202124] rounded-full flex items-center justify-center bg-white">
               <span className="text-[#202124] font-bold text-sm">UBP Karawang</span>
             </div>
           </div>
