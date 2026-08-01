@@ -2,7 +2,6 @@ import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
-import { Navbar } from "@/components/shared/Navbar";
 import { LogoMarquee } from "@/components/ui/LogoMarquee";
 import CircularGallery from "@/components/ui/CircularGallery";
 import CardSwap, { Card } from "@/components/ui/CardSwap";
@@ -57,9 +56,6 @@ const categories = [
 export default function KategoriPage() {
   return (
     <div className="relative w-full min-h-[100dvh] flex flex-col bg-gray-50/50">
-      <div className="absolute top-0 w-full z-50">
-        <Navbar />
-      </div>
 
       {/* Latar Belakang Warna-Warni ala Tailwind CSS (Mesh Gradient) */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none bg-white">

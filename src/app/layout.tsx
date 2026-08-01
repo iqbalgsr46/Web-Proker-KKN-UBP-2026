@@ -28,7 +28,7 @@ export default function RootLayout({
       className={`${plusJakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans overflow-x-hidden relative">
-        {/* Navbar dihapus sementara untuk tampilan full poster */}
+        <Navbar />
         <SmoothScrolling>
           <main className="flex-1 w-full">
             {children}
