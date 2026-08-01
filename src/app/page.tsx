@@ -8,12 +8,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className="relative w-full min-h-[100dvh] overflow-x-hidden flex items-center justify-center px-4 md:px-8 py-12 md:py-0"
-    >
+    <div className="relative w-full min-h-[100dvh] overflow-x-hidden flex items-center justify-center px-4 md:px-8 py-12 md:py-0">
       {/* Background Ornaments (4 Logo Random Placements) */}
       
       {/* 1. Top Left: Green Hexagon (Mid Size) */}
@@ -31,8 +26,14 @@ export default function Home() {
       {/* 5. Center (Behind GlassCard): Blue Hexagon (Tertutup efek blur kaca) */}
       <AbstractBlob type="hexagon" color="blue" className="w-40 md:w-64 h-40 md:h-64 absolute top-[50%] left-[48%] -translate-x-1/2 -translate-y-1/2 rotate-[15deg] transform-gpu" />
       <GlassCard withShimmer className="w-full max-w-5xl text-center flex flex-col items-center shadow-2xl relative z-10 mx-auto py-12 sm:py-16 mt-8 md:mt-0">
-        {/* Logo Utama ala "Build with AI" GDG */}
-        <div className="flex items-center justify-center gap-2 md:gap-5 mb-10 scale-90 md:scale-100">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center justify-center w-full"
+        >
+          {/* Logo Utama ala "Build with AI" GDG */}
+          <div className="flex items-center justify-center gap-2 md:gap-5 mb-10 scale-90 md:scale-100">
           {/* Left Bracket (Kurung Kurawal Kuning) */}
           <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible">
             {/* Outer thin black border */}
@@ -78,15 +79,16 @@ export default function Home() {
           Unduh lembar mewarnai gratis, cetak di rumah, dan biarkan kreativitas anak bercerita tentang lingkungan yang bersih dan sehat.
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-6">
-          <Link href="/kategori">
-            <PillButton variant="blue">Eksplorasi Lembar Mewarnai</PillButton>
-          </Link>
-          <Link href="/galeri">
-            <PillButton variant="yellow">Lihat Galeri Karya Anak</PillButton>
-          </Link>
-        </div>
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <Link href="/kategori">
+              <PillButton variant="blue">Eksplorasi Lembar Mewarnai</PillButton>
+            </Link>
+            <Link href="/galeri">
+              <PillButton variant="yellow">Lihat Galeri Karya Anak</PillButton>
+            </Link>
+          </div>
+        </motion.div>
       </GlassCard>
-    </motion.div>
+    </div>
   );
 }
