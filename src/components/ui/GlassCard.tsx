@@ -12,7 +12,7 @@ export function GlassCard({ children, className = "", withShimmer = false, ...pr
       <div className="absolute inset-0 rounded-[inherit] shadow-[0_20px_50px_rgba(0,0,0,0.1)] pointer-events-none" />
 
       {/* Layer kaca utama (Pure Glass) */}
-      <div className="absolute inset-0 rounded-[inherit] overflow-hidden backdrop-blur-xl border border-white/60 shadow-[inset_0_0_30px_rgba(255,255,255,0.7)] pointer-events-none bg-white/5 transform-gpu">
+      <div className="absolute inset-0 rounded-[inherit] overflow-hidden backdrop-blur-2xl border border-white/60 shadow-[inset_0_0_30px_rgba(255,255,255,0.7)] pointer-events-none bg-white/50">
         
         {/* Garis putih tipis bercahaya di tepi atas */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
