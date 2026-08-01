@@ -295,7 +295,7 @@ class Media {
     }
     this.setScale();
 
-    this.padding = 5;
+    this.padding = this.viewport.height * 0.05;
     this.height = this.plane.scale.y + this.padding;
     this.heightTotal = this.height * this.length;
     this.y = -this.heightTotal / 2 + (this.index + 0.5) * this.height;
@@ -467,7 +467,7 @@ class Canvas {
   }
 
   onTouchMove(e: MouseEvent | TouchEvent) {
-    if (!this.isDown || !this.scroll.position) return;
+    if (!this.isDown || this.scroll.position === undefined) return;
     const y = e instanceof TouchEvent ? e.touches[0].clientY : e.clientY;
     const distance = (this.start - y) * 0.1;
     this.scroll.target = this.scroll.position + distance;
@@ -571,11 +571,11 @@ export default function FlyingPosters({
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
+      // Allow page to scroll natively
     };
 
     canvasEl.addEventListener('wheel', handleWheel, { passive: false });
-    canvasEl.addEventListener('touchmove', handleTouchMove, { passive: false });
+    canvasEl.addEventListener('touchmove', handleTouchMove, { passive: true });
 
     return () => {
       canvasEl.removeEventListener('wheel', handleWheel);
