@@ -285,9 +285,9 @@ export default function KategoriPage() {
               bend={0.5}
               textColor="#202124"
               borderRadius={0.05}
-              scrollEase={0.05}
+              scrollEase={0.02}
               font="bold 30px 'Inter', sans-serif"
-              scrollSpeed={2}
+              scrollSpeed={0.8}
             />
           </div>
         </div>
