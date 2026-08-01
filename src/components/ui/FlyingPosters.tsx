@@ -265,7 +265,6 @@ class Media {
     });
 
     const img = new Image();
-    img.crossOrigin = 'anonymous';
     img.src = this.image;
     img.onload = () => {
       texture.image = img;
@@ -434,7 +433,6 @@ class Canvas {
     this.loaded = 0;
     this.items.forEach(src => {
       const image = new Image();
-      image.crossOrigin = 'anonymous';
       image.src = src;
       image.onload = () => {
         if (++this.loaded === this.items.length) {

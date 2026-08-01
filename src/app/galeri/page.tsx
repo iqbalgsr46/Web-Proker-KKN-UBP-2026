@@ -164,11 +164,11 @@ export default function GaleriPage() {
             planeWidth={250}
             planeHeight={350}
             items={[
-              'https://picsum.photos/id/1025/500/700?grayscale', 
-              'https://picsum.photos/id/1026/500/700?grayscale', 
-              'https://picsum.photos/id/1027/500/700?grayscale',
-              'https://picsum.photos/id/1028/500/700?grayscale',
-              'https://picsum.photos/id/1029/500/700?grayscale',
+              '/images/sampah_organik_1785520585331.png', 
+              '/images/sampah_anorganik_1785520823589.png', 
+              '/images/sampah_kertas_1785520605700.png',
+              '/images/sampah_plastik_1785520595637.png',
+              '/images/sampah_b3_1785520616565.png',
             ]}
           />
         </div>
