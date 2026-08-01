@@ -161,11 +161,13 @@ export default function GaleriPage() {
             </p>
           </div>
           <FlyingPosters 
+            planeWidth={250}
+            planeHeight={350}
             items={[
-              'https://picsum.photos/id/1025/600/600?grayscale', 
-              'https://picsum.photos/id/1026/600/800?grayscale', 
-              'https://picsum.photos/id/1027/800/600?grayscale',
-              'https://picsum.photos/id/1028/600/600?grayscale',
+              'https://picsum.photos/id/1025/500/700?grayscale', 
+              'https://picsum.photos/id/1026/500/700?grayscale', 
+              'https://picsum.photos/id/1027/500/700?grayscale',
+              'https://picsum.photos/id/1028/500/700?grayscale',
               'https://picsum.photos/id/1029/500/700?grayscale',
             ]}
           />

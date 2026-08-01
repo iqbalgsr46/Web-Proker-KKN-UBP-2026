@@ -40,48 +40,6 @@ export function Iphone({
       }}
       {...props}
     >
-      {hasVideo && (
-        <div
-          className="pointer-events-none absolute z-0 overflow-hidden"
-          style={{
-            left: `${LEFT_PCT}%`,
-            top: `${TOP_PCT}%`,
-            width: `${WIDTH_PCT}%`,
-            height: `${HEIGHT_PCT}%`,
-            borderRadius: `${RADIUS_H}% / ${RADIUS_V}%`,
-          }}
-        >
-          <video
-            className="block size-full object-cover"
-            src={videoSrc}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-          />
-        </div>
-      )}
-
-      {!hasVideo && src && (
-        <div
-          className="pointer-events-none absolute z-0 overflow-hidden"
-          style={{
-            left: `${LEFT_PCT}%`,
-            top: `${TOP_PCT}%`,
-            width: `${WIDTH_PCT}%`,
-            height: `${HEIGHT_PCT}%`,
-            borderRadius: `${RADIUS_H}% / ${RADIUS_V}%`,
-          }}
-        >
-          <img
-            src={src}
-            alt=""
-            className="block size-full object-cover object-top"
-          />
-        </div>
-      )}
-
       <svg
         viewBox={`0 0 ${PHONE_WIDTH} ${PHONE_HEIGHT}`}
         fill="none"
@@ -172,6 +130,50 @@ export function Iphone({
           </clipPath>
         </defs>
       </svg>
+      
+      {hasVideo && (
+        <div
+          className="pointer-events-none absolute z-10 overflow-hidden"
+          style={{
+            left: `${LEFT_PCT}%`,
+            top: `${TOP_PCT}%`,
+            width: `${WIDTH_PCT}%`,
+            height: `${HEIGHT_PCT}%`,
+            borderRadius: `${RADIUS_H}% / ${RADIUS_V}%`,
+            boxShadow: "inset 0 0 10px rgba(0,0,0,0.1)",
+          }}
+        >
+          <video
+            className="block size-full object-cover"
+            src={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          />
+        </div>
+      )}
+
+      {!hasVideo && src && (
+        <div
+          className="pointer-events-none absolute z-10 overflow-hidden"
+          style={{
+            left: `${LEFT_PCT}%`,
+            top: `${TOP_PCT}%`,
+            width: `${WIDTH_PCT}%`,
+            height: `${HEIGHT_PCT}%`,
+            borderRadius: `${RADIUS_H}% / ${RADIUS_V}%`,
+            boxShadow: "inset 0 0 10px rgba(0,0,0,0.1)",
+          }}
+        >
+          <img
+            src={src}
+            alt=""
+            className="block size-full object-cover object-top"
+          />
+        </div>
+      )}
     </div>
   )
 }
