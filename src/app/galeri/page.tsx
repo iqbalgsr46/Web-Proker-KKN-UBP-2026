@@ -1,5 +1,6 @@
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import Image from "next/image";
+import DecryptedText from "@/components/ui/DecryptedText";
 import Masonry from "@/components/ui/Masonry";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { Iphone } from "@/components/ui/iphone";
@@ -191,6 +192,16 @@ export default function GaleriPage() {
                 </div>
               ))}
             </Marquee>
+          </div>
+
+          <div className="mt-16 md:mt-24 max-w-3xl px-6 text-center text-gray-500 font-medium text-lg md:text-xl">
+            <DecryptedText 
+              text="Setiap coretan warna di atas adalah cerminan dari imajinasi cemerlang anak-anak dalam memahami betapa pentingnya menjaga kelestarian lingkungan kita bersama."
+              animateOn="view"
+              revealDirection="center"
+              speed={30}
+              maxIterations={15}
+            />
           </div>
         </div>
         
