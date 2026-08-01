@@ -11,7 +11,10 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative w-full overflow-hidden bg-black py-20 px-6 sm:px-12 md:px-24">
+    <footer className="relative w-full overflow-visible bg-black py-20 px-6 sm:px-12 md:px-24">
+      {/* Seamless Gradient Transition */}
+      <div className="absolute top-0 left-0 w-full h-32 -translate-y-full bg-gradient-to-b from-transparent to-black pointer-events-none z-0" />
+      
       <div className="max-w-[90rem] mx-auto relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-24 relative z-20">
