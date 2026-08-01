@@ -296,7 +296,7 @@ export default function TentangPage() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-lg bg-white/60 backdrop-blur-3xl rounded-3xl p-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col items-center border border-white/60"
+              className="relative w-full max-w-lg bg-white rounded-3xl p-6 shadow-2xl flex flex-col items-center border border-gray-100"
               onClick={(e) => e.stopPropagation()}
             >
               <button 
@@ -305,11 +305,8 @@ export default function TentangPage() {
               >
                 ✕
               </button>
-              <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-6 w-full text-center tracking-tight">Tentang EduColoring</h3>
               
-              <div className="w-full overflow-y-auto max-h-[70vh] flex flex-col gap-4 text-gray-700 custom-scrollbar px-2 sm:px-4 pb-4">
-                {/* White Container for Text & Profile */}
-                <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-4">
+              <div className="w-full overflow-y-auto max-h-[70vh] flex flex-col gap-4 text-gray-700 custom-scrollbar mt-6 px-1">
                   
                   {/* Tweet Profile Header Recreated */}
                   <div className="flex items-center gap-3 mb-2">
@@ -346,7 +343,6 @@ export default function TentangPage() {
                   <p className="text-center font-medium mt-2 text-gray-900">
                     Mari bersama-sama membangun generasi cerdas dan lingkungan sehat!
                   </p>
-                </div>
               </div>
             </motion.div>
           </motion.div>
