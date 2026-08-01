@@ -129,7 +129,10 @@ const Masonry: React.FC<MasonryProps> = ({
   };
 
   useEffect(() => {
-    preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
+    // Images preload is optional since heights are provided.
+    // We don't block rendering on it.
+    preloadImages(items.map(i => i.img));
+    setImagesReady(true);
   }, [items]);
 
   const grid = useMemo<GridItem[]>(() => {
@@ -250,6 +253,7 @@ const Masonry: React.FC<MasonryProps> = ({
             key={item.id}
             data-key={item.id}
             className="item-wrapper"
+            style={{ width: item.w, height: item.h, transform: `translate(${item.x}px, ${item.y}px)` }}
             onClick={() => window.open(item.url, '_blank', 'noopener')}
             onMouseEnter={e => handleMouseEnter(e, item)}
             onMouseLeave={e => handleMouseLeave(e, item)}
