@@ -188,7 +188,7 @@ export default function TentangPage() {
           
           <ScrollStack 
             useWindowScroll={true} 
-            itemDistance={30}
+            itemDistance={20}
             stackPosition="220px"
             scaleEndPosition="60px"
           >

@@ -65,7 +65,7 @@ const ScrollStackNode: React.FC<ScrollStackNodeProps> = ({
       className="sticky w-full origin-top"
       style={{
         top: `${topPosition}px`,
-        marginTop: index === 0 ? '0' : '60vh',
+        marginTop: index === 0 ? '0' : '30vh',
         scale,
         zIndex: index + 10,
       }}
