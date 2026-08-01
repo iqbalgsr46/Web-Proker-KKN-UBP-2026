@@ -8,7 +8,6 @@ import CircularGallery from "@/components/ui/CircularGallery";
 import CardSwap, { Card } from "@/components/ui/CardSwap";
 import ScrollStack, { ScrollStackItem } from "@/components/ui/ScrollStack";
 import { TextReveal } from "@/registry/magicui/text-reveal";
-import { Lanyard } from "@/components/ui/Lanyard";
 
 const categories = [
   {
@@ -352,18 +351,11 @@ export default function KategoriPage() {
         {/* ========================================= */}
         {/* THANK YOU SECTION (TEXT REVEAL & LANYARD) */}
         {/* ========================================= */}
-        <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-16 lg:gap-32 items-center mt-32 md:mt-64 mb-32 max-w-[90rem] mx-auto py-24 lg:py-32 px-8 md:px-16 lg:px-24">
-          {/* Teks Ucapan (Kiri) */}
-          <div className="w-full relative py-10">
+        <div className="w-full relative z-10 flex flex-col items-center mt-32 md:mt-64 mb-32 max-w-[90rem] mx-auto py-24 lg:py-32 px-8 md:px-16 lg:px-24">
+          {/* Teks Ucapan (Tengah) */}
+          <div className="w-full max-w-5xl relative py-10 text-center">
             <div className="leading-[1.9] text-gray-800 text-lg md:text-xl">
               <TextReveal>Terima kasih dari kami tim mahasiswa KKN Universitas Buana Perjuangan Karawang atas semua momen, tawa, dan pengalaman berharga di Desa Sukamaju ini. Kami berharap karya EduColoring ini dapat terus menjadi jembatan ilmu yang menyenangkan bagi anak-anak untuk mengenal dan menjaga lingkungan sejak dini. Pengabdian ini mungkin telah usai, namun kenangan indah bersama kalian akan selalu membekas. Sampai jumpa di lain kesempatan yang lebih gemilang!</TextReveal>
-            </div>
-          </div>
-          
-          {/* Kartu 3D Lanyard (Kanan) */}
-          <div className="w-full h-[600px] lg:h-[900px] flex flex-col items-center justify-center relative">
-            <div className="w-full h-full relative pointer-events-auto">
-              <Lanyard position={[0, 0, 13]} gravity={[0, -40, 0]} frontImage="/images/dpl_id.png" backImage="/images/back_texture.svg" />
             </div>
           </div>
         </div>
