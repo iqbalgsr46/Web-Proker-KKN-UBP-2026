@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
@@ -62,7 +65,12 @@ export default function TentangPage() {
         />
       </div>
 
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-12 pt-24 pb-12 relative z-10 flex flex-col items-center">
+      <motion.main 
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="flex-1 w-full px-4 sm:px-6 lg:px-12 pt-24 pb-12 relative z-10 flex flex-col items-center"
+      >
         {/* ========================================= */}
         {/* KKN BANNER SECTION (GDG Poster Style) */}
         {/* ========================================= */}
@@ -252,7 +260,7 @@ export default function TentangPage() {
           </div>
         </div>
 
-      </main>
+      </motion.main>
     </div>
   );
 }
