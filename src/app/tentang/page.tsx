@@ -4,8 +4,7 @@ import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
 import { LogoMarquee } from "@/components/ui/LogoMarquee";
 import CircularGallery from "@/components/ui/CircularGallery";
-import ScrollStack from "@/components/ui/ScrollStack";
-import { ScrollStackItem } from "@/components/ui/ScrollStack";
+import { DocumentationCards } from "@/components/ui/DocumentationCards";
 import { TextReveal } from "@/registry/magicui/text-reveal";
 
 
@@ -178,60 +177,15 @@ export default function TentangPage() {
           </div>
         </div>
         {/* ========================================= */}
-        {/* SCROLL STACK SECTION (FOTO KKN) */}
+        {/* DOKUMENTASI KEGIATAN (Simple Animated Cards) */}
         {/* ========================================= */}
-        <div className="w-full relative z-10 max-w-5xl mx-auto mt-10 mb-0 px-4 sm:px-8">
-          <div className="text-center mb-8 relative z-50 pointer-events-none">
+        <div className="w-full relative z-10 max-w-5xl mx-auto mt-10 mb-16 px-4 sm:px-8">
+          <div className="text-center mb-8 pointer-events-none">
             <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">Dokumentasi Kegiatan</h2>
             <p className="text-gray-600 font-medium mt-2">Momen kebersamaan kami selama di desa Sukamaju</p>
           </div>
           
-          <ScrollStack 
-            useWindowScroll={true} 
-            itemDistance={0}
-            stackPosition="220px"
-            scaleEndPosition="60px"
-          >
-            <ScrollStackItem itemClassName="rounded-[2.5rem] shadow-2xl overflow-hidden !h-auto aspect-[16/9] relative group !p-0">
-              <img src="/images/kkn_students_placeholder.png" alt="Divisi Pendidikan" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 sm:p-12 pt-24 sm:pt-32 flex flex-col items-start text-left">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-1 sm:mb-2 leading-none drop-shadow-md">Divisi Pendidikan</h2>
-                <p className="text-sm sm:text-xl md:text-2xl text-white/90 font-medium drop-shadow-md">Mengajar dan mewarnai bersama anak-anak PAUD & SD.</p>
-              </div>
-            </ScrollStackItem>
-            
-            <ScrollStackItem itemClassName="rounded-[2.5rem] shadow-2xl overflow-hidden !h-auto aspect-[16/9] relative group !p-0">
-              <img src="/images/kkn_students_placeholder.png" alt="Divisi Lingkungan" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 sm:p-12 pt-24 sm:pt-32 flex flex-col items-start text-left">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-1 sm:mb-2 leading-none drop-shadow-md">Divisi Lingkungan</h2>
-                <p className="text-sm sm:text-xl md:text-2xl text-white/90 font-medium drop-shadow-md">Program pilah sampah dan penanaman pohon di balai desa.</p>
-              </div>
-            </ScrollStackItem>
-            
-            <ScrollStackItem itemClassName="rounded-[2.5rem] shadow-2xl overflow-hidden !h-auto aspect-[16/9] relative group !p-0">
-              <img src="/images/kkn_students_placeholder.png" alt="Divisi Kesehatan" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 sm:p-12 pt-24 sm:pt-32 flex flex-col items-start text-left">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-1 sm:mb-2 leading-none drop-shadow-md">Divisi Kesehatan</h2>
-                <p className="text-sm sm:text-xl md:text-2xl text-white/90 font-medium drop-shadow-md">Sosialisasi gizi seimbang untuk balita bersama ibu PKK.</p>
-              </div>
-            </ScrollStackItem>
-
-            <ScrollStackItem itemClassName="rounded-[2.5rem] shadow-2xl overflow-hidden !h-auto aspect-[16/9] relative group !p-0">
-              <img src="/images/kkn_students_placeholder.png" alt="Divisi Ekonomi Kreatif" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 sm:p-12 pt-24 sm:pt-32 flex flex-col items-start text-left">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-1 sm:mb-2 leading-none drop-shadow-md">Divisi Ekonomi Kreatif</h2>
-                <p className="text-sm sm:text-xl md:text-2xl text-white/90 font-medium drop-shadow-md">Pendampingan UMKM lokal dalam pengemasan produk desa.</p>
-              </div>
-            </ScrollStackItem>
-
-            <ScrollStackItem itemClassName="rounded-[2.5rem] shadow-2xl overflow-hidden !h-auto aspect-[16/9] relative group !p-0">
-              <img src="/images/kkn_students_placeholder.png" alt="Puncak Acara" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 sm:p-12 pt-24 sm:pt-32 flex flex-col items-start text-left">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-1 sm:mb-2 leading-none drop-shadow-md">Malam Perpisahan</h2>
-                <p className="text-sm sm:text-xl md:text-2xl text-white/90 font-medium drop-shadow-md">Puncak festival seni anak dan penyerahan karya mewarnai.</p>
-              </div>
-            </ScrollStackItem>
-          </ScrollStack>
+          <DocumentationCards />
         </div>
 
         {/* ========================================= */}
