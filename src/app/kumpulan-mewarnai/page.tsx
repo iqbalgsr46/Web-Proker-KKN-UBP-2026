@@ -5,6 +5,7 @@ import Masonry from "@/components/ui/Masonry";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
 import { AnimatedBeamDemo } from "@/components/ui/AnimatedBeamDemo";
+import { TextReveal } from "@/registry/magicui/text-reveal";
 
 export default function KumpulanMewarnaiPage() {
   const handlePrintPDF = () => {
@@ -196,15 +197,11 @@ export default function KumpulanMewarnaiPage() {
           <AnimatedBeamDemo />
         </div>
 
-        {/* Keterangan Halaman */}
-        <div className="w-full max-w-3xl mx-auto mb-20 print:hidden text-center relative z-10 bg-white/60 backdrop-blur-xl border border-white/80 p-8 md:p-12 rounded-[2.5rem] shadow-sm">
-          <h3 className="text-xl md:text-2xl font-black text-google-blue mb-4">Tentang Lembar Edukasi</h3>
-          <p className="text-gray-700 leading-relaxed font-medium">
-            Halaman ini menyediakan kumpulan materi edukatif yang dirancang khusus untuk memupuk kesadaran lingkungan anak-anak dengan cara yang menyenangkan. Melalui aktivitas mewarnai, anak-anak tidak hanya melatih motorik dan kreativitas, tetapi juga belajar mengenai pentingnya membuang sampah pada tempatnya, menanam pohon, dan menjaga kebersihan alam sekitar. 
-          </p>
-          <p className="text-gray-700 leading-relaxed font-medium mt-4">
-            Unduh atau cetak langsung kumpulan gambar di atas untuk mulai mewarnai bersama!
-          </p>
+        {/* Keterangan Halaman Animasi Text Reveal */}
+        <div className="w-full print:hidden z-10 mt-12 mb-24 min-h-[50vh] flex items-center justify-center">
+          <TextReveal 
+            text="Setiap coretan warna di atas adalah cerminan dari imajinasi cemerlang anak-anak dalam memahami betapa pentingnya menjaga kelestarian lingkungan kita bersama. Melalui karya sederhana ini, mereka belajar membuang sampah pada tempatnya, merawat pepohonan, serta menjaga sungai tetap bersih demi masa depan bumi yang lebih hijau dan bahagia." 
+          />
         </div>
       </div>
     </main>
