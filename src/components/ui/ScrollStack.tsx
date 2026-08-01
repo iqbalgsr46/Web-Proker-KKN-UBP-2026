@@ -48,7 +48,9 @@ const ScrollStackNode: React.FC<ScrollStackNodeProps> = ({
 }) => {
   const startShrink = index / total;
   const endShrink = 1;
-  const targetScale = baseScale + index * itemScale;
+  // mathematically ensure the back card is baseScale and front card is 1.0
+  const calculatedItemScale = total > 1 ? (1 - baseScale) / (total - 1) : itemScale;
+  const targetScale = baseScale + index * calculatedItemScale;
 
   const scale = useTransform(
     scrollYProgress,
