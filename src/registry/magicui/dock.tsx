@@ -27,7 +27,8 @@ export function Dock({ className, children, direction = "middle" }: DockProps) {
           if (typeof child.type === "string") {
             return child;
           }
-          return React.cloneElement(child as React.ReactElement, { mouseX });
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          return React.cloneElement(child as any, { mouseX });
         }
         return child;
       })}
