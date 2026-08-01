@@ -295,7 +295,7 @@ export default function KategoriPage() {
         {/* SCROLL STACK SECTION (FOTO KKN) */}
         {/* ========================================= */}
         <div className="w-full relative z-10 max-w-5xl mx-auto mt-10 mb-0 px-4 sm:px-8">
-          <div className="text-center mb-8 sticky top-[20px] z-50 pointer-events-none">
+          <div className="text-center mb-8 sticky top-[12vh] z-50 pointer-events-none">
             <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">Dokumentasi Kegiatan</h2>
             <p className="text-gray-600 font-medium mt-2">Momen kebersamaan kami selama di desa Sukamaju</p>
           </div>
