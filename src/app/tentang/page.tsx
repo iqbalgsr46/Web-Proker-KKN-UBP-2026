@@ -182,8 +182,8 @@ export default function TentangPage() {
         {/* ========================================= */}
         <GlassCard className="w-full relative z-10 max-w-5xl mx-auto mt-10 mb-0 px-4 sm:px-8 py-10 sm:py-16 rounded-[3rem]">
           
-          {/* Invisible wrapper to limit sticky duration to the top 70% of the container */}
-          <div className="absolute inset-x-0 top-0 h-[70%] pointer-events-none z-50 pt-10 sm:pt-16">
+          {/* Invisible wrapper to limit sticky duration to the top 75% of the container */}
+          <div className="absolute inset-x-0 top-0 h-[75%] pointer-events-none z-50 pt-10 sm:pt-16">
             <div className="text-center sticky top-[80px] sm:top-[100px] bg-white/60 backdrop-blur-xl py-4 px-6 rounded-[2rem] border border-white/60 shadow-sm mx-auto w-fit">
               <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">Dokumentasi Kegiatan</h2>
               <p className="text-gray-600 font-medium mt-2">Momen kebersamaan kami selama di desa Sukamaju</p>
