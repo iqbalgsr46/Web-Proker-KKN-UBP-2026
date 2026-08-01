@@ -1,6 +1,7 @@
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import Image from "next/image";
 import Masonry from "@/components/ui/Masonry";
+import { TextReveal } from "@/registry/magicui/text-reveal";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { Iphone } from "@/components/ui/iphone";
 import { Marquee } from "@/components/ui/marquee";
@@ -193,10 +194,10 @@ export default function GaleriPage() {
             </Marquee>
           </div>
 
-          <div className="mt-16 md:mt-24 w-full flex justify-center px-6">
-            <p className="text-center text-gray-500 font-medium text-lg md:text-xl leading-relaxed max-w-4xl">
+          <div className="mt-16 md:mt-24 w-full flex justify-center px-6 mb-32">
+            <TextReveal>
               Setiap coretan warna di atas adalah cerminan dari imajinasi cemerlang anak-anak dalam memahami betapa pentingnya menjaga kelestarian lingkungan kita bersama. Melalui karya sederhana ini, mereka belajar membuang sampah pada tempatnya, merawat pepohonan, serta menjaga sungai tetap bersih demi masa depan bumi yang lebih hijau dan bahagia.
-            </p>
+            </TextReveal>
           </div>
         </div>
         
