@@ -467,11 +467,13 @@ interface AppConfig {
   font?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  autoRotateSpeed?: number;
 }
 
 class App {
   container: HTMLElement;
   scrollSpeed: number;
+  autoRotateSpeed: number;
   scroll: {
     ease: number;
     current: number;
@@ -510,12 +512,14 @@ class App {
       borderRadius = 0,
       font = 'bold 30px Figtree',
       scrollSpeed = 2,
-      scrollEase = 0.05
+      scrollEase = 0.05,
+      autoRotateSpeed = 1
     }: AppConfig
   ) {
     document.documentElement.classList.remove('no-js');
     this.container = container;
     this.scrollSpeed = scrollSpeed;
+    this.autoRotateSpeed = autoRotateSpeed || 0;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
     this.createRenderer();
@@ -706,6 +710,11 @@ class App {
   }
 
   update() {
+    // Implement auto-rotation if not currently being dragged/scrolled manually
+    if (!this.isDown && this.autoRotateSpeed) {
+      this.scroll.target += this.autoRotateSpeed;
+    }
+    
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     if (this.medias) {
@@ -781,6 +790,7 @@ interface CircularGalleryProps {
   fontUrl?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  autoRotateSpeed?: number;
 }
 
 export default function CircularGallery({
@@ -791,7 +801,8 @@ export default function CircularGallery({
   font = 'bold 30px Figtree',
   fontUrl,
   scrollSpeed = 2,
-  scrollEase = 0.05
+  scrollEase = 0.05,
+  autoRotateSpeed = 1
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -809,7 +820,8 @@ export default function CircularGallery({
         borderRadius,
         font: resolvedFont,
         scrollSpeed,
-        scrollEase
+        scrollEase,
+        autoRotateSpeed
       });
 
       observer = new IntersectionObserver((entries) => {
