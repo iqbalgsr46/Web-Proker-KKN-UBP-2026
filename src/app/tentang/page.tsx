@@ -4,7 +4,8 @@ import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
 import { LogoMarquee } from "@/components/ui/LogoMarquee";
 import CircularGallery from "@/components/ui/CircularGallery";
-import { ScrollStack, ScrollStackItem } from "@/components/ui/ScrollStack";
+import ScrollStack from "@/components/ui/ScrollStack";
+import { ScrollStackItem } from "@/components/ui/ScrollStack";
 import { TextReveal } from "@/registry/magicui/text-reveal";
 
 
