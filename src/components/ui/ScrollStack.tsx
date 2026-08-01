@@ -241,9 +241,13 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
   const setupLenis = useCallback(() => {
     if (useWindowScroll) {
-      // Disesuaikan: Gunakan event listener scroll yang passive agar jauh lebih ringan daripada RAF loop terus-menerus
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      // Panggil sekali untuk initial render
+      // Use RAF loop for reliable updates on mobile (passive scroll listeners can miss events with Lenis)
+      const rafUpdate = () => {
+        updateCardTransforms();
+        animationFrameRef.current = requestAnimationFrame(rafUpdate);
+      };
+      animationFrameRef.current = requestAnimationFrame(rafUpdate);
+      // Initial render
       handleScroll();
       return null;
     } else {
@@ -276,7 +280,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       lenisRef.current = lenis;
       return lenis;
     }
-  }, [handleScroll, useWindowScroll]);
+  }, [handleScroll, useWindowScroll, updateCardTransforms]);
 
   useLayoutEffect(() => {
     const scroller = scrollerRef.current;

@@ -18,11 +18,11 @@ export const TextReveal: FC<TextRevealByWordProps> = ({
   const content = text || children || "";
   const targetRef = useRef<HTMLDivElement | null>(null);
 
-  // Offset "start 80%" to "end 20%" ensures the animation happens naturally 
-  // as the text block scrolls into the view, without needing extra sticky height.
+  // Wider offset range ensures animation triggers and completes on mobile
+  // where total scrollable distance is more limited
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start 90%", "end 30%"],
+    offset: ["start 100%", "end 60%"],
   });
 
   const words = content.split(" ");
