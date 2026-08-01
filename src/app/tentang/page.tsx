@@ -306,7 +306,7 @@ export default function TentangPage() {
                 ✕
               </button>
               
-              <div className="w-full overflow-y-auto max-h-[70vh] flex flex-col gap-4 text-gray-700 custom-scrollbar mt-6 px-1">
+              <div className="w-full flex flex-col gap-4 text-gray-700 mt-6 px-1">
                   
                   {/* Tweet Profile Header Recreated */}
                   <div className="flex items-center gap-3 mb-2">
