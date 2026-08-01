@@ -83,7 +83,7 @@ export default function Home() {
         </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link href="/kumpulan-mewarnai">
+            <Link href="/kategori">
               <PillButton variant="blue">Pilih Gambar Favoritmu!</PillButton>
             </Link>
             <Link href="/galeri">
