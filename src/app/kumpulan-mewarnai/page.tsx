@@ -121,7 +121,7 @@ export default function KumpulanMewarnaiPage() {
           </svg>
 
           {/* Center Content */}
-          <div className="flex flex-col items-center justify-center px-0 w-[240px] md:w-[380px] z-10 bg-white/30 backdrop-blur-sm rounded-3xl py-2 md:py-4">
+          <div className="flex flex-col items-center justify-center px-0 w-[240px] md:w-[380px] z-10">
             <h2 className="text-xl md:text-3xl font-black text-gray-900 tracking-tight text-center mb-1">
               Kumpulan
             </h2>
