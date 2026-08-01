@@ -5,7 +5,13 @@ import React, { useEffect, useState } from "react";
 
 export function SmoothScrolling({ children }: { children: React.ReactNode }) {
   return (
-    <ReactLenis root options={{ lerp: 0.1, wheelMultiplier: 1.2, smoothWheel: true, smoothTouch: false }}>
+    <ReactLenis root options={{ 
+      lerp: 0.05, 
+      wheelMultiplier: 1, 
+      smoothWheel: true, 
+      smoothTouch: true,
+      touchMultiplier: 2 
+    }}>
       {children}
     </ReactLenis>
   );
