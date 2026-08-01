@@ -2,7 +2,6 @@ import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import Masonry from "@/components/ui/Masonry";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { Iphone } from "@/components/ui/iphone";
-import FlyingPosters from "@/components/ui/FlyingPosters";
 
 export default function GaleriPage() {
   return (
@@ -150,32 +149,6 @@ export default function GaleriPage() {
           </div>
         </div>
         
-        {/* Flying Posters Section */}
-        <div className="w-full relative h-[600px] md:h-[800px] mb-48 md:mb-64 z-10">
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 z-20 text-center w-full px-4 pointer-events-none">
-            <h3 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 drop-shadow-md">
-              Karya Lainnya
-            </h3>
-            <p className="text-gray-700 font-medium drop-shadow-md">
-              Gulir untuk melihat lebih banyak poster
-            </p>
-          </div>
-          <FlyingPosters 
-            planeWidth={250}
-            planeHeight={350}
-            items={[
-              '/images/sampah_organik_1785520585331.png', 
-              '/images/sampah_anorganik_1785520823589.png', 
-              '/images/sampah_kertas_1785520605700.png',
-              '/images/sampah_plastik_1785520595637.png',
-              '/images/sampah_b3_1785520616565.png',
-            ]}
-          />
-        </div>
-
-        {/* Extra Spacer to lengthen the page */}
-        <div className="h-32 md:h-64 w-full"></div>
-
       </main>
       
     </div>
