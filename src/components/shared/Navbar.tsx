@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Dock, DockIcon } from "@/registry/magicui/dock";
 
 // Inline SVG Icons
@@ -26,6 +27,13 @@ const NAV_ITEMS = [
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
+
+  // Hide the floating dock navbar on the homepage
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
     <div className="fixed bottom-6 left-0 right-0 z-[100] flex justify-center w-full pointer-events-none px-4">
       <div className="pointer-events-auto">
