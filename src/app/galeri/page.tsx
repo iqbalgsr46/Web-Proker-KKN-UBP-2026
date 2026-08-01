@@ -114,12 +114,12 @@ export default function GaleriPage() {
         <div className="w-full max-w-7xl mx-auto mb-24 relative min-h-[700px]">
           <Masonry
             items={[
-              { id: "1", img: "/images/lembar_mewarnai_1.webp", url: "#", height: 250 },
-              { id: "2", img: "/images/lembar_mewarnai_2.webp", url: "#", height: 350 },
-              { id: "3", img: "/images/lembar_mewarnai_3.webp", url: "#", height: 380 },
-              { id: "4", img: "/images/lembar_mewarnai_4.webp", url: "#", height: 280 },
-              { id: "5", img: "/images/lembar_mewarnai_5.webp", url: "#", height: 380 },
-              { id: "6", img: "/images/lembar_mewarnai_6.webp", url: "#", height: 280 },
+              { id: "1", img: "/images/coloring_recycle_bin.webp", url: "#", height: 250 },
+              { id: "2", img: "/images/coloring_plant_tree.webp", url: "#", height: 350 },
+              { id: "3", img: "/images/coloring_clean_river.webp", url: "#", height: 380 },
+              { id: "4", img: "/images/coloring_happy_earth.webp", url: "#", height: 280 },
+              { id: "5", img: "/images/coloring_sorting_trash.webp", url: "#", height: 380 },
+              { id: "6", img: "/images/coloring_bicycle_park.webp", url: "#", height: 280 },
             ]}
             ease="power3.out"
             duration={0.6}
@@ -164,12 +164,12 @@ export default function GaleriPage() {
           <div className="relative flex w-full flex-col items-center justify-center overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] md:[mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
             <Marquee pauseOnHover style={{ "--duration": "80s" } as any}>
               {[
-                '/images/coloring_recycle_bin.png', 
-                '/images/coloring_plant_tree.png', 
-                '/images/coloring_clean_river.png',
-                '/images/coloring_happy_earth.png',
-                '/images/coloring_sorting_trash.png',
-                '/images/coloring_bicycle_park.png',
+                '/images/coloring_recycle_bin.webp', 
+                '/images/coloring_plant_tree.webp', 
+                '/images/coloring_clean_river.webp',
+                '/images/coloring_happy_earth.webp',
+                '/images/coloring_sorting_trash.webp',
+                '/images/coloring_bicycle_park.webp',
               ].map((src, i) => (
                 <div key={`row1-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
                   <Image src={src} alt="Karya Mewarnai" fill sizes="(max-width: 768px) 192px, 240px" className="object-cover" />
@@ -178,12 +178,12 @@ export default function GaleriPage() {
             </Marquee>
             <Marquee reverse pauseOnHover className="mt-4" style={{ "--duration": "80s" } as any}>
               {[
-                '/images/coloring_bicycle_park.png',
-                '/images/coloring_sorting_trash.png',
-                '/images/coloring_happy_earth.png',
-                '/images/coloring_clean_river.png', 
-                '/images/coloring_plant_tree.png', 
-                '/images/coloring_recycle_bin.png',
+                '/images/coloring_bicycle_park.webp',
+                '/images/coloring_sorting_trash.webp',
+                '/images/coloring_happy_earth.webp',
+                '/images/coloring_clean_river.webp', 
+                '/images/coloring_plant_tree.webp', 
+                '/images/coloring_recycle_bin.webp',
               ].map((src, i) => (
                 <div key={`row2-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
                   <Image src={src} alt="Karya Mewarnai" fill sizes="(max-width: 768px) 192px, 240px" className="object-cover" />
