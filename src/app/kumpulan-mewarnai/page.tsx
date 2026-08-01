@@ -163,10 +163,11 @@ export default function KumpulanMewarnaiPage() {
         </div>
         
         <div className="mt-16 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full">
-          <a 
+          <PillButton 
+            variant="red"
             href="/Lembar_Mewarnai_Pengelolaan_Sampah.pdf"
             download="Lembar_Mewarnai_Pengelolaan_Sampah.pdf"
-            className="flex items-center justify-center gap-2 bg-google-red text-white font-bold py-4 px-8 rounded-[2rem] shadow-md hover:shadow-lg hover:-translate-y-1 active:translate-y-0 transition-all w-full sm:w-auto text-lg"
+            className="w-full sm:w-auto"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -174,11 +175,12 @@ export default function KumpulanMewarnaiPage() {
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
             Unduh PDF
-          </a>
+          </PillButton>
 
-          <button 
+          <PillButton 
+            variant="blue"
             onClick={handlePrintPDF}
-            className="flex items-center justify-center gap-2 bg-google-blue text-white font-bold py-4 px-8 rounded-[2rem] shadow-md hover:shadow-lg hover:-translate-y-1 active:translate-y-0 transition-all w-full sm:w-auto text-lg"
+            className="w-full sm:w-auto"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -186,7 +188,7 @@ export default function KumpulanMewarnaiPage() {
               <rect x="6" y="14" width="12" height="8"></rect>
             </svg>
             Print Langsung
-          </button>
+          </PillButton>
         </div>
 
         {/* Ekosistem Animasi */}
