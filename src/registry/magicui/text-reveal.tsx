@@ -34,7 +34,7 @@ export const TextReveal: FC<TextRevealByWordProps> = ({
       >
         <p
           className={
-            "w-full p-5 text-2xl font-black text-black/20 md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-5xl leading-tight text-justify"
+            "w-full p-5 text-xl font-black text-black/20 md:p-8 md:text-2xl lg:p-10 lg:text-3xl xl:text-4xl leading-tight text-center"
           }
         >
           {words.map((word, i) => {
