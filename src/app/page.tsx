@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
@@ -5,7 +8,12 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="relative w-full min-h-[100dvh] overflow-x-hidden flex items-center justify-center px-4 md:px-8 py-12 md:py-0">
+    <motion.div 
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      className="relative w-full min-h-[100dvh] overflow-x-hidden flex items-center justify-center px-4 md:px-8 py-12 md:py-0"
+    >
       {/* Background Ornaments (4 Logo Random Placements) */}
       
       {/* 1. Top Left: Green Hexagon (Mid Size) */}
@@ -79,6 +87,6 @@ export default function Home() {
           </Link>
         </div>
       </GlassCard>
-    </div>
+    </motion.div>
   );
 }
