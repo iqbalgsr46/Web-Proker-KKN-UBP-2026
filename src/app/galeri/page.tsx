@@ -1,7 +1,7 @@
-import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import Masonry from "@/components/ui/Masonry";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { Iphone } from "@/components/ui/iphone";
+import { Marquee } from "@/components/ui/marquee";
 
 export default function GaleriPage() {
   return (
@@ -146,6 +146,49 @@ export default function GaleriPage() {
               src="/iphone_screen_coloring.png" 
               className="w-full h-auto drop-shadow-2xl" 
             />
+          </div>
+        </div>
+        
+        {/* Marquee Section */}
+        <div className="w-full relative py-12 md:py-24 overflow-hidden flex flex-col items-center">
+          <div className="mb-10 text-center px-4">
+            <h3 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 drop-shadow-md">
+              Karya Lainnya
+            </h3>
+            <p className="text-gray-700 font-medium drop-shadow-md">
+              Geser untuk melihat koleksi poster kami
+            </p>
+          </div>
+
+          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+            <Marquee pauseOnHover className="[--duration:20s]">
+              {[
+                '/images/sampah_organik_1785520585331.png', 
+                '/images/sampah_anorganik_1785520823589.png', 
+                '/images/sampah_kertas_1785520605700.png',
+                '/images/sampah_plastik_1785520595637.png',
+                '/images/sampah_b3_1785520616565.png',
+              ].map((src, i) => (
+                <div key={`row1-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border-4 border-[#202124] shadow-[4px_4px_0px_0px_rgba(32,33,36,1)] bg-white mx-2">
+                  <img src={src} alt="Karya Mewarnai" className="h-full w-full object-cover" />
+                </div>
+              ))}
+            </Marquee>
+            <Marquee reverse pauseOnHover className="[--duration:20s] mt-4">
+              {[
+                '/images/sampah_b3_1785520616565.png',
+                '/images/sampah_plastik_1785520595637.png',
+                '/images/sampah_kertas_1785520605700.png',
+                '/images/sampah_anorganik_1785520823589.png', 
+                '/images/sampah_organik_1785520585331.png', 
+              ].map((src, i) => (
+                <div key={`row2-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border-4 border-[#202124] shadow-[4px_4px_0px_0px_rgba(32,33,36,1)] bg-white mx-2">
+                  <img src={src} alt="Karya Mewarnai" className="h-full w-full object-cover" />
+                </div>
+              ))}
+            </Marquee>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
           </div>
         </div>
         
