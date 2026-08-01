@@ -1,3 +1,4 @@
+import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import Masonry from "@/components/ui/Masonry";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { Iphone } from "@/components/ui/iphone";
