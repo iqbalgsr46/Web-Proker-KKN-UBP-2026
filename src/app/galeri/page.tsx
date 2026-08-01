@@ -13,8 +13,10 @@ export default function GaleriPage() {
       {/* Latar Belakang Warna-Warni ala Tailwind CSS (Mesh Gradient) */}
       <div className="absolute inset-0 -z-10 pointer-events-none bg-white overflow-hidden">
         
-        {/* Abstract Blobs Scattered in Background */}
-        <AbstractBlob type="gemini-spark" color="blue" className="absolute top-[5%] left-[-5%] w-64 md:w-96 h-64 md:h-96 opacity-50 rotate-12 pointer-events-none transform-gpu" />
+        {/* Wrapper dengan filter blur langsung (sangat ringan untuk GPU HP dibandingkan backdrop-blur) */}
+        <div className="absolute inset-0 blur-[120px]">
+          {/* Abstract Blobs Scattered in Background */}
+          <AbstractBlob type="gemini-spark" color="blue" className="absolute top-[5%] left-[-5%] w-64 md:w-96 h-64 md:h-96 opacity-50 rotate-12 pointer-events-none transform-gpu" />
         <AbstractBlob type="circle-spark" color="yellow" className="absolute top-[25%] right-[2%] w-32 md:w-48 h-32 md:h-48 opacity-60 -rotate-12 pointer-events-none transform-gpu blur-[2px]" />
         <AbstractBlob type="gemini-spark" color="green" className="absolute top-[45%] left-[5%] w-40 md:w-56 h-40 md:h-56 opacity-50 rotate-[45deg] pointer-events-none transform-gpu" />
         <AbstractBlob type="gemini-spark" color="blue" className="absolute top-[70%] right-[-10%] w-72 md:w-[500px] h-72 md:h-[500px] opacity-40 -rotate-[25deg] pointer-events-none transform-gpu blur-[4px]" />
@@ -43,9 +45,7 @@ export default function GaleriPage() {
         {/* Fill center area */}
         <AbstractBlob type="hexagon" color="red" className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[45rem] h-[45rem] opacity-10 rotate-[20deg] pointer-events-none transform-gpu blur-[4px]" />
         <AbstractBlob type="spark" color="yellow" className="absolute top-[55%] left-[35%] w-32 md:w-40 h-32 md:h-40 opacity-30 rotate-[105deg] pointer-events-none transform-gpu" />
-        <AbstractBlob type="circle-spark" color="blue" className="absolute top-[35%] right-[45%] w-24 md:w-32 h-24 md:h-32 opacity-40 -rotate-[85deg] pointer-events-none transform-gpu" />
-        
-        {/* Overlay blur ekstrim dihapus karena menyebabkan lag GPU yang parah di HP saat scrolling */}
+        </div> {/* End of blur-[120px] wrapper */}
         
         {/* Spark & Abstract Logos Floating Above the Blur */}
         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
