@@ -152,12 +152,12 @@ export default function KumpulanMewarnaiPage() {
         <div className="w-full">
           <Masonry 
             items={[
-              { id: "1", img: "/images/lembar_mewarnai_1.png", url: "#", height: 400 },
-              { id: "2", img: "/images/lembar_mewarnai_2.png", url: "#", height: 300 },
-              { id: "3", img: "/images/lembar_mewarnai_3.png", url: "#", height: 400 },
-              { id: "4", img: "/images/lembar_mewarnai_4.png", url: "#", height: 350 },
-              { id: "5", img: "/images/lembar_mewarnai_5.png", url: "#", height: 450 },
-              { id: "6", img: "/images/lembar_mewarnai_6.png", url: "#", height: 350 },
+              { id: "1", img: "/images/lembar_mewarnai_1.webp", url: "#", height: 350 },
+              { id: "2", img: "/images/lembar_mewarnai_2.webp", url: "#", height: 250 },
+              { id: "3", img: "/images/lembar_mewarnai_3.webp", url: "#", height: 300 },
+              { id: "4", img: "/images/lembar_mewarnai_4.webp", url: "#", height: 380 },
+              { id: "5", img: "/images/lembar_mewarnai_5.webp", url: "#", height: 270 },
+              { id: "6", img: "/images/lembar_mewarnai_6.webp", url: "#", height: 320 },
             ]}
             colorShiftOnHover={true}
           />

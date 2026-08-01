@@ -1,0 +1,1 @@
+const sharp = require("sharp"); const fs = require("fs"); const path = require("path"); const dir = "public/images"; for (let i = 1; i <= 6; i++) { sharp(path.join(dir, `lembar_mewarnai_${i}.png`)).webp({ quality: 40, effort: 6 }).toFile(path.join(dir, `lembar_mewarnai_${i}.webp`)).then(() => console.log(`Converted ${i}`)); }
