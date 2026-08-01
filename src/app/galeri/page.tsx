@@ -1,6 +1,6 @@
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import Masonry from "@/components/ui/Masonry";
-import { GlassCard } from "@/components/ui/GlassCard";
+import { MorphingText } from "@/components/ui/morphing-text";
 
 export default function GaleriPage() {
   return (
@@ -47,9 +47,12 @@ export default function GaleriPage() {
 
       <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-8 mt-16 md:mt-24 z-10 overflow-hidden">
         
-        <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight text-center mb-10 mt-4">
-          Galeri <span className="text-google-blue">Karya Anak</span>
-        </h2>
+        <div className="w-full flex flex-col items-center justify-center mb-8 mt-4 gap-2">
+          <h2 className="text-2xl md:text-4xl font-black text-gray-900 tracking-tight text-center">
+            Galeri
+          </h2>
+          <MorphingText texts={["Karya Anak", "Kreativitas", "Edukasi", "Imajinasi"]} className="text-3xl md:text-6xl !h-16 md:!h-24" />
+        </div>
         
         {/* Masonry Layout without GlassCard wrapper */}
         <div className="w-full max-w-7xl mx-auto mb-24 relative min-h-[700px]">
