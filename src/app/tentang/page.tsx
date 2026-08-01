@@ -190,7 +190,7 @@ export default function TentangPage() {
             </div>
           </div>
           
-          <div className="pt-28 sm:pt-36">
+          <div className="pt-48 sm:pt-56">
             <ScrollStack 
               useWindowScroll={true} 
               itemDistance={20}
