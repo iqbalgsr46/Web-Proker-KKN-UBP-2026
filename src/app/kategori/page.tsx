@@ -94,19 +94,19 @@ export default function KategoriPage() {
         
         {/* Glow Biru (Atas Kiri) */}
         <div 
-          className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-google-blue/30 blur-[100px] md:blur-[150px] mix-blend-multiply" 
+          className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-google-blue/20 blur-[60px] md:blur-[80px] transform-gpu will-change-transform pointer-events-none" 
         />
         {/* Glow Merah (Atas Kanan) */}
         <div 
-          className="absolute top-[5%] -right-[10%] w-[50%] h-[50%] rounded-full bg-google-red/20 blur-[100px] md:blur-[150px] mix-blend-multiply" 
+          className="absolute top-[5%] -right-[10%] w-[50%] h-[50%] rounded-full bg-google-red/10 blur-[60px] md:blur-[80px] transform-gpu will-change-transform pointer-events-none" 
         />
         {/* Glow Kuning (Bawah Kiri) */}
         <div 
-          className="absolute -bottom-[20%] left-[10%] w-[60%] h-[60%] rounded-full bg-google-yellow/30 blur-[100px] md:blur-[150px] mix-blend-multiply" 
+          className="absolute -bottom-[20%] left-[10%] w-[60%] h-[60%] rounded-full bg-google-yellow/20 blur-[60px] md:blur-[80px] transform-gpu will-change-transform pointer-events-none" 
         />
         {/* Glow Hijau (Bawah Kanan) */}
         <div 
-          className="absolute bottom-[5%] right-[5%] w-[50%] h-[50%] rounded-full bg-google-green/20 blur-[100px] md:blur-[150px] mix-blend-multiply" 
+          className="absolute bottom-[5%] right-[5%] w-[50%] h-[50%] rounded-full bg-google-green/10 blur-[60px] md:blur-[80px] transform-gpu will-change-transform pointer-events-none" 
         />
       </div>
 
