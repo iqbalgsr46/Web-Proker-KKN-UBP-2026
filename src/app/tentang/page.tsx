@@ -163,7 +163,7 @@ export default function TentangPage() {
 
 
         <div className="w-full max-w-5xl mx-auto mt-16 sm:mt-32 relative mb-12 sm:mb-20 px-4 sm:px-8">
-          <div className="text-center mt-12 sm:mt-8 mb-0 sm:mb-2 relative z-10 pointer-events-none bg-white/60 backdrop-blur-xl py-4 px-8 rounded-full border border-white/60 shadow-sm mx-auto w-fit">
+          <div className="text-center mt-12 sm:mt-8 mb-0 sm:mb-2 relative z-10 pointer-events-none bg-transparent backdrop-blur-xl py-4 px-8 rounded-full border border-white/60 shadow-sm mx-auto w-fit">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight">Kenali Tim Kami!</h2>
           </div>
           <div className="h-[400px] sm:h-[600px] w-full -mt-6 sm:-mt-16 bg-transparent [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] relative">
