@@ -70,7 +70,7 @@ export function AnimatedBeamDemo() {
               </svg>
             </motion.div>
           </Circle>
-          <Circle ref={div4Ref} className="size-32 border-google-blue border-4 bg-blue-50 relative overflow-hidden group">
+          <Circle ref={div4Ref} className="size-32 bg-blue-50 relative overflow-hidden group">
             {/* Soft pulsing glow behind text */}
             <motion.div 
               className="absolute inset-0 bg-blue-200/50 rounded-full blur-xl"
