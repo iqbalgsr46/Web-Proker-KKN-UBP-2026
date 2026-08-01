@@ -127,10 +127,15 @@ export default function GaleriPage() {
         </div>
 
         {/* iPhone Mockup Preview Section */}
-        <div className="w-full max-w-7xl mx-auto mb-24 flex flex-col items-center justify-center">
-          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-8 text-center">
-            Tampilan di Ponsel
-          </h3>
+        <div className="w-full max-w-7xl mx-auto mb-24 flex flex-col items-center justify-center px-4">
+          <div className="flex flex-col items-center mb-10 text-center">
+            <h3 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
+              Kreativitas di Genggaman
+            </h3>
+            <p className="text-gray-600 text-lg max-w-xl font-medium text-balance">
+              Jelajahi dan unduh koleksi lembar mewarnai edukatif kami dengan mudah langsung dari perangkat pintar Anda.
+            </p>
+          </div>
           <div className="w-[300px] md:w-[350px]">
             <Iphone 
               src="/iphone_screen_coloring.png" 
