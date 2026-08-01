@@ -2,8 +2,6 @@
 import { useRef, useEffect } from 'react';
 import { Renderer, Camera, Transform, Plane, Program, Mesh, Texture, type OGLRenderingContext } from 'ogl';
 
-import './FlyingPosters.css';
-
 type GL = OGLRenderingContext;
 type OGLProgram = Program;
 type OGLMesh = Mesh;
@@ -60,7 +58,7 @@ interface CanvasParams {
 }
 
 const vertexShader = `
-precision highp float;
+precision mediump float;
 
 attribute vec3 position;
 attribute vec2 uv;
@@ -125,7 +123,7 @@ void main() {
 `;
 
 const fragmentShader = `
-precision highp float;
+precision mediump float;
 
 uniform vec2 uImageSize;
 uniform vec2 uPlaneSize;
@@ -588,8 +586,8 @@ export default function FlyingPosters({
   }, []);
 
   return (
-    <div ref={containerRef} className={`posters-container ${className ?? ''}`} {...props}>
-      <canvas ref={canvasRef} className="posters-canvas" />
+    <div ref={containerRef} className={`w-full h-full overflow-hidden relative z-[2] ${className ?? ''}`} {...props}>
+      <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );
 }
