@@ -24,6 +24,9 @@ export function Dock({ className, children, direction = "middle" }: DockProps) {
     >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
+          if (typeof child.type === "string") {
+            return child;
+          }
           return React.cloneElement(child as any, { mouseX });
         }
         return child;
