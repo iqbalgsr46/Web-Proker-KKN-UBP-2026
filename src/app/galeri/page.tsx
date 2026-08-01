@@ -47,11 +47,32 @@ export default function GaleriPage() {
 
       <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-8 mt-16 md:mt-24 z-10 overflow-hidden">
         
-        <div className="w-full flex flex-col items-center justify-center mb-8 mt-4 gap-2">
-          <h2 className="text-2xl md:text-4xl font-black text-gray-900 tracking-tight text-center">
-            Galeri
-          </h2>
-          <MorphingText texts={["Karya Anak", "Kreativitas", "Edukasi", "Imajinasi"]} className="text-3xl md:text-6xl !h-16 md:!h-24" />
+        <div className="flex flex-row items-center justify-center gap-2 md:gap-5 mb-10 mt-4 scale-90 md:scale-100">
+          
+          {/* Left Bracket (Kurung Kurawal Kuning) */}
+          <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 hidden sm:block">
+            {/* Outer thin black border */}
+            <path d="M 40 10 L 33 10 A 13 13 0 0 0 20 23 L 20 35 L 10 45 L 20 55 L 20 67 A 13 13 0 0 0 33 80 L 40 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            {/* Inner yellow fill */}
+            <path d="M 40 10 L 33 10 A 13 13 0 0 0 20 23 L 20 35 L 10 45 L 20 55 L 20 67 A 13 13 0 0 0 33 80 L 40 80" stroke="#FBBC04" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          </svg>
+
+          {/* Center Content */}
+          <div className="flex flex-col items-center justify-center px-2 min-w-[250px] sm:min-w-[300px] md:min-w-[400px]">
+            <h2 className="text-2xl md:text-4xl font-black text-gray-900 tracking-tight text-center mb-1">
+              Galeri
+            </h2>
+            <MorphingText texts={["Karya Anak", "Kreativitas", "Edukasi", "Imajinasi"]} className="text-3xl sm:text-4xl md:text-6xl !h-16 md:!h-24 m-0" />
+          </div>
+
+          {/* Right Bracket (Kurung Kurawal Kuning) */}
+          <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 hidden sm:block">
+            {/* Outer thin black border */}
+            <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            {/* Inner yellow fill */}
+            <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#FBBC04" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          </svg>
+
         </div>
         
         {/* Masonry Layout without GlassCard wrapper */}
