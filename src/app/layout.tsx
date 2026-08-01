@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { SmoothScrolling } from "@/components/shared/SmoothScrolling";
+import { LoadingScreen } from "@/components/shared/LoadingScreen";
 
 export default function RootLayout({
   children,
@@ -27,6 +28,7 @@ export default function RootLayout({
       className={`${plusJakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans relative">
+        <LoadingScreen />
         <Navbar />
         <SmoothScrolling>
           <main className="flex-1 w-full">
