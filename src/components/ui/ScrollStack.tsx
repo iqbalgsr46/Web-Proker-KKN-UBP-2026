@@ -65,7 +65,7 @@ const ScrollStackNode: React.FC<ScrollStackNodeProps> = ({
       className="sticky w-full origin-top"
       style={{
         top: `${topPosition}px`,
-        marginTop: index === 0 ? '0' : '30vh',
+        marginTop: index === 0 ? '0' : '15vh',
         scale,
         zIndex: index + 10,
       }}
@@ -105,7 +105,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         className="w-full relative px-2 sm:px-6"
         style={{
           paddingTop: '20px',
-          paddingBottom: `${total * 40}vh` 
+          paddingBottom: `${total * 15}vh` // Drastically reduced from 40vh
         }}
       >
         {items.map((child, index) => (
