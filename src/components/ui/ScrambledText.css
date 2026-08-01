@@ -1,9 +1,0 @@
-.text-block {
-  max-width: 800px;
-  font-family: var(--font-sans), monospace;
-}
-
-.char {
-  will-change: transform;
-  display: inline-block;
-}
