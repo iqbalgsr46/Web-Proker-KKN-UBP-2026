@@ -309,24 +309,27 @@ export default function TentangPage() {
               <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-6 w-full text-center tracking-tight">Tentang EduColoring</h3>
               
               <div className="w-full overflow-y-auto max-h-[70vh] flex flex-col gap-4 text-gray-700 custom-scrollbar px-2 sm:px-4 pb-4">
-                <p className="text-base sm:text-lg leading-relaxed text-justify">
-                  Kami adalah kelompok mahasiswa Kuliah Kerja Nyata (KKN) Universitas Buana Perjuangan Karawang tahun 2026. Melalui program <strong>EduColoring</strong>, kami berinovasi untuk membawa perubahan positif bagi masyarakat desa.
-                </p>
-                <div className="bg-google-blue/10 p-4 rounded-2xl border border-google-blue/20">
-                  <h4 className="font-bold text-google-blue mb-2">Visi Kami</h4>
-                  <p className="text-sm sm:text-base">Mewujudkan desa cerdas yang adaptif terhadap teknologi edukasi masa kini, sekaligus menanamkan kesadaran sejak dini tentang pentingnya lingkungan yang bebas sampah.</p>
+                {/* White Container for Text */}
+                <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-4">
+                  <p className="text-base sm:text-lg leading-relaxed text-justify">
+                    Kami adalah kelompok mahasiswa Kuliah Kerja Nyata (KKN) Universitas Buana Perjuangan Karawang tahun 2026. Melalui program <strong>EduColoring</strong>, kami berinovasi untuk membawa perubahan positif bagi masyarakat desa.
+                  </p>
+                  <div className="bg-google-blue/10 p-4 rounded-2xl border border-google-blue/20">
+                    <h4 className="font-bold text-google-blue mb-2">Visi Kami</h4>
+                    <p className="text-sm sm:text-base">Mewujudkan desa cerdas yang adaptif terhadap teknologi edukasi masa kini, sekaligus menanamkan kesadaran sejak dini tentang pentingnya lingkungan yang bebas sampah.</p>
+                  </div>
+                  <div className="bg-google-green/10 p-4 rounded-2xl border border-google-green/20">
+                    <h4 className="font-bold text-google-green mb-2">Misi Utama</h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm sm:text-base">
+                      <li>Memberikan edukasi interaktif berbasis mewarnai untuk anak-anak.</li>
+                      <li>Mengintegrasikan nilai-nilai kebersihan lingkungan dalam media belajar.</li>
+                      <li>Meningkatkan kreativitas dan motorik anak desa.</li>
+                    </ul>
+                  </div>
+                  <p className="text-center font-medium mt-2 text-gray-900">
+                    Mari bersama-sama membangun generasi cerdas dan lingkungan sehat!
+                  </p>
                 </div>
-                <div className="bg-google-green/10 p-4 rounded-2xl border border-google-green/20">
-                  <h4 className="font-bold text-google-green mb-2">Misi Utama</h4>
-                  <ul className="list-disc list-inside space-y-1 text-sm sm:text-base">
-                    <li>Memberikan edukasi interaktif berbasis mewarnai untuk anak-anak.</li>
-                    <li>Mengintegrasikan nilai-nilai kebersihan lingkungan dalam media belajar.</li>
-                    <li>Meningkatkan kreativitas dan motorik anak desa.</li>
-                  </ul>
-                </div>
-                <p className="text-center font-medium mt-2 text-gray-900">
-                  Mari bersama-sama membangun generasi cerdas dan lingkungan sehat!
-                </p>
               </div>
             </motion.div>
           </motion.div>
