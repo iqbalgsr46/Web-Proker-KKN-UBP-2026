@@ -51,10 +51,10 @@ const categories = [
 
 export default function KategoriPage() {
   return (
-    <main className="min-h-[100dvh] bg-white relative pb-32 flex flex-col items-center justify-center">
+    <main className="min-h-[100dvh] bg-transparent relative pb-32 flex flex-col items-center justify-center overflow-hidden">
 
       {/* Latar Belakang Warna-Warni ala Tailwind CSS (Mesh Gradient) */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none bg-white">
+      <div className="absolute inset-0 -z-10 pointer-events-none bg-white">
         
         {/* Abstract Blobs Scattered in Background */}
         <AbstractBlob type="gemini-spark" color="blue" className="absolute top-[5%] left-[-5%] w-64 md:w-96 h-64 md:h-96 rotate-12 pointer-events-none transform-gpu" />
