@@ -45,8 +45,7 @@ export default function GaleriPage() {
         <AbstractBlob type="spark" color="yellow" className="absolute top-[55%] left-[35%] w-32 md:w-40 h-32 md:h-40 opacity-30 rotate-[105deg] pointer-events-none transform-gpu" />
         <AbstractBlob type="circle-spark" color="blue" className="absolute top-[35%] right-[45%] w-24 md:w-32 h-24 md:h-32 opacity-40 -rotate-[85deg] pointer-events-none transform-gpu" />
         
-        {/* Overlay blur ekstrim untuk membuat efek Mesh Gradient yang sangat halus (warna blur) */}
-        <div className="absolute inset-0 backdrop-blur-[120px] z-[5]"></div>
+        {/* Overlay blur ekstrim dihapus karena menyebabkan lag GPU yang parah di HP saat scrolling */}
         
         {/* Spark & Abstract Logos Floating Above the Blur */}
         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
