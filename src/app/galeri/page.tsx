@@ -1,4 +1,5 @@
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
+import BounceCards from "@/components/ui/BounceCards";
 
 export default function GaleriPage() {
   return (
@@ -40,8 +41,30 @@ export default function GaleriPage() {
         <AbstractBlob type="circle-spark" color="blue" className="absolute top-[35%] right-[45%] w-24 md:w-32 h-24 md:h-32 opacity-40 -rotate-[85deg] pointer-events-none transform-gpu" />
       </div>
 
-      <main className="flex-1 w-full flex flex-col items-center justify-center p-4 sm:p-8 mt-16 md:mt-24 z-10">
-        {/* Content goes here. Temporarily empty per user request. */}
+      <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-8 mt-16 md:mt-24 z-10 overflow-hidden">
+        <BounceCards
+          className="custom-bounceCards scale-75 md:scale-100"
+          images={[
+            "https://picsum.photos/400/400?grayscale",
+            "https://picsum.photos/500/500?grayscale",
+            "https://picsum.photos/600/600?grayscale",
+            "https://picsum.photos/700/700?grayscale",
+            "https://picsum.photos/300/300?grayscale"
+          ]}
+          containerWidth={500}
+          containerHeight={250}
+          animationDelay={1}
+          animationStagger={0.08}
+          easeType="elastic.out(1, 0.5)"
+          transformStyles={[
+            "rotate(5deg) translate(-150px)",
+            "rotate(0deg) translate(-70px)",
+            "rotate(-5deg)",
+            "rotate(5deg) translate(70px)",
+            "rotate(-5deg) translate(150px)"
+          ]}
+          enableHover={false}
+        />
       </main>
       
     </div>
