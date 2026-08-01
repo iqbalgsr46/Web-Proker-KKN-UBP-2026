@@ -88,33 +88,40 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const total = items.length;
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
+    container: containerRef
   });
 
-  const parsedStackPosition = parseInt(stackPosition) || 220;
+  const parsedStackPosition = parseInt(stackPosition) || 40;
 
   return (
     <div 
-      ref={containerRef} 
-      className={`relative w-full ${className}`.trim()}
+      ref={containerRef}
+      className={`relative w-full h-[500px] sm:h-[600px] overflow-y-auto scrollbar-hide rounded-[3rem] bg-gray-50/50 border border-white/60 shadow-inner ${className}`.trim()}
       style={{
-        paddingBottom: `${total * 40}vh` 
+        overscrollBehaviorY: 'contain'
       }}
     >
-      {items.map((child, index) => (
-        <ScrollStackNode
-          key={index}
-          child={child}
-          index={index}
-          total={total}
-          baseScale={baseScale}
-          itemScale={itemScale}
-          itemDistance={itemDistance}
-          parsedStackPosition={parsedStackPosition}
-          scrollYProgress={scrollYProgress}
-        />
-      ))}
+      <div 
+        className="w-full relative px-2 sm:px-6"
+        style={{
+          paddingTop: '20px',
+          paddingBottom: `${total * 40}vh` 
+        }}
+      >
+        {items.map((child, index) => (
+          <ScrollStackNode
+            key={index}
+            child={child}
+            index={index}
+            total={total}
+            baseScale={baseScale}
+            itemScale={itemScale}
+            itemDistance={itemDistance}
+            parsedStackPosition={parsedStackPosition}
+            scrollYProgress={scrollYProgress}
+          />
+        ))}
+      </div>
     </div>
   );
 };
