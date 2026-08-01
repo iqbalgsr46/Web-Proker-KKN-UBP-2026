@@ -15,8 +15,8 @@ export function Dock({ className, children, direction = "middle" }: DockProps) {
 
   return (
     <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
+      onPointerMove={(e) => e.pointerType === "mouse" && mouseX.set(e.pageX)}
+      onPointerLeave={(e) => e.pointerType === "mouse" && mouseX.set(Infinity)}
       className={cn(
         "mx-auto flex h-[58px] items-center gap-2 rounded-2xl bg-white/70 backdrop-blur-md px-3 shadow-[0_4px_20px_rgba(0,0,0,0.1)] border border-white/60",
         className
@@ -59,7 +59,7 @@ export function DockIcon({ className, children, mouseX }: DockIconProps) {
       ref={ref}
       style={{ width, height: width }}
       className={cn(
-        "flex cursor-pointer items-center justify-center rounded-full bg-white/40 hover:bg-white/80 transition-colors shadow-sm relative group border border-white/60",
+        "flex cursor-pointer items-center justify-center rounded-full bg-white/40 lg:hover:bg-white/80 transition-colors shadow-sm relative group border border-white/60",
         className
       )}
     >

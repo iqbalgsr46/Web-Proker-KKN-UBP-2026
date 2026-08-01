@@ -42,6 +42,7 @@ export function Navbar() {
             <DockIcon key={item.label}>
               <Link
                 href={item.href}
+                prefetch={true}
                 aria-label={item.label}
                 className="w-full h-full flex items-center justify-center relative group active:scale-90 transition-transform duration-200"
               >
@@ -56,6 +57,7 @@ export function Navbar() {
           <DockIcon>
             <Link
               href="/kategori"
+              prefetch={true}
               aria-label="Mulai Mewarnai"
               className="w-full h-full flex items-center justify-center relative group p-1.5 active:scale-90 transition-transform duration-200"
             >
