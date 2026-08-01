@@ -88,14 +88,12 @@ export default function KumpulanMewarnaiPage() {
         <div className="w-full">
           <Masonry 
             items={[
-              { id: "1", img: "/images/coloring_recycle_bin.png", url: "#", height: 400 },
-              { id: "2", img: "/images/coloring_plant_tree.png", url: "#", height: 300 },
-              { id: "3", img: "/images/coloring_clean_river.png", url: "#", height: 400 },
-              { id: "4", img: "/images/coloring_sorting_trash.png", url: "#", height: 400 },
-              { id: "5", img: "/images/coloring_bicycle_park.png", url: "#", height: 300 },
-              { id: "6", img: "/images/coloring_happy_earth.png", url: "#", height: 400 },
-              { id: "7", img: "/images/coloring_plant_tree.png", url: "#", height: 350 },
-              { id: "8", img: "/images/coloring_clean_river.png", url: "#", height: 450 },
+              { id: "1", img: "/images/lembar_mewarnai_1.png", url: "#", height: 400 },
+              { id: "2", img: "/images/lembar_mewarnai_2.png", url: "#", height: 300 },
+              { id: "3", img: "/images/lembar_mewarnai_3.png", url: "#", height: 400 },
+              { id: "4", img: "/images/lembar_mewarnai_4.png", url: "#", height: 350 },
+              { id: "5", img: "/images/lembar_mewarnai_5.png", url: "#", height: 450 },
+              { id: "6", img: "/images/lembar_mewarnai_6.png", url: "#", height: 350 },
             ]}
             colorShiftOnHover={true}
           />

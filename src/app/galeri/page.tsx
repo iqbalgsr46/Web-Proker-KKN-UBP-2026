@@ -114,14 +114,12 @@ export default function GaleriPage() {
         <div className="w-full max-w-7xl mx-auto mb-24 relative min-h-[700px]">
           <Masonry
             items={[
-              { id: "1", img: "/images/coloring_recycle_bin.png", url: "#", height: 400 },
-              { id: "2", img: "/images/coloring_plant_tree.png", url: "#", height: 250 },
-              { id: "3", img: "/images/coloring_clean_river.png", url: "#", height: 600 },
-              { id: "4", img: "/images/coloring_happy_earth.png", url: "#", height: 350 },
-              { id: "5", img: "/images/coloring_sorting_trash.png", url: "#", height: 450 },
-              { id: "6", img: "/images/coloring_bicycle_park.png", url: "#", height: 300 },
-              { id: "7", img: "/images/coloring_recycle_bin.png", url: "#", height: 500 },
-              { id: "8", img: "/images/coloring_plant_tree.png", url: "#", height: 350 },
+              { id: "1", img: "/images/lembar_mewarnai_1.png", url: "#", height: 400 },
+              { id: "2", img: "/images/lembar_mewarnai_2.png", url: "#", height: 300 },
+              { id: "3", img: "/images/lembar_mewarnai_3.png", url: "#", height: 400 },
+              { id: "4", img: "/images/lembar_mewarnai_4.png", url: "#", height: 350 },
+              { id: "5", img: "/images/lembar_mewarnai_5.png", url: "#", height: 450 },
+              { id: "6", img: "/images/lembar_mewarnai_6.png", url: "#", height: 350 },
             ]}
             ease="power3.out"
             duration={0.6}
@@ -130,7 +128,7 @@ export default function GaleriPage() {
             scaleOnHover={true}
             hoverScale={0.95}
             blurToFocus={true}
-            colorShiftOnHover={false}
+            colorShiftOnHover={true}
           />
         </div>
 
