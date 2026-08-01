@@ -114,12 +114,12 @@ export default function GaleriPage() {
         <div className="w-full max-w-7xl mx-auto mb-24 relative min-h-[700px]">
           <Masonry
             items={[
-              { id: "1", img: "/images/lembar_mewarnai_1.webp", url: "#", height: 350 },
-              { id: "2", img: "/images/lembar_mewarnai_2.webp", url: "#", height: 250 },
-              { id: "3", img: "/images/lembar_mewarnai_3.webp", url: "#", height: 280 },
-              { id: "4", img: "/images/lembar_mewarnai_4.webp", url: "#", height: 380 },
-              { id: "5", img: "/images/lembar_mewarnai_5.webp", url: "#", height: 280 },
-              { id: "6", img: "/images/lembar_mewarnai_6.webp", url: "#", height: 380 },
+              { id: "1", img: "/images/lembar_mewarnai_1.webp", url: "#", height: 250 },
+              { id: "2", img: "/images/lembar_mewarnai_2.webp", url: "#", height: 350 },
+              { id: "3", img: "/images/lembar_mewarnai_3.webp", url: "#", height: 380 },
+              { id: "4", img: "/images/lembar_mewarnai_4.webp", url: "#", height: 280 },
+              { id: "5", img: "/images/lembar_mewarnai_5.webp", url: "#", height: 380 },
+              { id: "6", img: "/images/lembar_mewarnai_6.webp", url: "#", height: 280 },
             ]}
             ease="power3.out"
             duration={0.6}
