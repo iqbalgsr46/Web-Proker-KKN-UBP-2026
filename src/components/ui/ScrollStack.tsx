@@ -88,7 +88,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const total = items.length;
 
   const { scrollYProgress } = useScroll({
-    container: containerRef
+    target: containerRef,
+    offset: ["start start", "end end"]
   });
 
   const parsedStackPosition = parseInt(stackPosition) || 40;
@@ -96,18 +97,13 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   return (
     <div 
       ref={containerRef}
-      className={`relative w-full h-[500px] sm:h-[600px] overflow-y-auto scrollbar-hide rounded-[3rem] bg-gray-50/50 border border-white/60 shadow-inner ${className}`.trim()}
+      className={`relative w-full ${className}`.trim()}
       style={{
-        overscrollBehaviorY: 'contain'
+        paddingTop: '20px',
+        paddingBottom: `${total * 25}px` 
       }}
     >
-      <div 
-        className="w-full relative px-2 sm:px-6"
-        style={{
-          paddingTop: '20px',
-          paddingBottom: `${total * 25}px` // MAXIMUM speed total scroll
-        }}
-      >
+      <div className="w-full relative px-2 sm:px-6">
         {items.map((child, index) => (
           <ScrollStackNode
             key={index}
