@@ -181,7 +181,7 @@ export default function TentangPage() {
         {/* SCROLL STACK SECTION (FOTO KKN) */}
         {/* ========================================= */}
         <GlassCard className="w-full relative z-10 max-w-5xl mx-auto mt-10 mb-0 px-4 sm:px-8 py-10 sm:py-16 rounded-[3rem]">
-          <div className="text-center mb-8 relative z-50 pointer-events-none sticky top-[80px] sm:top-[100px] bg-white/60 backdrop-blur-xl py-4 px-6 rounded-[2rem] border border-white/60 shadow-sm mx-auto w-fit">
+          <div className="text-center mb-8 relative z-50 pointer-events-none bg-white/60 backdrop-blur-xl py-4 px-6 rounded-[2rem] border border-white/60 shadow-sm mx-auto w-fit">
             <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">Dokumentasi Kegiatan</h2>
             <p className="text-gray-600 font-medium mt-2">Momen kebersamaan kami selama di desa Sukamaju</p>
           </div>
