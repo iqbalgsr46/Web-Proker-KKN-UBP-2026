@@ -241,7 +241,10 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
   const setupLenis = useCallback(() => {
     if (useWindowScroll) {
-      // Use RAF loop for reliable updates on mobile (passive scroll listeners can miss events with Lenis)
+      // Use BOTH scroll listener (for mobile touch) AND RAF (for desktop Lenis)
+      // Mobile browsers pause RAF during touch scrolling, but fire scroll events
+      // Desktop Lenis may not fire native scroll events, but RAF runs continuously
+      window.addEventListener('scroll', handleScroll, { passive: true });
       const rafUpdate = () => {
         updateCardTransforms();
         animationFrameRef.current = requestAnimationFrame(rafUpdate);
