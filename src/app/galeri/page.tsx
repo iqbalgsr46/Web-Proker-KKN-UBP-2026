@@ -65,7 +65,7 @@ export default function GaleriPage() {
             <MorphingText texts={["Karya Anak", "Kreativitas", "Edukasi", "Imajinasi"]} className="text-3xl sm:text-4xl md:text-5xl !h-16 md:!h-24 m-0" />
             
             {/* Location Pill Badge */}
-            <div className="-mt-3 relative z-10 px-5 py-0.5 border-[2px] border-[#202124] rounded-full flex items-center justify-center bg-white">
+            <div className="-mt-6 relative z-10 px-5 py-0.5 border-[2px] border-[#202124] rounded-full flex items-center justify-center bg-white">
               <span className="text-[#202124] font-bold text-sm">UBP Karawang</span>
             </div>
           </div>
