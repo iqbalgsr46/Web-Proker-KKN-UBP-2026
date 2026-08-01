@@ -8,16 +8,31 @@ import { PillButton } from "@/components/ui/PillButton";
 export default function KumpulanMewarnaiPage() {
   const handlePrintPDF = () => {
     const pdfUrl = "/Lembar_Mewarnai_Pengelolaan_Sampah.pdf";
+    
+    // Perangkat seluler (HP/Tablet) seringkali memblokir print dari hidden iframe
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // Buka PDF di tab baru, browser HP otomatis memberikan opsi Print
+      window.open(pdfUrl, "_blank");
+      return;
+    }
+
     const iframe = document.createElement("iframe");
     iframe.style.display = "none";
     iframe.src = pdfUrl;
     document.body.appendChild(iframe);
     
-    // Some browsers need a slight delay to ensure the PDF is fully loaded in the iframe
+    // Desktop: Gunakan iframe agar tidak berpindah halaman
     iframe.onload = () => {
       setTimeout(() => {
-        iframe.contentWindow?.focus();
-        iframe.contentWindow?.print();
+        try {
+          iframe.contentWindow?.focus();
+          iframe.contentWindow?.print();
+        } catch (error) {
+          console.error("Gagal print via iframe, fallback ke tab baru:", error);
+          window.open(pdfUrl, "_blank");
+        }
       }, 500);
     };
   };
