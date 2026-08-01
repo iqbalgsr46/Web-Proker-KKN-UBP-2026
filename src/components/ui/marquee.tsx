@@ -66,7 +66,7 @@ export function Marquee({
             })}
             style={{
               animationDirection: reverse ? "reverse" : "normal",
-              animationDuration: "150s"
+              animationDuration: "var(--duration, 80s)"
             }}
           >
             {children}
