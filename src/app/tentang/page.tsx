@@ -297,7 +297,7 @@ export default function TentangPage() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-lg bg-white rounded-3xl p-6 shadow-2xl flex flex-col items-center border border-white/20"
+              className="relative w-full max-w-lg bg-white/60 backdrop-blur-3xl rounded-3xl p-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col items-center border border-white/60"
               onClick={(e) => e.stopPropagation()}
             >
               <button 
