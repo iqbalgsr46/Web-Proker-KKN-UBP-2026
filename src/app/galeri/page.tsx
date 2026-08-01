@@ -1,4 +1,5 @@
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
+import Image from "next/image";
 import Masonry from "@/components/ui/Masonry";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { Iphone } from "@/components/ui/iphone";
@@ -172,7 +173,7 @@ export default function GaleriPage() {
                 '/images/coloring_bicycle_park.png',
               ].map((src, i) => (
                 <div key={`row1-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
-                  <img src={src} alt="Karya Mewarnai" className="h-full w-full object-cover" />
+                  <Image src={src} alt="Karya Mewarnai" fill sizes="(max-width: 768px) 192px, 240px" className="object-cover" />
                 </div>
               ))}
             </Marquee>
@@ -186,7 +187,7 @@ export default function GaleriPage() {
                 '/images/coloring_recycle_bin.png',
               ].map((src, i) => (
                 <div key={`row2-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
-                  <img src={src} alt="Karya Mewarnai" className="h-full w-full object-cover" />
+                  <Image src={src} alt="Karya Mewarnai" fill sizes="(max-width: 768px) 192px, 240px" className="object-cover" />
                 </div>
               ))}
             </Marquee>
