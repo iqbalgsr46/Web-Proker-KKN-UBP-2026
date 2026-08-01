@@ -1,43 +1,66 @@
-import Link from 'next/link';
-import { PillButton } from '@/components/ui/PillButton';
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { Dock, DockIcon } from "@/registry/magicui/dock";
+
+// Inline SVG Icons
+const HomeIcon = (props: any) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+);
+const GridIcon = (props: any) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+);
+const ImageIcon = (props: any) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+);
+const UsersIcon = (props: any) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+);
+
+const NAV_ITEMS = [
+  { href: "/", icon: HomeIcon, label: "Beranda" },
+  { href: "/kategori", icon: GridIcon, label: "Kategori" },
+  { href: "/galeri", icon: ImageIcon, label: "Galeri" },
+  { href: "/tentang", icon: UsersIcon, label: "Tentang Kami" },
+];
 
 export function Navbar() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full pt-4 md:pt-6 px-4 pointer-events-none">
-      <nav className="flex items-center justify-between w-full max-w-5xl px-4 md:px-6 py-3 bg-white/70 backdrop-blur-2xl border border-white/80 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-[2.5rem] pointer-events-auto transition-all duration-300">
-        
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 md:gap-3 group outline-none">
-          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.05)] border border-gray-100 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
-            <span className="text-xl md:text-2xl">🎨</span>
-          </div>
-          <div className="text-xl md:text-2xl font-black tracking-tighter">
-            <span className="text-google-blue">Edu</span>
-            <span className="text-google-green">Coloring</span>
-          </div>
-        </Link>
-        
-        {/* Nav Links (Desktop) */}
-        <div className="hidden md:flex items-center gap-2 font-bold text-gray-600 text-[15px]">
-          <Link href="/kategori" className="px-5 py-2 rounded-full hover:bg-white hover:text-google-red hover:shadow-[0_4px_15px_rgba(234,67,53,0.15)] transition-all duration-300 outline-none">
-            Kategori
-          </Link>
-          <Link href="/galeri" className="px-5 py-2 rounded-full hover:bg-white hover:text-google-yellow hover:shadow-[0_4px_15px_rgba(251,188,4,0.15)] transition-all duration-300 outline-none">
-            Galeri
-          </Link>
-          <Link href="/tentang" className="px-5 py-2 rounded-full hover:bg-white hover:text-google-blue hover:shadow-[0_4px_15px_rgba(66,133,244,0.15)] transition-all duration-300 outline-none">
-            Tentang
-          </Link>
-        </div>
-
-        {/* CTA Button */}
-        <Link href="/kategori" className="outline-none hidden sm:block">
-          <button className="px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-all hover:scale-105 active:scale-95 bg-gradient-to-b from-[#5C97F5] to-[#3273DF] text-white shadow-[0_8px_20px_-6px_rgba(66,133,244,0.6),inset_0_2px_4px_rgba(255,255,255,0.4)] border-none outline-none">
-            Mulai Mewarnai
-          </button>
-        </Link>
-        
-      </nav>
+    <div className="fixed bottom-6 left-0 right-0 z-[100] flex justify-center w-full pointer-events-none px-4">
+      <div className="pointer-events-auto">
+        <Dock direction="middle">
+          {NAV_ITEMS.map((item) => (
+            <DockIcon key={item.label}>
+              <Link
+                href={item.href}
+                aria-label={item.label}
+                className="w-full h-full flex items-center justify-center relative group"
+              >
+                <item.icon className="w-5 h-5 text-gray-700 group-hover:text-google-blue transition-colors" />
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-900 text-white text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none whitespace-nowrap shadow-md">
+                  {item.label}
+                </span>
+              </Link>
+            </DockIcon>
+          ))}
+          <div className="w-px h-8 bg-gray-300 mx-1" />
+          <DockIcon>
+            <Link
+              href="/kategori"
+              aria-label="Mulai Mewarnai"
+              className="w-full h-full flex items-center justify-center relative group p-1.5"
+            >
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-google-blue via-google-green to-google-yellow flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
+                <span className="text-[1.2rem] leading-none">🎨</span>
+              </div>
+              <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-900 text-white text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none whitespace-nowrap shadow-md">
+                Mulai Mewarnai
+              </span>
+            </Link>
+          </DockIcon>
+        </Dock>
+      </div>
     </div>
   );
 }

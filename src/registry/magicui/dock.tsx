@@ -1,0 +1,64 @@
+"use client";
+
+import React, { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+export interface DockProps {
+  className?: string;
+  children: React.ReactNode;
+  direction?: "top" | "middle" | "bottom";
+}
+
+export function Dock({ className, children, direction = "middle" }: DockProps) {
+  const mouseX = useMotionValue(Infinity);
+
+  return (
+    <motion.div
+      onMouseMove={(e) => mouseX.set(e.pageX)}
+      onMouseLeave={() => mouseX.set(Infinity)}
+      className={cn(
+        "mx-auto flex h-[58px] items-center gap-2 rounded-2xl bg-white/70 backdrop-blur-md px-3 shadow-[0_4px_20px_rgba(0,0,0,0.1)] border border-white/60",
+        className
+      )}
+    >
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child as any, { mouseX });
+        }
+        return child;
+      })}
+    </motion.div>
+  );
+}
+
+export interface DockIconProps {
+  className?: string;
+  children: React.ReactNode;
+  mouseX?: any;
+}
+
+export function DockIcon({ className, children, mouseX }: DockIconProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const distance = useTransform(mouseX ?? useMotionValue(Infinity), (val: number) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+    return val - bounds.x - bounds.width / 2;
+  });
+
+  const widthSync = useTransform(distance, [-150, 0, 150], [40, 70, 40]);
+  const width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ width, height: width }}
+      className={cn(
+        "flex cursor-pointer items-center justify-center rounded-full bg-white/40 hover:bg-white/80 transition-colors shadow-sm relative group border border-white/60",
+        className
+      )}
+    >
+      {children}
+    </motion.div>
+  );
+}
