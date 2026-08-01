@@ -102,6 +102,11 @@ export default function GaleriPage() {
 
         </div>
         
+        {/* Deskripsi Galeri */}
+        <p className="text-lg md:text-xl text-gray-700 font-medium mb-12 max-w-3xl leading-relaxed text-center text-balance mx-auto px-4">
+          Kumpulan hasil karya mewarnai yang dipenuhi dengan keceriaan dan kreativitas tanpa batas. Lihat bagaimana anak-anak mengekspresikan kepedulian mereka terhadap lingkungan melalui warna!
+        </p>
+        
         {/* Masonry Layout without GlassCard wrapper */}
         <div className="w-full max-w-7xl mx-auto mb-24 relative min-h-[700px]">
           <Masonry
