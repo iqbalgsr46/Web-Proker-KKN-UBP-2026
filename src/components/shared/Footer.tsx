@@ -62,7 +62,7 @@ export function Footer() {
 
         {/* Huge Watermark Text */}
         <div className="absolute bottom-0 left-0 right-0 z-0 flex justify-center pointer-events-none select-none overflow-hidden">
-          <span className="text-[70px] sm:text-[110px] md:text-[160px] lg:text-[200px] font-black text-white/5 leading-none tracking-tighter" style={{ transform: "translateY(25%)" }}>
+          <span className="text-[70px] sm:text-[110px] md:text-[160px] lg:text-[200px] font-black text-white/5 leading-tight tracking-tighter">
             educoloring
           </span>
         </div>
