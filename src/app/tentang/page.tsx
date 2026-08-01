@@ -66,9 +66,12 @@ export default function TentangPage() {
       </div>
 
       <motion.main 
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ 
+          opacity: { duration: 0.3 }, 
+          y: { duration: 1.0, ease: [0.16, 1, 0.3, 1] } 
+        }}
         className="flex-1 w-full px-4 sm:px-6 lg:px-12 pt-24 pb-12 relative z-10 flex flex-col items-center"
       >
         {/* ========================================= */}

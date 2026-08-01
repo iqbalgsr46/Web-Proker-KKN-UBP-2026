@@ -27,9 +27,12 @@ export default function Home() {
       <AbstractBlob type="hexagon" color="blue" className="w-40 md:w-64 h-40 md:h-64 absolute top-[50%] left-[48%] -translate-x-1/2 -translate-y-1/2 rotate-[15deg] transform-gpu" />
       <GlassCard withShimmer className="w-full max-w-5xl text-center flex flex-col items-center shadow-2xl relative z-10 mx-auto py-12 sm:py-16 mt-8 md:mt-0">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ 
+            opacity: { duration: 0.3 }, 
+            y: { duration: 1.0, ease: [0.16, 1, 0.3, 1] } 
+          }}
           className="flex flex-col items-center justify-center w-full"
         >
           {/* Logo Utama ala "Build with AI" GDG */}
