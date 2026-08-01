@@ -51,8 +51,8 @@ export function AnimatedBeamDemo() {
           <Circle ref={div2Ref}>
             <span className="text-xl font-bold text-google-red">🌱</span>
           </Circle>
-          <Circle ref={div4Ref} className="size-24 border-google-blue border-4 bg-blue-50">
-            <span className="text-2xl font-black text-google-blue text-center leading-tight">Edu<br/>Coloring</span>
+          <Circle ref={div4Ref} className="size-32 border-google-blue border-4 bg-blue-50">
+            <span className="text-xl sm:text-2xl font-black text-google-blue text-center leading-tight">Edu<br/>Coloring</span>
           </Circle>
           <Circle ref={div6Ref}>
             <span className="text-xl font-bold text-google-green">🏫</span>
