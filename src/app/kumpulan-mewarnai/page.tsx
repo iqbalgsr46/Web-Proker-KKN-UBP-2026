@@ -112,10 +112,40 @@ export default function KumpulanMewarnaiPage() {
           </Link>
         </div>
 
-        <div className="text-center mb-12 sm:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight uppercase">Kumpulan Lembar Mewarnai</h1>
-          <p className="text-gray-600 mt-3 font-medium text-lg">Pilih salah satu karya inspiratif di bawah ini!</p>
+        <div className="flex flex-row items-center justify-center gap-0 mb-8 mt-4 scale-90 md:scale-100 print:hidden">
+          
+          {/* Left Bracket (Kurung Kurawal Kuning) */}
+          <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 translate-x-6 md:translate-x-8">
+            <path d="M 40 10 L 33 10 A 13 13 0 0 0 20 23 L 20 35 L 10 45 L 20 55 L 20 67 A 13 13 0 0 0 33 80 L 40 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <path d="M 40 10 L 33 10 A 13 13 0 0 0 20 23 L 20 35 L 10 45 L 20 55 L 20 67 A 13 13 0 0 0 33 80 L 40 80" stroke="#FBBC04" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          </svg>
+
+          {/* Center Content */}
+          <div className="flex flex-col items-center justify-center px-0 w-[240px] md:w-[380px] z-10 bg-white/30 backdrop-blur-sm rounded-3xl py-2 md:py-4">
+            <h2 className="text-xl md:text-3xl font-black text-gray-900 tracking-tight text-center mb-1">
+              Kumpulan
+            </h2>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-google-blue tracking-tight text-center mb-4 leading-none">
+              Lembar Mewarnai
+            </h1>
+            
+            {/* Location Pill Badge */}
+            <div className="-mt-2 relative z-10 px-5 py-0.5 border-[2px] border-[#202124] rounded-full flex items-center justify-center bg-white shadow-sm">
+              <span className="text-[#202124] font-bold text-sm">UBP Karawang</span>
+            </div>
+          </div>
+
+          {/* Right Bracket (Kurung Kurawal Kuning) */}
+          <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 -translate-x-6 md:-translate-x-8">
+            <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#FBBC04" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          </svg>
+
         </div>
+
+        <p className="text-gray-600 mt-2 mb-12 sm:mb-16 font-medium text-lg text-center px-4 max-w-2xl text-balance print:hidden">
+          Pilih salah satu karya inspiratif di bawah ini!
+        </p>
         
         <div className="w-full">
           <Masonry 
