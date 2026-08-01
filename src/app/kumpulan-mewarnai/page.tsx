@@ -6,6 +6,21 @@ import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
 
 export default function KumpulanMewarnaiPage() {
+  const handlePrintPDF = () => {
+    const pdfUrl = "/Lembar_Mewarnai_Pengelolaan_Sampah.pdf";
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = pdfUrl;
+    document.body.appendChild(iframe);
+    
+    // Some browsers need a slight delay to ensure the PDF is fully loaded in the iframe
+    iframe.onload = () => {
+      setTimeout(() => {
+        iframe.contentWindow?.focus();
+        iframe.contentWindow?.print();
+      }, 500);
+    };
+  };
   return (
     <main className="min-h-[100dvh] bg-transparent relative flex flex-col items-center justify-start overflow-x-hidden w-full pb-24">
 
@@ -72,7 +87,7 @@ export default function KumpulanMewarnaiPage() {
       <div className="w-full max-w-[90rem] mx-auto px-4 sm:px-8 pt-12 md:pt-24 relative z-10 flex flex-col items-center">
         
         {/* Navigation Back Button */}
-        <div className="w-full flex justify-start mb-8 print:hidden">
+        <div className="w-full flex justify-start mb-8">
           <Link href="/kategori">
             <button className="flex items-center justify-center w-12 h-12 bg-white/70 hover:bg-white text-gray-800 rounded-full shadow-sm hover:shadow-md transition-all border border-gray-200">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,12 +97,12 @@ export default function KumpulanMewarnaiPage() {
           </Link>
         </div>
 
-        <div className="text-center mb-12 sm:mb-16 print:hidden">
+        <div className="text-center mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight uppercase">Kumpulan Lembar Mewarnai</h1>
           <p className="text-gray-600 mt-3 font-medium text-lg">Pilih salah satu karya inspiratif di bawah ini!</p>
         </div>
         
-        <div className="w-full print:hidden">
+        <div className="w-full">
           <Masonry 
             items={[
               { id: "1", img: "/images/lembar_mewarnai_1.png", url: "#", height: 400 },
@@ -101,7 +116,7 @@ export default function KumpulanMewarnaiPage() {
           />
         </div>
         
-        <div className="mt-16 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full print:hidden">
+        <div className="mt-16 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full">
           <a 
             href="/Lembar_Mewarnai_Pengelolaan_Sampah.pdf"
             download="Lembar_Mewarnai_Pengelolaan_Sampah.pdf"
@@ -116,7 +131,7 @@ export default function KumpulanMewarnaiPage() {
           </a>
 
           <button 
-            onClick={() => window.print()}
+            onClick={handlePrintPDF}
             className="flex items-center justify-center gap-2 bg-google-blue text-white font-bold py-4 px-8 rounded-[2rem] shadow-md hover:shadow-lg hover:-translate-y-1 active:translate-y-0 transition-all w-full sm:w-auto text-lg"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -126,22 +141,6 @@ export default function KumpulanMewarnaiPage() {
             </svg>
             Print Langsung
           </button>
-        </div>
-
-        {/* Layout khusus saat diprint (hidden di layar, muncul saat print) */}
-        <div className="hidden print:block w-full">
-          <div className="flex flex-col gap-12 w-full">
-            {[
-              "/images/lembar_mewarnai_1.png",
-              "/images/lembar_mewarnai_2.png",
-              "/images/lembar_mewarnai_3.png",
-              "/images/lembar_mewarnai_4.png",
-              "/images/lembar_mewarnai_5.png",
-              "/images/lembar_mewarnai_6.png",
-            ].map((img, i) => (
-              <img key={i} src={img} className="w-full max-h-[90vh] object-contain mx-auto" style={{ pageBreakAfter: 'always' }} alt={`Lembar Mewarnai ${i+1}`} />
-            ))}
-          </div>
         </div>
       </div>
     </main>
