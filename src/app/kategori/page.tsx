@@ -86,10 +86,35 @@ export default function KategoriPage() {
       <div className="w-full flex-1 flex items-center justify-center pt-24 pb-12">
         <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl mx-auto gap-12 px-4 sm:px-8">
           
-          <div className="text-center lg:text-left relative z-10 w-full lg:w-[45%]">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black text-gray-900 tracking-tight mb-4 md:mb-6 leading-[1.1]">
-              Pilih <span className="text-google-blue">Tema</span><br className="hidden lg:block" /> Mewarnaimu!
-            </h1>
+          <div className="text-center lg:text-left relative z-10 w-full lg:w-[45%] flex flex-col items-center lg:items-start">
+            
+            <div className="flex flex-row items-center justify-center gap-0 mb-6 scale-90 sm:scale-100 lg:origin-left lg:translate-x-[-20px]">
+              {/* Left Bracket (Kurung Kurawal Kuning) */}
+              <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 translate-x-6 md:translate-x-8">
+                <path d="M 40 10 L 33 10 A 13 13 0 0 0 20 23 L 20 35 L 10 45 L 20 55 L 20 67 A 13 13 0 0 0 33 80 L 40 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <path d="M 40 10 L 33 10 A 13 13 0 0 0 20 23 L 20 35 L 10 45 L 20 55 L 20 67 A 13 13 0 0 0 33 80 L 40 80" stroke="#FBBC04" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+
+              {/* Center Content */}
+              <div className="flex flex-col items-center justify-center px-0 w-[180px] md:w-[240px]">
+                <h1 className="text-3xl md:text-[2.75rem] font-black text-gray-900 tracking-tight text-center mb-1 leading-none">
+                  Kategori
+                  <br />
+                  <span className="text-google-blue">Edukasi</span>
+                </h1>
+                
+                {/* Location Pill Badge */}
+                <div className="-mt-1 relative z-10 px-5 py-0.5 border-[2px] border-[#202124] rounded-full flex items-center justify-center bg-white">
+                  <span className="text-[#202124] font-bold text-sm">UBP Karawang</span>
+                </div>
+              </div>
+
+              {/* Right Bracket (Kurung Kurawal Kuning) */}
+              <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 -translate-x-6 md:-translate-x-8">
+                <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#FBBC04" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+            </div>
             <p className="text-sm sm:text-base md:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-12">
               Mari belajar memilah sampah dengan cara yang menyenangkan. Pilih salah satu kategori di samping untuk mulai mewarnai!
             </p>
