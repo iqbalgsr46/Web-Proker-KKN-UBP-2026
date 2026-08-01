@@ -1,5 +1,6 @@
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import Image from "next/image";
+import ScrambledText from "@/components/ui/ScrambledText";
 import Masonry from "@/components/ui/Masonry";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { Iphone } from "@/components/ui/iphone";
@@ -194,9 +195,15 @@ export default function GaleriPage() {
           </div>
 
           <div className="mt-16 md:mt-24 w-full flex justify-center px-6">
-            <p className="text-center text-gray-500 font-medium text-lg md:text-xl leading-relaxed max-w-4xl">
+            <ScrambledText 
+              className="text-center text-gray-500 font-medium text-lg md:text-xl leading-relaxed"
+              radius={150}
+              duration={1.5}
+              speed={0.4}
+              scrambleChars=".:/\"
+            >
               Setiap coretan warna di atas adalah cerminan dari imajinasi cemerlang anak-anak dalam memahami betapa pentingnya menjaga kelestarian lingkungan kita bersama. Melalui karya sederhana ini, mereka belajar membuang sampah pada tempatnya, merawat pepohonan, serta menjaga sungai tetap bersih demi masa depan bumi yang lebih hijau dan bahagia.
-            </p>
+            </ScrambledText>
           </div>
         </div>
         
