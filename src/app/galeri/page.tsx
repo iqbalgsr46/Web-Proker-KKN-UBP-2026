@@ -170,7 +170,7 @@ export default function GaleriPage() {
                 '/images/sampah_plastik_1785520595637.png',
                 '/images/sampah_b3_1785520616565.png',
               ].map((src, i) => (
-                <div key={`row1-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-900 shadow-sm bg-white mx-2">
+                <div key={`row1-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
                   <img src={src} alt="Karya Mewarnai" className="h-full w-full object-cover" />
                 </div>
               ))}
@@ -183,7 +183,7 @@ export default function GaleriPage() {
                 '/images/sampah_anorganik_1785520823589.png', 
                 '/images/sampah_organik_1785520585331.png', 
               ].map((src, i) => (
-                <div key={`row2-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-900 shadow-sm bg-white mx-2">
+                <div key={`row2-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
                   <img src={src} alt="Karya Mewarnai" className="h-full w-full object-cover" />
                 </div>
               ))}
