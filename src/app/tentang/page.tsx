@@ -305,12 +305,29 @@ export default function TentangPage() {
               >
                 ✕
               </button>
-              
               <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-6 w-full text-center tracking-tight">Tentang EduColoring</h3>
               
               <div className="w-full overflow-y-auto max-h-[70vh] flex flex-col gap-4 text-gray-700 custom-scrollbar px-2 sm:px-4 pb-4">
-                {/* White Container for Text */}
+                {/* White Container for Text & Profile */}
                 <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-4">
+                  
+                  {/* Tweet Profile Header Recreated */}
+                  <div className="flex items-center gap-3 mb-2">
+                    <img 
+                      src="https://pbs.twimg.com/profile_images/1628172918809223170/XzB3N7qZ_400x400.jpg" 
+                      alt="Dillion Profile" 
+                      className="w-12 h-12 rounded-full object-cover"
+                      onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Dillion&background=random' }}
+                    />
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-1">
+                        <span className="font-bold text-[15px] text-gray-900 leading-5">Dillion</span>
+                        <svg viewBox="0 0 24 24" aria-label="Verified account" className="w-[1.1rem] h-[1.1rem] text-[#1d9bf0] fill-current"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.918-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.337 2.25c-.416-.165-.866-.25-1.336-.25-2.21 0-3.918 1.792-3.918 4 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.46.827 2.728 2.034 3.393-.035.195-.053.395-.053.607 0 2.21 1.71 3.998 3.918 3.998.47 0 .92-.084 1.336-.25C9.182 21.585 10.49 22.5 12 22.5s2.816-.917 3.337-2.25c.416.165.866.25 1.336.25 2.21 0 3.918-1.792 3.918-4 0-.212-.018-.412-.053-.607 1.207-.665 2.034-1.933 2.034-3.393zm-13.064 2.81l-3.32-3.313 1.413-1.415 1.865 1.867 5.76-6.577 1.5 1.315-7.218 8.123z"></path></g></svg>
+                      </div>
+                      <span className="text-[15px] text-gray-500 leading-5">@dillionverma</span>
+                    </div>
+                  </div>
+
                   <p className="text-base sm:text-lg leading-relaxed text-justify">
                     Kami adalah kelompok mahasiswa Kuliah Kerja Nyata (KKN) Universitas Buana Perjuangan Karawang tahun 2026. Melalui program <strong>EduColoring</strong>, kami berinovasi untuk membawa perubahan positif bagi masyarakat desa.
                   </p>
