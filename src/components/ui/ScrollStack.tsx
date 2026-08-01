@@ -25,6 +25,54 @@ interface ScrollStackProps {
   scaleEndPosition?: string;
 }
 
+interface ScrollStackNodeProps {
+  child: ReactNode;
+  index: number;
+  total: number;
+  baseScale: number;
+  itemScale: number;
+  itemDistance: number;
+  parsedStackPosition: number;
+  scrollYProgress: import("framer-motion").MotionValue<number>;
+}
+
+const ScrollStackNode: React.FC<ScrollStackNodeProps> = ({
+  child,
+  index,
+  total,
+  baseScale,
+  itemScale,
+  itemDistance,
+  parsedStackPosition,
+  scrollYProgress
+}) => {
+  const startShrink = index / total;
+  const endShrink = 1;
+  const targetScale = baseScale + index * itemScale;
+
+  const scale = useTransform(
+    scrollYProgress,
+    [startShrink, endShrink],
+    [1, targetScale]
+  );
+
+  const topPosition = parsedStackPosition + (index * itemDistance);
+
+  return (
+    <motion.div
+      className="sticky w-full origin-top"
+      style={{
+        top: `${topPosition}px`,
+        marginTop: index === 0 ? '0' : '60vh',
+        scale,
+        zIndex: index + 10,
+      }}
+    >
+      {child}
+    </motion.div>
+  );
+};
+
 const ScrollStack: React.FC<ScrollStackProps> = ({
   children,
   className = '',
@@ -49,49 +97,23 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       ref={containerRef} 
       className={`relative w-full ${className}`.trim()}
       style={{
-        // Give enough scroll space for all items to stack. 
-        // 50vh per item gives a nice pacing.
         height: `${total * 60}vh`,
-        paddingBottom: '30vh' // Space after all items have stacked
+        paddingBottom: '30vh' 
       }}
     >
-      {items.map((child, index) => {
-        // Calculate when this specific card should start shrinking
-        // If there are 5 cards, card 0 starts shrinking at 0, card 1 at 0.25, etc.
-        const startShrink = index / total;
-        const endShrink = 1;
-
-        // Target scale for this specific card when fully stacked
-        const targetScale = baseScale + index * itemScale;
-
-        // Framer motion transforms
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const scale = useTransform(
-          scrollYProgress,
-          [startShrink, endShrink],
-          [1, targetScale]
-        );
-
-        // Calculate sticky top position for native CSS pinning
-        const topPosition = parsedStackPosition + (index * itemDistance);
-
-        return (
-          <motion.div
-            key={index}
-            className="sticky w-full origin-top"
-            style={{
-              top: `${topPosition}px`,
-              // Initial spacing before they stick (only apply to items after the first one)
-              marginTop: index === 0 ? '0' : '60vh',
-              scale,
-              // z-index ensures later cards stack on top of earlier ones
-              zIndex: index + 10,
-            }}
-          >
-            {child}
-          </motion.div>
-        );
-      })}
+      {items.map((child, index) => (
+        <ScrollStackNode
+          key={index}
+          child={child}
+          index={index}
+          total={total}
+          baseScale={baseScale}
+          itemScale={itemScale}
+          itemDistance={itemDistance}
+          parsedStackPosition={parsedStackPosition}
+          scrollYProgress={scrollYProgress}
+        />
+      ))}
     </div>
   );
 };
