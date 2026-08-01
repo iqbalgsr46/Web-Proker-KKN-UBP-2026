@@ -56,7 +56,7 @@ const categories = [
 
 export default function KategoriPage() {
   return (
-    <div className="relative w-full min-h-screen overflow-x-hidden flex flex-col bg-gray-50/50">
+    <div className="relative w-full min-h-[100dvh] flex flex-col bg-gray-50/50">
       <div className="absolute top-0 w-full z-50">
         <Navbar />
       </div>
