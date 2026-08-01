@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
@@ -11,9 +11,11 @@ import CircularGallery from "@/components/ui/CircularGallery";
 import ScrollStack from "@/components/ui/ScrollStack";
 import { ScrollStackItem } from "@/components/ui/ScrollStack";
 import { TextReveal } from "@/registry/magicui/text-reveal";
+import { ClientTweetCard } from "@/registry/magicui/client-tweet-card";
 
 export default function TentangPage() {
   const [showGallery, setShowGallery] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Tunda pemuatan WebGL yang sangat berat selama 1.5 detik
@@ -170,9 +172,11 @@ export default function TentangPage() {
               </h3>
               <p className="text-sm sm:text-base text-gray-600 font-medium italic mb-6">Mewujudkan desa cerdas bebas sampah</p>
               
-              <PillButton variant="green" className="px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg shadow-lg">
-                Kenali Kami Lebih Dekat
-              </PillButton>
+              <div onClick={() => setIsModalOpen(true)}>
+                <PillButton variant="green" className="px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg shadow-lg cursor-pointer">
+                  Kenali Kami Lebih Dekat
+                </PillButton>
+              </div>
             </div>
             
             {/* Background giant C logo equivalent (Yellow shape) */}
@@ -276,6 +280,42 @@ export default function TentangPage() {
         </div>
 
       </motion.main>
+
+      {/* TWEET MODAL POPUP */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="relative w-full max-w-lg bg-white rounded-3xl p-6 shadow-2xl flex flex-col items-center border border-white/20"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-gray-600 font-bold"
+              >
+                ✕
+              </button>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-4 w-full text-center">Tentang Kami Lebih Dekat</h3>
+              
+              <div className="w-full overflow-y-auto max-h-[70vh] flex justify-center custom-scrollbar">
+                <ClientTweetCard id="1668408059125702661" />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
