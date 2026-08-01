@@ -3,6 +3,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
 import CardSwap, { Card } from "@/components/ui/CardSwap";
+import Masonry from "@/components/ui/Masonry";
 
 const categories = [
   {
@@ -51,10 +52,10 @@ const categories = [
 
 export default function KategoriPage() {
   return (
-    <main className="h-[100dvh] bg-transparent relative flex flex-col items-center justify-center overflow-hidden">
+    <main className="min-h-[100dvh] bg-transparent relative flex flex-col items-center justify-start overflow-x-hidden w-full">
 
       {/* Latar Belakang Warna-Warni ala Tailwind CSS (Mesh Gradient) */}
-      <div className="absolute inset-0 -z-10 pointer-events-none bg-white">
+      <div className="fixed inset-0 -z-10 pointer-events-none bg-white">
         
         {/* 7 Abstract Blobs Scattered in Background */}
         <AbstractBlob type="gemini-spark" color="blue" className="absolute top-[5%] left-[-5%] w-64 md:w-96 h-64 md:h-96 opacity-50 rotate-12 pointer-events-none transform-gpu" />
@@ -177,6 +178,28 @@ export default function KategoriPage() {
             </CardSwap>
           </div>
         </div>
+      </div>
+
+      {/* MASONRY GALLERY SECTION */}
+      <div className="w-full max-w-[90rem] mx-auto px-4 sm:px-8 py-12 md:py-24 relative z-10">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight">Karya Inspiratif</h2>
+          <p className="text-gray-600 mt-3 font-medium text-lg">Beberapa hasil mewarnai menakjubkan karya anak-anak!</p>
+        </div>
+        
+        <Masonry 
+          items={[
+            { id: "1", img: "/images/coloring_recycle_bin.png", url: "#", height: 400 },
+            { id: "2", img: "/images/coloring_plant_tree.png", url: "#", height: 300 },
+            { id: "3", img: "/images/coloring_clean_river.png", url: "#", height: 400 },
+            { id: "4", img: "/images/coloring_sorting_trash.png", url: "#", height: 400 },
+            { id: "5", img: "/images/coloring_bicycle_park.png", url: "#", height: 300 },
+            { id: "6", img: "/images/coloring_happy_earth.png", url: "#", height: 400 },
+            { id: "7", img: "/images/coloring_plant_tree.png", url: "#", height: 350 },
+            { id: "8", img: "/images/coloring_clean_river.png", url: "#", height: 450 },
+          ]}
+          colorShiftOnHover={true}
+        />
       </div>
     </main>
   );
