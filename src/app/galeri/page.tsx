@@ -40,39 +40,40 @@ export default function GaleriPage() {
         <AbstractBlob type="hexagon" color="red" className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[45rem] h-[45rem] opacity-10 rotate-[20deg] pointer-events-none transform-gpu blur-[4px]" />
         <AbstractBlob type="spark" color="yellow" className="absolute top-[55%] left-[35%] w-32 md:w-40 h-32 md:h-40 opacity-30 rotate-[105deg] pointer-events-none transform-gpu" />
         <AbstractBlob type="circle-spark" color="blue" className="absolute top-[35%] right-[45%] w-24 md:w-32 h-24 md:h-32 opacity-40 -rotate-[85deg] pointer-events-none transform-gpu" />
+        
+        {/* Overlay blur ekstrim untuk membuat efek Mesh Gradient yang sangat halus (warna blur) */}
+        <div className="absolute inset-0 backdrop-blur-[120px] z-[5]"></div>
       </div>
 
       <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-8 mt-16 md:mt-24 z-10 overflow-hidden">
         
-        <GlassCard className="w-full max-w-7xl mx-auto rounded-[3rem] p-6 sm:p-12 shadow-2xl relative mb-24 min-h-[700px] flex flex-col">
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight text-center mb-10 mt-4">
-            Galeri <span className="text-google-blue">Karya Anak</span>
-          </h2>
-          
-          {/* Masonry Layout */}
-          <div className="w-full flex-1 relative">
-            <Masonry
-              items={[
-                { id: "1", img: "https://picsum.photos/id/1015/600/900?grayscale", url: "#", height: 400 },
-                { id: "2", img: "https://picsum.photos/id/1011/600/750?grayscale", url: "#", height: 250 },
-                { id: "3", img: "https://picsum.photos/id/1020/600/800?grayscale", url: "#", height: 600 },
-                { id: "4", img: "https://picsum.photos/id/1024/600/600?grayscale", url: "#", height: 350 },
-                { id: "5", img: "https://picsum.photos/id/1025/600/900?grayscale", url: "#", height: 450 },
-                { id: "6", img: "https://picsum.photos/id/1035/600/800?grayscale", url: "#", height: 300 },
-                { id: "7", img: "https://picsum.photos/id/1036/600/750?grayscale", url: "#", height: 500 },
-                { id: "8", img: "https://picsum.photos/id/1040/600/900?grayscale", url: "#", height: 350 },
-              ]}
-              ease="power3.out"
-              duration={0.6}
-              stagger={0.05}
-              animateFrom="bottom"
-              scaleOnHover={true}
-              hoverScale={0.95}
-              blurToFocus={true}
-              colorShiftOnHover={false}
-            />
-          </div>
-        </GlassCard>
+        <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight text-center mb-10 mt-4">
+          Galeri <span className="text-google-blue">Karya Anak</span>
+        </h2>
+        
+        {/* Masonry Layout without GlassCard wrapper */}
+        <div className="w-full max-w-7xl mx-auto mb-24 relative min-h-[700px]">
+          <Masonry
+            items={[
+              { id: "1", img: "https://picsum.photos/id/1015/600/900?grayscale", url: "#", height: 400 },
+              { id: "2", img: "https://picsum.photos/id/1011/600/750?grayscale", url: "#", height: 250 },
+              { id: "3", img: "https://picsum.photos/id/1020/600/800?grayscale", url: "#", height: 600 },
+              { id: "4", img: "https://picsum.photos/id/1024/600/600?grayscale", url: "#", height: 350 },
+              { id: "5", img: "https://picsum.photos/id/1025/600/900?grayscale", url: "#", height: 450 },
+              { id: "6", img: "https://picsum.photos/id/1035/600/800?grayscale", url: "#", height: 300 },
+              { id: "7", img: "https://picsum.photos/id/1036/600/750?grayscale", url: "#", height: 500 },
+              { id: "8", img: "https://picsum.photos/id/1040/600/900?grayscale", url: "#", height: 350 },
+            ]}
+            ease="power3.out"
+            duration={0.6}
+            stagger={0.05}
+            animateFrom="bottom"
+            scaleOnHover={true}
+            hoverScale={0.95}
+            blurToFocus={true}
+            colorShiftOnHover={false}
+          />
+        </div>
 
       </main>
       
