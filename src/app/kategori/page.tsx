@@ -120,7 +120,7 @@ export default function KategoriPage() {
             </p>
             <Link href="/mewarnai/organik" className="inline-block">
               <PillButton variant="blue" className="px-8 py-3 sm:px-10 sm:py-4 text-sm sm:text-lg shadow-lg hover:shadow-xl">
-                Mulai Mewarnai
+                Lihat Lembar Gambar Mewarnai
               </PillButton>
             </Link>
           </div>
