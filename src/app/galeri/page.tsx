@@ -112,14 +112,14 @@ export default function GaleriPage() {
         <div className="w-full max-w-7xl mx-auto mb-24 relative min-h-[700px]">
           <Masonry
             items={[
-              { id: "1", img: "https://picsum.photos/id/1015/600/900?grayscale", url: "#", height: 400 },
-              { id: "2", img: "https://picsum.photos/id/1011/600/750?grayscale", url: "#", height: 250 },
-              { id: "3", img: "https://picsum.photos/id/1020/600/800?grayscale", url: "#", height: 600 },
-              { id: "4", img: "https://picsum.photos/id/1024/600/600?grayscale", url: "#", height: 350 },
-              { id: "5", img: "https://picsum.photos/id/1025/600/900?grayscale", url: "#", height: 450 },
-              { id: "6", img: "https://picsum.photos/id/1035/600/800?grayscale", url: "#", height: 300 },
-              { id: "7", img: "https://picsum.photos/id/1036/600/750?grayscale", url: "#", height: 500 },
-              { id: "8", img: "https://picsum.photos/id/1040/600/900?grayscale", url: "#", height: 350 },
+              { id: "1", img: "/images/coloring_recycle_bin.png", url: "#", height: 400 },
+              { id: "2", img: "/images/coloring_plant_tree.png", url: "#", height: 250 },
+              { id: "3", img: "/images/coloring_clean_river.png", url: "#", height: 600 },
+              { id: "4", img: "/images/coloring_happy_earth.png", url: "#", height: 350 },
+              { id: "5", img: "/images/coloring_sorting_trash.png", url: "#", height: 450 },
+              { id: "6", img: "/images/coloring_bicycle_park.png", url: "#", height: 300 },
+              { id: "7", img: "/images/coloring_recycle_bin.png", url: "#", height: 500 },
+              { id: "8", img: "/images/coloring_plant_tree.png", url: "#", height: 350 },
             ]}
             ease="power3.out"
             duration={0.6}
@@ -164,11 +164,12 @@ export default function GaleriPage() {
           <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
             <Marquee pauseOnHover className="[--duration:20s]">
               {[
-                '/images/sampah_organik_1785520585331.png', 
-                '/images/sampah_anorganik_1785520823589.png', 
-                '/images/sampah_kertas_1785520605700.png',
-                '/images/sampah_plastik_1785520595637.png',
-                '/images/sampah_b3_1785520616565.png',
+                '/images/coloring_recycle_bin.png', 
+                '/images/coloring_plant_tree.png', 
+                '/images/coloring_clean_river.png',
+                '/images/coloring_happy_earth.png',
+                '/images/coloring_sorting_trash.png',
+                '/images/coloring_bicycle_park.png',
               ].map((src, i) => (
                 <div key={`row1-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
                   <img src={src} alt="Karya Mewarnai" className="h-full w-full object-cover" />
@@ -177,11 +178,12 @@ export default function GaleriPage() {
             </Marquee>
             <Marquee reverse pauseOnHover className="[--duration:20s] mt-4">
               {[
-                '/images/sampah_b3_1785520616565.png',
-                '/images/sampah_plastik_1785520595637.png',
-                '/images/sampah_kertas_1785520605700.png',
-                '/images/sampah_anorganik_1785520823589.png', 
-                '/images/sampah_organik_1785520585331.png', 
+                '/images/coloring_bicycle_park.png',
+                '/images/coloring_sorting_trash.png',
+                '/images/coloring_happy_earth.png',
+                '/images/coloring_clean_river.png', 
+                '/images/coloring_plant_tree.png', 
+                '/images/coloring_recycle_bin.png',
               ].map((src, i) => (
                 <div key={`row2-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
                   <img src={src} alt="Karya Mewarnai" className="h-full w-full object-cover" />
