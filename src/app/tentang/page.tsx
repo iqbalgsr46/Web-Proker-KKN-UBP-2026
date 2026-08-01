@@ -180,7 +180,7 @@ export default function TentangPage() {
         {/* ========================================= */}
         {/* SCROLL STACK SECTION (FOTO KKN) */}
         {/* ========================================= */}
-        <GlassCard className="w-full relative z-10 max-w-5xl mx-auto mt-10 mb-0 px-4 sm:px-8 py-10 sm:py-16 rounded-[3rem]">
+        <div className="w-full relative z-10 max-w-5xl mx-auto mt-10 mb-0 px-4 sm:px-8 py-4 sm:py-8">
           
           {/* Invisible wrapper to limit sticky duration to the top 75% of the container */}
           <div className="absolute inset-x-0 top-0 h-[75%] pointer-events-none z-50 pt-10 sm:pt-16">
@@ -238,7 +238,7 @@ export default function TentangPage() {
             </ScrollStackItem>
           </ScrollStack>
           </div>
-        </GlassCard>
+        </div>
 
         {/* ========================================= */}
         {/* THANK YOU SECTION (TEXT REVEAL) */}

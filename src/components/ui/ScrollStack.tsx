@@ -68,6 +68,7 @@ const ScrollStackNode: React.FC<ScrollStackNodeProps> = ({
         marginTop: index === 0 ? '0' : '25px',
         scale,
         zIndex: index + 10,
+        willChange: "transform",
       }}
     >
       {child}
