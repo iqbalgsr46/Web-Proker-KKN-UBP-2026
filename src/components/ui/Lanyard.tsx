@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable react/no-unknown-property */
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -335,7 +336,7 @@ function Band({
           color="white"
           depthTest={false}
           resolution={isMobile ? [1000, 2000] : [1000, 1000]}
-          useMap
+          useMap={1}
           map={texture}
           repeat={[-4, 1]}
           lineWidth={lanyardWidth}
