@@ -99,10 +99,10 @@ export default function KumpulanMewarnaiPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-[90rem] mx-auto px-4 sm:px-8 pt-12 md:pt-24 relative z-10 flex flex-col items-center">
+      <div className="w-full max-w-[90rem] mx-auto px-4 sm:px-8 pt-6 md:pt-12 relative z-10 flex flex-col items-center">
         
         {/* Navigation Back Button */}
-        <div className="w-full flex justify-start mb-8">
+        <div className="w-full flex justify-start mb-4">
           <Link href="/kategori">
             <button className="flex items-center justify-center w-12 h-12 bg-white/70 hover:bg-white text-gray-800 rounded-full shadow-sm hover:shadow-md transition-all border border-gray-200">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
