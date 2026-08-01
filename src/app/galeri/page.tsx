@@ -43,6 +43,16 @@ export default function GaleriPage() {
         
         {/* Overlay blur ekstrim untuk membuat efek Mesh Gradient yang sangat halus (warna blur) */}
         <div className="absolute inset-0 backdrop-blur-[120px] z-[5]"></div>
+        
+        {/* Spark Logos Floating Above the Blur */}
+        <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+          <AbstractBlob type="spark" color="blue" className="absolute top-[15%] left-[8%] w-12 md:w-20 h-12 md:h-20 opacity-30 rotate-12" />
+          <AbstractBlob type="spark" color="yellow" className="absolute top-[35%] right-[12%] w-16 md:w-24 h-16 md:h-24 opacity-25 -rotate-[15deg]" />
+          <AbstractBlob type="spark" color="red" className="absolute bottom-[20%] left-[15%] w-10 md:w-16 h-10 md:h-16 opacity-40 rotate-[30deg]" />
+          <AbstractBlob type="spark" color="green" className="absolute bottom-[25%] right-[20%] w-14 md:w-28 h-14 md:h-28 opacity-20 -rotate-[10deg]" />
+          <AbstractBlob type="spark" color="blue" className="absolute top-[10%] left-[55%] w-8 md:w-12 h-8 md:h-12 opacity-40 -rotate-[25deg]" />
+          <AbstractBlob type="spark" color="red" className="absolute top-[50%] left-[30%] w-20 md:w-32 h-20 md:h-32 opacity-15 rotate-[45deg]" />
+        </div>
       </div>
 
       <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-8 mt-16 md:mt-24 z-10 overflow-hidden">
