@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id            String         @id @default(cuid())
+  name          String
+  slug          String         @unique
+  description   String?
+  imageUrl      String?
+  coloringPages ColoringPage[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model ColoringPage {
+  id            String          @id @default(cuid())
+  categoryId    String
+  title         String
+  slug          String          @unique
+  description   String?
+  objective     String?         // Tujuan edukasi
+  pdfUrl        String
+  thumbnailUrl  String
+  videoUrl      String
+  qrCodeUrl     String?         // Generate URL QR Code image
+  downloadCount Int             @default(0)
+  category      Category        @relation(fields: [categoryId], references: [id])
+  scans         ScanAnalytic[]
+  submissions   Submission[]
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+}
+
+model ScanAnalytic {
+  id             String       @id @default(cuid())
+  coloringPageId String
+  userAgent      String?
+  scannedAt      DateTime     @default(now())
+  coloringPage   ColoringPage @relation(fields: [coloringPageId], references: [id], onDelete: Cascade)
+}
+
+// Status: PENDING, APPROVED, REJECTED
+model Submission {
+  id             String       @id @default(cuid())
+  coloringPageId String
+  submitterName  String       // Nama ortu/guru
+  childName      String       // Nama anak
+  imageUrl       String
+  status         String       @default("PENDING") 
+  createdAt      DateTime     @default(now())
+  coloringPage   ColoringPage @relation(fields: [coloringPageId], references: [id], onDelete: Cascade)
+}

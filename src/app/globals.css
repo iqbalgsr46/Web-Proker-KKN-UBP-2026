@@ -2,25 +2,71 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #202124;
+  
+  /* Google GDG Colors */
+  --google-blue: #4285F4;
+  --google-red: #EA4335;
+  --google-yellow: #FBBC04;
+  --google-green: #34A853;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  
+  --color-google-blue: var(--google-blue);
+  --color-google-red: var(--google-red);
+  --color-google-yellow: var(--google-yellow);
+  --color-google-green: var(--google-green);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Tema selalu terang (Light Mode) */
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Animasi kilau kaca (Premium Glass Shimmer) - Multi-layered Glare */
+@keyframes premiumShimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  30% {
+    transform: translateX(50%) translateY(50%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(50%) translateY(50%) rotate(45deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-premium-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.4) 47%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.1) 52%,
+    rgba(255, 255, 255, 0.5) 55%,
+    transparent 60%
+  );
+  animation: premiumShimmer 10s infinite ease-in-out;
+}
+
+/* Animasi Infinite Marquee dengan GPU Acceleration */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(calc(-100% - 1.5rem), 0, 0); /* 100% of its width + 1.5rem (gap-6) */ }
+}
+
+.animate-marquee {
+  animation: marquee 8s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
