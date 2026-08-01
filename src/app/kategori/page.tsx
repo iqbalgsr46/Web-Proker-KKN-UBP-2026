@@ -349,9 +349,9 @@ export default function KategoriPage() {
         </div>
 
         {/* ========================================= */}
-        {/* THANK YOU SECTION (TEXT REVEAL & LANYARD) */}
+        {/* THANK YOU SECTION (TEXT REVEAL) */}
         {/* ========================================= */}
-        <div className="w-full relative z-10 flex flex-col items-center mt-32 md:mt-64 mb-32 max-w-[90rem] mx-auto py-24 lg:py-32 px-8 md:px-16 lg:px-24">
+        <div className="w-full relative z-10 flex flex-col items-center mt-10 md:mt-32 mb-32 max-w-[90rem] mx-auto py-10 lg:py-32 px-8 md:px-16 lg:px-24">
           {/* Teks Ucapan (Tengah) */}
           <div className="w-full max-w-5xl relative py-10 text-center">
             <div className="leading-[1.9] text-gray-800 text-lg md:text-xl">
