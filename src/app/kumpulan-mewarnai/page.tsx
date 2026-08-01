@@ -190,7 +190,7 @@ export default function KumpulanMewarnaiPage() {
         </div>
 
         {/* Ekosistem Animasi */}
-        <div className="w-full max-w-4xl mx-auto mt-24 mb-10 print:hidden text-center relative z-10 bg-white/40 backdrop-blur-xl border border-white/60 p-8 rounded-[3rem] shadow-sm">
+        <div className="w-full max-w-4xl mx-auto mt-24 mb-10 print:hidden text-center relative z-10 py-8">
           <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Jejaring Edukasi Kita</h2>
           <p className="text-gray-600 mb-8 font-medium">Menghubungkan anak-anak, kreativitas, dan lingkungan melalui EduColoring.</p>
           <AnimatedBeamDemo />
