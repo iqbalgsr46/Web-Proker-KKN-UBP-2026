@@ -51,7 +51,7 @@ export const TextReveal: FC<TextRevealByWordProps> = ({
 
 interface WordProps {
   children: ReactNode;
-  progress: any;
+  progress: import("framer-motion").MotionValue<number>;
   range: [number, number];
 }
 

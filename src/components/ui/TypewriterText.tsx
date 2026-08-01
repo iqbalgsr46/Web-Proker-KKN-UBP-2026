@@ -30,7 +30,9 @@ export function TypewriterText({ words = [] }: { words: string[] }) {
 
     if (subIndex <= 0 && reverse) {
       // Setelah terhapus semua, lanjut ke kata berikutnya
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setReverse(false);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIndex((prev) => (prev + 1) % words.length);
       return;
     }

@@ -9,6 +9,7 @@ export function SmoothScrolling({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Detect touch devices — disable Lenis on mobile to prevent conflicts
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsTouchDevice(isTouch);
   }, []);
 

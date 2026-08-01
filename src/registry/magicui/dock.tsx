@@ -27,7 +27,7 @@ export function Dock({ className, children, direction = "middle" }: DockProps) {
           if (typeof child.type === "string") {
             return child;
           }
-          return React.cloneElement(child as any, { mouseX });
+          return React.cloneElement(child as React.ReactElement, { mouseX });
         }
         return child;
       })}
@@ -38,13 +38,14 @@ export function Dock({ className, children, direction = "middle" }: DockProps) {
 export interface DockIconProps {
   className?: string;
   children: React.ReactNode;
-  mouseX?: any;
+  mouseX?: import("framer-motion").MotionValue<number>;
 }
 
 export function DockIcon({ className, children, mouseX }: DockIconProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const defaultMouseX = useMotionValue(Infinity);
 
-  const distance = useTransform(mouseX ?? useMotionValue(Infinity), (val: number) => {
+  const distance = useTransform(mouseX ?? defaultMouseX, (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
