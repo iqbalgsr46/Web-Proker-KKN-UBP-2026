@@ -133,7 +133,7 @@ export default function GaleriPage() {
           </h3>
           <div className="w-[300px] md:w-[350px]">
             <Iphone 
-              src="https://picsum.photos/id/237/400/800" 
+              src="/iphone_screen_coloring.png" 
               className="w-full h-auto drop-shadow-2xl" 
             />
           </div>
