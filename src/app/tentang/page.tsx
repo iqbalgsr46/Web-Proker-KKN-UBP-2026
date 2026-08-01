@@ -181,7 +181,7 @@ export default function TentangPage() {
         {/* SCROLL STACK SECTION (FOTO KKN) */}
         {/* ========================================= */}
         <div className="w-full relative z-10 max-w-5xl mx-auto mt-10 mb-0 px-4 sm:px-8">
-          <div className="text-center mb-12 relative z-50 pointer-events-none">
+          <div className="text-center mb-8 relative z-50 pointer-events-none sticky top-[80px] sm:top-[100px] bg-white/60 backdrop-blur-xl py-4 px-6 rounded-[2rem] border border-white/60 shadow-sm mx-auto w-fit">
             <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">Dokumentasi Kegiatan</h2>
             <p className="text-gray-600 font-medium mt-2">Momen kebersamaan kami selama di desa Sukamaju</p>
           </div>
@@ -189,7 +189,7 @@ export default function TentangPage() {
           <ScrollStack 
             useWindowScroll={true} 
             itemDistance={20}
-            stackPosition="100px"
+            stackPosition="220px"
             scaleEndPosition="60px"
           >
             <ScrollStackItem itemClassName="rounded-[2.5rem] shadow-2xl overflow-hidden !h-auto aspect-[16/9] relative group !p-0">
