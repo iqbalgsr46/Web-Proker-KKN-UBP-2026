@@ -9,9 +9,19 @@ export interface ScrollStackItemProps {
   children: ReactNode;
 }
 
-export const ScrollStackItem: React.FC<ScrollStackItemProps> = React.memo(({ children, itemClassName = '' }) => (
+const ScrollStackItemComponent: React.FC<ScrollStackItemProps> = ({ children, itemClassName = '' }) => (
   <div className={`scroll-stack-card ${itemClassName}`.trim()}>{children}</div>
-));
+);
+
+export const ScrollStackItem = React.memo(ScrollStackItemComponent);
+ScrollStackItem.displayName = 'ScrollStackItem';
+
+type CardTransform = {
+  translateY: number;
+  scale: number;
+  rotation: number;
+  blur: number;
+};
 
 interface ScrollStackProps {
   className?: string;
@@ -49,7 +59,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const animationFrameRef = useRef<number | null>(null);
   const lenisRef = useRef<Lenis | null>(null);
   const cardsRef = useRef<HTMLElement[]>([]);
-  const lastTransformsRef = useRef(new Map<number, any>());
+  const lastTransformsRef = useRef(new Map<number, CardTransform>());
   const isUpdatingRef = useRef(false);
 
   const cachedOffsetsRef = useRef<Map<HTMLElement, number>>(new Map());
@@ -61,7 +71,13 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       lastScrollTopRef.current = -1;
     };
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+    window.visualViewport?.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+      window.visualViewport?.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const calculateProgress = useCallback((scrollTop: number, start: number, end: number) => {
@@ -202,6 +218,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         const filter = newTransform.blur > 0 ? `blur(${newTransform.blur}px)` : '';
 
         card.style.transform = transform;
+        card.style.webkitTransform = transform;
         card.style.filter = filter;
 
         lastTransformsRef.current.set(i, newTransform);
@@ -245,6 +262,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       // Mobile browsers pause RAF during touch scrolling, but fire scroll events
       // Desktop Lenis may not fire native scroll events, but RAF runs continuously
       window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('touchmove', handleScroll, { passive: true });
+      window.addEventListener('touchend', handleScroll, { passive: true });
       const rafUpdate = () => {
         updateCardTransforms();
         animationFrameRef.current = requestAnimationFrame(rafUpdate);
@@ -317,6 +336,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchmove', handleScroll);
+      window.removeEventListener('touchend', handleScroll);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -340,6 +361,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     blurAmount,
     useWindowScroll,
     onStackComplete,
+    handleScroll,
     setupLenis,
     updateCardTransforms
   ]);

@@ -6,12 +6,43 @@ import { useEffect, useRef } from 'react';
 import './CircularGallery.css';
 
 type GL = Renderer['gl'];
+type WheelEventWithLegacyDelta = WheelEvent & {
+  wheelDelta?: number;
+  detail?: number;
+};
 
-function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
-  let timeout: number;
-  return function (this: any, ...args: Parameters<T>) {
-    window.clearTimeout(timeout);
-    timeout = window.setTimeout(() => func.apply(this, args), wait);
+const WHEEL_SCROLL_MULTIPLIER = 0.012;
+const PAGE_SCROLL_MULTIPLIER = 0.005;
+const TOUCH_DRAG_MULTIPLIER = 0.045;
+const MOUSE_DRAG_MULTIPLIER = 0.028;
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
+}
+
+function normalizeWheelDelta(event: WheelEventWithLegacyDelta): number {
+  let delta = event.deltaY;
+
+  if (!delta && event.wheelDelta) {
+    delta = -event.wheelDelta;
+  } else if (!delta && event.detail) {
+    delta = event.detail;
+  }
+
+  if (event.deltaMode === WheelEvent.DOM_DELTA_LINE) {
+    delta *= 16;
+  } else if (event.deltaMode === WheelEvent.DOM_DELTA_PAGE) {
+    delta *= window.innerHeight;
+  }
+
+  return clamp(delta, -180, 180);
+}
+
+function debounce<TArgs extends unknown[]>(func: (...args: TArgs) => void, wait: number) {
+  let timeout: number | undefined;
+  return (...args: TArgs) => {
+    if (timeout !== undefined) window.clearTimeout(timeout);
+    timeout = window.setTimeout(() => func(...args), wait);
   };
 }
 
@@ -19,11 +50,14 @@ function lerp(p1: number, p2: number, t: number): number {
   return p1 + (p2 - p1) * t;
 }
 
-function autoBind(instance: any): void {
-  const proto = Object.getPrototypeOf(instance);
+function autoBind<T extends object>(instance: T): void {
+  const target = instance as Record<string, unknown>;
+  const proto = Object.getPrototypeOf(instance) as Record<string, unknown>;
   Object.getOwnPropertyNames(proto).forEach(key => {
-    if (key !== 'constructor' && typeof instance[key] === 'function') {
-      instance[key] = instance[key].bind(instance);
+    const value = target[key];
+    if (key !== 'constructor' && typeof value === 'function') {
+      const method = value as (...args: unknown[]) => unknown;
+      target[key] = method.bind(instance);
     }
   });
 }
@@ -481,7 +515,7 @@ class App {
     last: number;
     position?: number;
   };
-  onCheckDebounce: (...args: any[]) => void;
+  onCheckDebounce: () => void;
   renderer!: Renderer;
   gl!: GL;
   camera!: Camera;
@@ -499,9 +533,12 @@ class App {
   boundOnTouchMove!: (e: MouseEvent | TouchEvent) => void;
   boundOnTouchUp!: () => void;
   boundOnKeyDown!: (e: KeyboardEvent) => void;
+  boundOnPageScroll!: () => void;
 
   isDown: boolean = false;
-  start: number = 0;
+  startX: number = 0;
+  startY: number = 0;
+  lastPageScrollY: number = 0;
 
   constructor(
     container: HTMLElement,
@@ -533,10 +570,11 @@ class App {
   }
 
   createRenderer() {
+    const isTouchDevice = window.matchMedia?.('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
     this.renderer = new Renderer({
       alpha: true,
       antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, isTouchDevice ? 1.5 : 2)
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
@@ -555,8 +593,8 @@ class App {
 
   createGeometry() {
     this.planeGeometry = new Plane(this.gl, {
-      heightSegments: 50,
-      widthSegments: 100
+      heightSegments: 28,
+      widthSegments: 56
     });
   }
 
@@ -642,14 +680,19 @@ class App {
   onTouchDown(e: MouseEvent | TouchEvent) {
     this.isDown = true;
     this.scroll.position = this.scroll.current;
-    this.start = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    this.startX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    this.startY = 'touches' in e ? e.touches[0].clientY : e.clientY;
   }
 
   onTouchMove(e: MouseEvent | TouchEvent) {
     if (!this.isDown) return;
-    const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const multiplier = 'touches' in e ? 0.08 : 0.025;
-    const distance = (this.start - x) * (this.scrollSpeed * multiplier);
+    const isTouch = 'touches' in e;
+    const point = isTouch ? e.touches[0] : e;
+    const deltaX = this.startX - point.clientX;
+    const deltaY = this.startY - point.clientY;
+    const dominantDelta = isTouch && Math.abs(deltaY) > Math.abs(deltaX) ? deltaY : deltaX;
+    const multiplier = isTouch ? TOUCH_DRAG_MULTIPLIER : MOUSE_DRAG_MULTIPLIER;
+    const distance = dominantDelta * (this.scrollSpeed * multiplier);
     this.scroll.target = (this.scroll.position ?? 0) + distance;
   }
 
@@ -659,10 +702,22 @@ class App {
   }
 
   onWheel(e: Event) {
-    const wheelEvent = e as WheelEvent;
-    const delta = wheelEvent.deltaY || (wheelEvent as any).wheelDelta || (wheelEvent as any).detail;
-    this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
+    const wheelEvent = e as WheelEventWithLegacyDelta;
+    const delta = normalizeWheelDelta(wheelEvent);
+    this.scroll.target += delta * this.scrollSpeed * WHEEL_SCROLL_MULTIPLIER;
     this.onCheckDebounce();
+  }
+
+  onPageScroll() {
+    const nextScrollY = window.scrollY;
+    const delta = nextScrollY - this.lastPageScrollY;
+    this.lastPageScrollY = nextScrollY;
+
+    const rect = this.container.getBoundingClientRect();
+    const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+    if (!isVisible || Math.abs(delta) < 0.5) return;
+
+    this.scroll.target += delta * this.scrollSpeed * PAGE_SCROLL_MULTIPLIER;
   }
 
   onKeyDown(e: KeyboardEvent) {
@@ -733,9 +788,12 @@ class App {
     this.boundOnTouchMove = this.onTouchMove.bind(this);
     this.boundOnTouchUp = this.onTouchUp.bind(this);
     this.boundOnKeyDown = this.onKeyDown.bind(this);
+    this.boundOnPageScroll = this.onPageScroll.bind(this);
+    this.lastPageScrollY = window.scrollY;
 
     const passiveOpts = { passive: true };
     window.addEventListener('resize', this.boundOnResize, passiveOpts);
+    window.addEventListener('scroll', this.boundOnPageScroll, passiveOpts);
     
     // Bind interaction events to the container instead of window so it doesn't react to global page scrolling
     if (this.container) {
@@ -771,6 +829,7 @@ class App {
   destroy() {
     window.cancelAnimationFrame(this.raf);
     window.removeEventListener('resize', this.boundOnResize);
+    window.removeEventListener('scroll', this.boundOnPageScroll);
     
     if (this.container) {
       this.container.removeEventListener('mousewheel', this.boundOnWheel);
@@ -817,14 +876,15 @@ export default function CircularGallery({
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    if (!container) return;
     let app: App | undefined;
     let isMounted = true;
     let observer: IntersectionObserver;
 
     resolveFont(font, fontUrl).then(resolvedFont => {
-      if (!isMounted || !containerRef.current) return;
-      app = new App(containerRef.current, {
+      if (!isMounted) return;
+      app = new App(container, {
         items,
         bend,
         textColor,
@@ -845,15 +905,15 @@ export default function CircularGallery({
         });
       }, { root: null, threshold: 0 });
       
-      observer.observe(containerRef.current);
+      observer.observe(container);
     });
 
     return () => {
       isMounted = false;
-      if (observer && containerRef.current) observer.unobserve(containerRef.current);
+      if (observer) observer.unobserve(container);
       if (app) app.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase]);
+  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, autoRotateSpeed]);
   return (
     <div
       className="circular-gallery"

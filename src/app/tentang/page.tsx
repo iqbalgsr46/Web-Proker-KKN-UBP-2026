@@ -171,9 +171,9 @@ export default function TentangPage() {
               bend={0.5}
               textColor="#202124"
               borderRadius={0.05}
-              scrollEase={0.02}
+              scrollEase={0.08}
               font="bold 30px 'Inter', sans-serif"
-              scrollSpeed={0.8}
+              scrollSpeed={1.35}
             />
           </div>
         </div>
