@@ -198,9 +198,9 @@ export default function GaleriPage() {
             <DecryptedText 
               text="Setiap coretan warna di atas adalah cerminan dari imajinasi cemerlang anak-anak dalam memahami betapa pentingnya menjaga kelestarian lingkungan kita bersama. Melalui karya sederhana ini, mereka belajar membuang sampah pada tempatnya, merawat pepohonan, serta menjaga sungai tetap bersih demi masa depan bumi yang lebih hijau dan bahagia."
               animateOn="view"
-              revealDirection="center"
-              speed={65}
-              maxIterations={30}
+              revealDirection="start"
+              sequential={true}
+              speed={40}
             />
           </div>
         </div>
