@@ -22,7 +22,7 @@ export function GlassCard({ children, className = "", withShimmer = false, ...pr
         
         {/* Premium Glossy Shimmer Animation (Hanya jika withShimmer true) */}
         {withShimmer && (
-          <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] animate-premium-shimmer pointer-events-none mix-blend-overlay opacity-90" />
+          <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] animate-premium-shimmer pointer-events-none opacity-[0.85] transform-gpu will-change-transform" />
         )}
       </div>
 

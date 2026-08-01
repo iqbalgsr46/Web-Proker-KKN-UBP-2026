@@ -55,6 +55,10 @@ body {
     transparent 60%
   );
   animation: premiumShimmer 10s infinite ease-in-out;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Animasi Infinite Marquee dengan GPU Acceleration */
