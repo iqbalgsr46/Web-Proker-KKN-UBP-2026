@@ -303,8 +303,8 @@ export default function KategoriPage() {
           <ScrollStack 
             useWindowScroll={true} 
             itemDistance={0}
-            stackPosition="140px"
-            scaleEndPosition="40px"
+            stackPosition="30vh"
+            scaleEndPosition="10vh"
           >
             <ScrollStackItem itemClassName="rounded-[2.5rem] shadow-2xl overflow-hidden !h-auto aspect-[16/9] relative group !p-0">
               <img src="/images/kkn_students_placeholder.png" alt="Divisi Pendidikan" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />

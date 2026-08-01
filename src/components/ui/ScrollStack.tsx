@@ -71,8 +71,10 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   }, []);
 
   const parsePercentage = useCallback((value: string | number, containerHeight: number) => {
-    if (typeof value === 'string' && value.includes('%')) {
-      return (parseFloat(value) / 100) * containerHeight;
+    if (typeof value === 'string') {
+      if (value.includes('%')) return (parseFloat(value) / 100) * containerHeight;
+      if (value.includes('vh')) return (parseFloat(value) / 100) * window.innerHeight;
+      if (value.includes('vw')) return (parseFloat(value) / 100) * window.innerWidth;
     }
     return parseFloat(value as string);
   }, []);
