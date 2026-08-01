@@ -326,7 +326,7 @@ export default function TentangPage() {
                   </div>
 
                   <p className="text-base sm:text-lg leading-relaxed text-justify">
-                    Kami adalah kelompok mahasiswa Kuliah Kerja Nyata (KKN) Universitas Buana Perjuangan Karawang tahun 2026. Melalui program <strong>EduColoring</strong>, kami berinovasi untuk membawa perubahan positif bagi masyarakat desa.
+                    Kami adalah kelompok mahasiswa Kuliah Kerja Nyata (KKN) Universitas Buana Perjuangan Karawang tahun 2026. Website ini merupakan luaran dari program utama kami yang berjudul <strong>"Perancangan Media Mewarnai Manual Bertema Pengelolaan Sampah sebagai Sarana Edukasi Lingkungan"</strong>. Melalui <i>platform</i> penyedia lembar mewarnai ini, kami berinovasi untuk membawa perubahan positif bagi masyarakat desa.
                   </p>
                   <div className="bg-google-blue/10 p-4 rounded-2xl border border-google-blue/20">
                     <h4 className="font-bold text-google-blue mb-2">Visi Kami</h4>

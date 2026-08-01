@@ -8,8 +8,8 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "EduColoring | Media Edukasi Lingkungan",
-  description: "Platform media mewarnai edukatif bertema pengelolaan sampah untuk anak-anak.",
+  title: "EduColoring | Perancangan Media Mewarnai Manual Bertema Pengelolaan Sampah",
+  description: "Platform penyedia lembar mewarnai manual bertema pengelolaan sampah sebagai sarana edukasi lingkungan untuk anak-anak.",
 };
 
 import { Navbar } from "@/components/shared/Navbar";

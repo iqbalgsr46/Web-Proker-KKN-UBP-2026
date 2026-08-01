@@ -78,8 +78,8 @@ export default function Home() {
           Mulai dari <span className="text-google-green">Mewarnai!</span>
         </h1>
         
-        <p className="text-lg md:text-2xl text-gray-600 font-medium mb-12 max-w-2xl leading-relaxed text-center">
-          Unduh lembar mewarnai gratis, cetak di rumah, dan biarkan kreativitas anak bercerita tentang lingkungan yang bersih dan sehat.
+        <p className="text-lg md:text-xl text-gray-600 font-medium mb-12 max-w-3xl leading-relaxed text-center">
+          Website penyedia lembar mewarnai khusus untuk program <strong>Perancangan Media Mewarnai Manual Bertema Pengelolaan Sampah sebagai Sarana Edukasi Lingkungan</strong>. Unduh gratis, cetak di rumah, dan biarkan anak belajar sambil berkreasi!
         </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6">
