@@ -1,6 +1,7 @@
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import Masonry from "@/components/ui/Masonry";
 import { MorphingText } from "@/components/ui/morphing-text";
+import { Iphone } from "@/components/ui/iphone";
 
 export default function GaleriPage() {
   return (
@@ -123,6 +124,19 @@ export default function GaleriPage() {
             blurToFocus={true}
             colorShiftOnHover={false}
           />
+        </div>
+
+        {/* iPhone Mockup Preview Section */}
+        <div className="w-full max-w-7xl mx-auto mb-24 flex flex-col items-center justify-center">
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-8 text-center">
+            Tampilan di Ponsel
+          </h3>
+          <div className="w-[300px] md:w-[350px]">
+            <Iphone 
+              src="https://picsum.photos/id/237/400/800" 
+              className="w-full h-auto drop-shadow-2xl" 
+            />
+          </div>
         </div>
 
       </main>
