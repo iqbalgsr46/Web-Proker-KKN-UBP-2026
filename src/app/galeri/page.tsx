@@ -151,7 +151,7 @@ export default function GaleriPage() {
         </div>
         
         {/* Flying Posters Section */}
-        <div className="w-full relative h-[600px] md:h-[800px] mb-24 z-10">
+        <div className="w-full relative h-[600px] md:h-[800px] mb-48 md:mb-64 z-10">
           <div className="absolute top-10 left-1/2 -translate-x-1/2 z-20 text-center w-full px-4 pointer-events-none">
             <h3 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 drop-shadow-md">
               Karya Lainnya
@@ -172,6 +172,9 @@ export default function GaleriPage() {
             ]}
           />
         </div>
+
+        {/* Extra Spacer to lengthen the page */}
+        <div className="h-32 md:h-64 w-full"></div>
 
       </main>
       
