@@ -14,12 +14,12 @@ export function Footer() {
     <footer className="relative w-full overflow-hidden bg-gradient-to-br from-blue-50 via-[#e0e7ff] to-[#f0f9ff] py-16 px-6 sm:px-12 md:px-24">
       <div className="max-w-[90rem] mx-auto relative z-10">
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-4 mb-20 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-20 relative z-20">
           
           {/* Column 1: Alamat */}
-          <div className="md:col-span-4 flex flex-col">
-            <h4 className="text-gray-500 font-semibold mb-6 text-sm">Alamat</h4>
-            <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
+          <div className="md:col-span-6 flex flex-col">
+            <h4 className="text-gray-500 font-semibold mb-5 text-sm">Alamat</h4>
+            <p className="text-gray-600 text-sm leading-loose max-w-sm">
               Posko KKN Universitas Buana Perjuangan Karawang,<br/>
               Desa Sukamaju, Kec. Cikampek,<br/>
               Kab. Karawang, Jawa Barat 41373
@@ -27,9 +27,9 @@ export function Footer() {
           </div>
 
           {/* Column 2: Navigasi */}
-          <div className="md:col-span-4 flex flex-col md:pl-10">
-            <h4 className="text-gray-500 font-semibold mb-6 text-sm">Navigasi</h4>
-            <ul className="flex flex-col gap-4 text-sm text-gray-600 font-medium">
+          <div className="md:col-span-3 flex flex-col">
+            <h4 className="text-gray-500 font-semibold mb-5 text-sm">Navigasi</h4>
+            <ul className="flex flex-col gap-3 text-sm text-gray-600 font-medium">
               <li><Link href="/" className="hover:text-google-blue transition-colors">Beranda</Link></li>
               <li><Link href="/kategori" className="hover:text-google-blue transition-colors">Kategori Mewarnai</Link></li>
               <li><Link href="/galeri" className="hover:text-google-blue transition-colors">Galeri Karya</Link></li>
@@ -38,9 +38,9 @@ export function Footer() {
           </div>
 
           {/* Column 3: Bantuan */}
-          <div className="md:col-span-4 flex flex-col">
-            <h4 className="text-gray-500 font-semibold mb-6 text-sm">Bantuan</h4>
-            <ul className="flex flex-col gap-4 text-sm text-gray-600 font-medium">
+          <div className="md:col-span-3 flex flex-col">
+            <h4 className="text-gray-500 font-semibold mb-5 text-sm">Bantuan</h4>
+            <ul className="flex flex-col gap-3 text-sm text-gray-600 font-medium">
               <li><Link href="#" className="hover:text-google-blue transition-colors">Panduan Penggunaan</Link></li>
               <li><Link href="#" className="hover:text-google-blue transition-colors">FAQ</Link></li>
               <li><Link href="#" className="hover:text-google-blue transition-colors">Syarat & Ketentuan</Link></li>
