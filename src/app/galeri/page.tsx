@@ -111,7 +111,7 @@ export default function GaleriPage() {
         </p>
         
         {/* Masonry Layout without GlassCard wrapper */}
-        <div className="w-full max-w-7xl mx-auto mb-24 relative min-h-[700px]">
+        <div className="w-full max-w-7xl mx-auto mb-20 relative">
           <Masonry
             items={[
               { id: "1", img: "/images/coloring_recycle_bin.webp", url: "#", height: 250 },
