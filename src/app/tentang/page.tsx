@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -11,9 +12,18 @@ import ScrollStack from "@/components/ui/ScrollStack";
 import { ScrollStackItem } from "@/components/ui/ScrollStack";
 import { TextReveal } from "@/registry/magicui/text-reveal";
 
-
-
 export default function TentangPage() {
+  const [showGallery, setShowGallery] = useState(false);
+
+  useEffect(() => {
+    // Tunda pemuatan WebGL yang sangat berat selama 1.5 detik
+    // agar animasi masuk (entrance animation) berjalan mulus tanpa lag.
+    const timer = setTimeout(() => {
+      setShowGallery(true);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="relative w-full min-h-[100dvh] flex flex-col bg-transparent">
 
@@ -178,14 +188,16 @@ export default function TentangPage() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight">Kenali Tim Kami!</h2>
           </div>
           <div className="h-[400px] sm:h-[600px] w-full -mt-6 sm:-mt-16 bg-transparent [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] relative">
-            <CircularGallery
-              bend={0.5}
-              textColor="#202124"
-              borderRadius={0.05}
-              scrollEase={0.08}
-              font="bold 30px 'Inter', sans-serif"
-              scrollSpeed={1.35}
-            />
+            {showGallery && (
+              <CircularGallery
+                bend={0.5}
+                textColor="#202124"
+                borderRadius={0.05}
+                scrollEase={0.08}
+                font="bold 30px 'Inter', sans-serif"
+                scrollSpeed={1.35}
+              />
+            )}
           </div>
         </div>
         {/* ========================================= */}
