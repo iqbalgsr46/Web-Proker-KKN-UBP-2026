@@ -1,46 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
 import Link from "next/link";
 import Masonry from "@/components/ui/Masonry";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { PillButton } from "@/components/ui/PillButton";
 
 export default function KumpulanMewarnaiPage() {
-  const [isDownloading, setIsDownloading] = useState(false);
-
-  const handleDownloadPDF = async () => {
-    try {
-      setIsDownloading(true);
-      const { jsPDF } = await import("jspdf");
-      const doc = new jsPDF("p", "mm", "a4");
-      
-      const images = [
-        "/images/lembar_mewarnai_1.png",
-        "/images/lembar_mewarnai_2.png",
-        "/images/lembar_mewarnai_3.png",
-        "/images/lembar_mewarnai_4.png",
-        "/images/lembar_mewarnai_5.png",
-        "/images/lembar_mewarnai_6.png",
-      ];
-
-      for (let i = 0; i < images.length; i++) {
-        if (i > 0) doc.addPage();
-        
-        // Add image (using width of A4: 210mm, height: auto to fit)
-        // Center the image slightly. A4 dimensions are 210x297mm
-        doc.addImage(images[i], "PNG", 10, 10, 190, 277);
-      }
-      
-      doc.save("Buku_Mewarnai_EduColoring.pdf");
-    } catch (error) {
-      console.error("Gagal membuat PDF", error);
-      alert("Maaf, terjadi kesalahan saat menyiapkan PDF.");
-    } finally {
-      setIsDownloading(false);
-    }
-  };
-
   return (
     <main className="min-h-[100dvh] bg-transparent relative flex flex-col items-center justify-start overflow-x-hidden w-full pb-24">
 
@@ -137,25 +102,18 @@ export default function KumpulanMewarnaiPage() {
         </div>
         
         <div className="mt-16 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full print:hidden">
-          <button 
-            onClick={handleDownloadPDF}
-            disabled={isDownloading}
-            className="flex items-center justify-center gap-2 bg-google-red text-white font-bold py-4 px-8 rounded-[2rem] shadow-md hover:shadow-lg hover:-translate-y-1 active:translate-y-0 transition-all w-full sm:w-auto text-lg disabled:opacity-70 disabled:cursor-not-allowed"
+          <a 
+            href="/Lembar_Mewarnai_Pengelolaan_Sampah.pdf"
+            download="Lembar_Mewarnai_Pengelolaan_Sampah.pdf"
+            className="flex items-center justify-center gap-2 bg-google-red text-white font-bold py-4 px-8 rounded-[2rem] shadow-md hover:shadow-lg hover:-translate-y-1 active:translate-y-0 transition-all w-full sm:w-auto text-lg"
           >
-            {isDownloading ? (
-              <svg className="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-            )}
-            {isDownloading ? "Menyiapkan PDF..." : "Unduh PDF"}
-          </button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Unduh PDF
+          </a>
 
           <button 
             onClick={() => window.print()}
