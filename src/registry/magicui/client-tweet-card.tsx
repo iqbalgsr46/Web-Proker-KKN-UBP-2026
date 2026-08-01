@@ -10,7 +10,7 @@ interface ClientTweetCardProps {
 
 export function ClientTweetCard({ id, className }: ClientTweetCardProps) {
   return (
-    <div className={cn("w-full max-w-lg overflow-hidden", className)}>
+    <div className={cn("w-full max-w-lg overflow-hidden", className)} data-theme="light">
       <Tweet id={id} />
     </div>
   );
