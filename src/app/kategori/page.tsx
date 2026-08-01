@@ -83,7 +83,7 @@ export default function KategoriPage() {
         />
       </div>
 
-      <div className="w-full flex-1 flex items-center justify-center pt-12 pb-32 md:pb-40">
+      <div className="w-full flex-1 flex items-center justify-center pt-4 pb-48 md:pb-64">
         <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl mx-auto gap-12 px-4 sm:px-8">
           
           <div className="text-center lg:text-left relative z-10 w-full lg:w-[45%] flex flex-col items-center lg:items-start">
