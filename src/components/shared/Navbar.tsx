@@ -38,21 +38,27 @@ export function Navbar() {
     <div className="fixed bottom-6 left-0 right-0 z-[100] flex justify-center w-full pointer-events-none px-4">
       <div className="pointer-events-auto">
         <Dock direction="middle">
-          {NAV_ITEMS.map((item) => (
-            <DockIcon key={item.label}>
-              <Link
-                href={item.href}
-                prefetch={true}
-                aria-label={item.label}
-                className="w-full h-full flex items-center justify-center relative group active:scale-90 transition-transform duration-200"
+          {NAV_ITEMS.map((item) => {
+            const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            return (
+              <DockIcon 
+                key={item.label} 
+                className={isActive ? "bg-white/90 border-google-blue/40 shadow-sm" : ""}
               >
-                <item.icon className="w-5 h-5 text-gray-700 lg:group-hover:text-google-blue transition-colors duration-200" />
-                <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 bg-gray-900 text-white text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none whitespace-nowrap shadow-md">
-                  {item.label}
-                </span>
-              </Link>
-            </DockIcon>
-          ))}
+                <Link
+                  href={item.href}
+                  prefetch={true}
+                  aria-label={item.label}
+                  className="w-full h-full flex items-center justify-center relative group active:scale-90 transition-transform duration-200"
+                >
+                  <item.icon className={`w-5 h-5 transition-colors duration-200 ${isActive ? "text-google-blue drop-shadow-sm" : "text-gray-700 lg:group-hover:text-google-blue"}`} />
+                  <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 bg-gray-900 text-white text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none whitespace-nowrap shadow-md">
+                    {item.label}
+                  </span>
+                </Link>
+              </DockIcon>
+            );
+          })}
           <div className="w-px h-8 bg-gray-300 mx-1" />
           <DockIcon>
             <Link
