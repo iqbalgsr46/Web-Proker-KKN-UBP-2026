@@ -96,7 +96,7 @@ export default function KategoriPage() {
               </svg>
 
               {/* Center Content */}
-              <div className="flex flex-col items-center justify-center px-2 w-fit">
+              <div className="flex flex-col items-center justify-center px-4 md:px-6 w-fit">
                 <h1 className="text-3xl md:text-[2.75rem] font-black text-gray-900 tracking-tight text-center mb-1 leading-none">
                   Kategori
                   <br />
