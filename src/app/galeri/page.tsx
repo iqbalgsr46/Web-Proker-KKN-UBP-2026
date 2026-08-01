@@ -50,7 +50,7 @@ export default function GaleriPage() {
         <div className="flex flex-row items-center justify-center gap-2 md:gap-5 mb-10 mt-4 scale-90 md:scale-100">
           
           {/* Left Bracket (Kurung Kurawal Kuning) */}
-          <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 hidden sm:block">
+          <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0">
             {/* Outer thin black border */}
             <path d="M 40 10 L 33 10 A 13 13 0 0 0 20 23 L 20 35 L 10 45 L 20 55 L 20 67 A 13 13 0 0 0 33 80 L 40 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             {/* Inner yellow fill */}
@@ -66,7 +66,7 @@ export default function GaleriPage() {
           </div>
 
           {/* Right Bracket (Kurung Kurawal Kuning) */}
-          <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 hidden sm:block">
+          <svg width="45" height="90" viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0">
             {/* Outer thin black border */}
             <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             {/* Inner yellow fill */}
