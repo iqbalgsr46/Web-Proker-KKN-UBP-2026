@@ -1,3 +1,5 @@
+"use client";
+
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import Image from "next/image";
 import Masonry from "@/components/ui/Masonry";
@@ -109,8 +111,28 @@ export default function GaleriPage() {
           Kumpulan hasil karya mewarnai yang dipenuhi dengan keceriaan dan kreativitas tanpa batas. Lihat bagaimana anak-anak mengekspresikan kepedulian mereka terhadap lingkungan melalui warna!
         </p>
         
+        {/* Proses Kreatif Section */}
+        <div className="w-full max-w-4xl mx-auto mb-16 px-4">
+          <h3 className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight text-center mb-2">Proses di Balik Karya</h3>
+          <p className="text-gray-500 font-medium text-center mb-10">Setiap lembar mewarnai melewati tahapan perancangan yang matang</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { step: "01", color: "bg-google-green/10", icon: "✏️", title: "Riset & Sketsa", desc: "Tim KKN meriset tema pengelolaan sampah dan merancang sketsa awal yang sesuai untuk anak usia dini." },
+              { step: "02", color: "bg-google-yellow/10", icon: "🖍️", title: "Desain & Ilustrasi", desc: "Sketsa dikembangkan menjadi ilustrasi detail dengan garis tebal yang mudah diwarnai oleh anak-anak TK & SD." },
+              { step: "03", color: "bg-google-red/10", icon: "🌟", title: "Uji Coba & Cetak", desc: "Lembar mewarnai diuji langsung bersama anak-anak di desa, lalu disempurnakan dan dicetak." },
+            ].map((item) => (
+              <div key={item.step} className={`backdrop-blur-md border border-white/60 rounded-3xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300 transform-gpu ${item.color}`}>
+                <span className="text-4xl mb-3 block">{item.icon}</span>
+                <div className="text-xs font-black text-gray-800 opacity-60 tracking-widest uppercase mb-1">Langkah {item.step}</div>
+                <h4 className="text-lg font-black text-gray-900 mb-2">{item.title}</h4>
+                <p className="text-sm text-gray-700 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Masonry Layout without GlassCard wrapper */}
-        <div className="w-full max-w-7xl mx-auto mb-20 relative">
+        <div className="w-full max-w-5xl mx-auto mb-20 relative px-2 sm:px-4">
           <Masonry
             items={[
               { id: "1", img: "/images/coloring_recycle_bin.webp", url: "#", height: 250 },
@@ -156,7 +178,7 @@ export default function GaleriPage() {
               Karya Lainnya
             </h3>
             <p className="text-gray-700 font-medium drop-shadow-md">
-              Geser untuk melihat koleksi poster kami
+              Kumpulan hasil karya luar biasa dari teman-teman kita
             </p>
           </div>
 
@@ -170,8 +192,8 @@ export default function GaleriPage() {
                 '/images/coloring_sorting_trash.webp',
                 '/images/coloring_bicycle_park.webp',
               ].map((src, i) => (
-                <div key={`row1-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
-                  <Image src={src} alt="Karya Mewarnai" fill sizes="(max-width: 768px) 192px, 240px" className="object-cover" />
+                <div key={`row1-${i}`} className="relative h-44 w-32 md:h-52 md:w-40 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
+                  <Image src={src} alt="Karya Mewarnai" fill sizes="(max-width: 768px) 128px, 160px" className="object-cover" />
                 </div>
               ))}
             </Marquee>
@@ -184,8 +206,8 @@ export default function GaleriPage() {
                 '/images/coloring_plant_tree.webp', 
                 '/images/coloring_recycle_bin.webp',
               ].map((src, i) => (
-                <div key={`row2-${i}`} className="relative h-64 w-48 md:h-80 md:w-60 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
-                  <Image src={src} alt="Karya Mewarnai" fill sizes="(max-width: 768px) 192px, 240px" className="object-cover" />
+                <div key={`row2-${i}`} className="relative h-44 w-32 md:h-52 md:w-40 overflow-hidden rounded-2xl border border-gray-200/50 shadow-sm bg-white mx-2">
+                  <Image src={src} alt="Karya Mewarnai" fill sizes="(max-width: 768px) 128px, 160px" className="object-cover" />
                 </div>
               ))}
             </Marquee>

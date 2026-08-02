@@ -3,8 +3,8 @@ import React from 'react';
 const partners = [
   { name: "Universitas Nusantara", role: "Logo Kampus", icon: "🏫", color: "text-google-blue" },
   { name: "Fakultas Ilmu Komputer", role: "Logo Fakultas", icon: "🎓", color: "text-google-red" },
-  { name: "Kecamatan Sukamaju", role: "Logo Kecamatan", icon: "🏛️", color: "text-google-yellow" },
-  { name: "Kabupaten Karawang", role: "Logo Kabupaten", icon: "🏙️", color: "text-google-green" },
+  { name: "Kecamatan [Nama Kecamatan]", role: "Logo Kecamatan", icon: "🏛️", color: "text-google-yellow" },
+  { name: "Kab. [Nama Kabupaten]", role: "Logo Kabupaten", icon: "🏙️", color: "text-google-green" },
   { name: "Tim KKN 2026", role: "Logo KKN", icon: "🤝", color: "text-google-blue" },
 ];
 

@@ -100,7 +100,7 @@ export default function KumpulanMewarnaiPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-[90rem] mx-auto px-4 sm:px-8 pt-6 md:pt-12 relative z-10 flex flex-col items-center">
+      <div className="w-full max-w-5xl mx-auto px-4 sm:px-8 pt-6 md:pt-12 relative z-10 flex flex-col items-center">
         
         {/* Navigation Back Button */}
         <div className="w-full flex justify-start mb-4">
@@ -130,8 +130,8 @@ export default function KumpulanMewarnaiPage() {
               Lembar Mewarnai
             </h1>
             
-            {/* Location Pill Badge */}
-            <div className="-mt-2 relative z-10 px-5 py-0.5 border-[2px] border-[#202124] rounded-full flex items-center justify-center bg-white shadow-sm">
+                {/* Location Pill Badge */}
+                <div className="mt-1 relative z-10 px-5 py-0.5 border-[2px] border-[#202124] rounded-full flex items-center justify-center bg-white shadow-sm">
               <span className="text-[#202124] font-bold text-sm">UBP Karawang</span>
             </div>
           </div>
@@ -144,9 +144,22 @@ export default function KumpulanMewarnaiPage() {
 
         </div>
 
-        <p className="text-gray-600 mt-2 mb-12 sm:mb-16 font-medium text-lg text-center px-4 max-w-2xl text-balance print:hidden">
-          Pilih salah satu karya inspiratif di bawah ini!
+        <p className="text-gray-600 mt-2 mb-8 sm:mb-10 font-medium text-lg text-center px-4 max-w-2xl text-balance print:hidden">
+          Unduh, cetak, dan warnai bersama si kecil!
         </p>
+
+        {/* Edukasi Banner */}
+        <div className="w-full max-w-2xl mx-auto mb-12 print:hidden">
+          <div className="bg-pink-500/10 border border-pink-500/30 rounded-3xl p-5 sm:p-6 flex items-start gap-4 backdrop-blur-sm">
+            <span className="text-3xl shrink-0 mt-0.5">📚</span>
+            <div>
+              <h4 className="font-black text-gray-900 text-base mb-1">Untuk Guru & Orang Tua</h4>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Setiap gambar dirancang khusus oleh tim KKN <strong>Universitas Buana Perjuangan Karawang</strong> untuk mengajarkan anak-anak tentang pentingnya memilah dan mengelola sampah sejak dini. Cocok digunakan sebagai media belajar di kelas maupun di rumah.
+              </p>
+            </div>
+          </div>
+        </div>
         
         <div className="w-full">
           <Masonry 
@@ -201,7 +214,7 @@ export default function KumpulanMewarnaiPage() {
         {/* Keterangan Halaman Animasi Text Reveal */}
         <div className="w-full print:hidden z-10 mt-12 mb-24 min-h-[50vh] flex items-center justify-center">
           <TextReveal 
-            text="Setiap coretan warna di atas adalah cerminan dari imajinasi cemerlang anak-anak dalam memahami betapa pentingnya menjaga kelestarian lingkungan kita bersama. Melalui karya sederhana ini, mereka belajar membuang sampah pada tempatnya, merawat pepohonan, serta menjaga sungai tetap bersih demi masa depan bumi yang lebih hijau dan bahagia." 
+            text="Kumpulan lembar mewarnai ini dirancang khusus untuk melatih motorik dan kreativitas anak-anak Sekolah Dasar (SD). Melalui aktivitas mewarnai yang interaktif dan menyenangkan, mereka dapat mengasah daya imajinasi, meningkatkan konsentrasi, sekaligus belajar mengenal lingkungan agar kelak tumbuh menjadi generasi yang cerdas, kreatif, dan peduli pada alam." 
           />
         </div>
       </div>

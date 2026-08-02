@@ -7,7 +7,7 @@ import { AbstractBlob } from "../ui/AbstractBlob";
 export function Footer() {
   const pathname = usePathname();
 
-  if (pathname === "/" || pathname === "/kategori") {
+  if (pathname === "/" || pathname === "/game") {
     return null;
   }
 
@@ -37,8 +37,8 @@ export function Footer() {
             <h4 className="text-gray-900 font-bold mb-6 text-sm uppercase tracking-wider">Alamat</h4>
             <p className="text-gray-600 text-sm leading-loose max-w-sm font-medium">
               Posko KKN Universitas Buana Perjuangan Karawang,<br/>
-              Desa Sukamaju, Kec. Cikampek,<br/>
-              Kab. Karawang, Jawa Barat 41373
+              Desa [Nama Desa], Kec. [Nama Kecamatan],<br/>
+              Kab. [Nama Kabupaten], [Nama Provinsi] [Kode Pos]
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center relative z-20 gap-6 border-t border-gray-900/10 pt-8">
           <p className="text-gray-500 text-xs sm:text-sm max-w-2xl font-bold leading-relaxed">
-            © 2026 Tim KKN Desa Sukamaju | EduColoring adalah platform edukasi mewarnai ceria untuk mengenalkan pentingnya memilah sampah kepada anak-anak sejak dini.
+            © 2026 Tim KKN Desa [Nama Desa] | EduColoring adalah platform edukasi mewarnai ceria untuk mengenalkan pentingnya memilah sampah kepada anak-anak sejak dini.
           </p>
           <div className="flex items-center gap-6 text-xs sm:text-sm text-gray-500 font-bold">
             <Link href="#" className="hover:text-gray-900 transition-colors">Terms</Link>

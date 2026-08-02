@@ -39,7 +39,7 @@ export function AnimatedBeamDemo() {
       className="relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg bg-transparent p-10"
       ref={containerRef}
     >
-      <div className="flex size-full flex-col max-w-lg max-h-[200px] items-stretch justify-between gap-10">
+      <div className="flex size-full flex-col max-w-4xl max-h-[250px] items-stretch justify-between gap-10">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div1Ref}>
             <motion.div animate={{ y: [0, -4, 0], rotate: [0, -5, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
@@ -129,32 +129,31 @@ export function AnimatedBeamDemo() {
         fromRef={div1Ref}
         toRef={div4Ref}
         curvature={-75}
-        endYOffset={-10}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div2Ref}
         toRef={div4Ref}
+        curvature={15}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div3Ref}
         toRef={div4Ref}
         curvature={75}
-        endYOffset={10}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div5Ref}
         toRef={div4Ref}
         curvature={-75}
-        endYOffset={-10}
         reverse
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div6Ref}
         toRef={div4Ref}
+        curvature={15}
         reverse
       />
       <AnimatedBeam
@@ -162,7 +161,6 @@ export function AnimatedBeamDemo() {
         fromRef={div7Ref}
         toRef={div4Ref}
         curvature={75}
-        endYOffset={10}
         reverse
       />
     </div>

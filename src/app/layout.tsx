@@ -8,14 +8,31 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "EduColoring | Perancangan Media Mewarnai Manual Bertema Pengelolaan Sampah",
-  description: "Platform penyedia lembar mewarnai manual bertema pengelolaan sampah sebagai sarana edukasi lingkungan untuk anak-anak.",
+  title: "EduColoring | Media Mewarnai Bertema Pengelolaan Sampah",
+  description: "Platform penyedia lembar mewarnai manual bertema pengelolaan sampah sebagai sarana edukasi lingkungan untuk anak-anak persembahan mahasiswa KKN UBP Karawang.",
+  openGraph: {
+    title: "EduColoring | Media Mewarnai Pengelolaan Sampah",
+    description: "Karya inovatif mahasiswa KKN UBP Karawang untuk mengedukasi anak usia dini tentang lingkungan.",
+    url: "https://educoloring.ubpkarawang.ac.id",
+    siteName: "EduColoring",
+    images: [
+      {
+        url: "https://educoloring.ubpkarawang.ac.id/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "EduColoring Preview",
+      }
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
 };
 
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { SmoothScrolling } from "@/components/shared/SmoothScrolling";
 import { LoadingScreen } from "@/components/shared/LoadingScreen";
+import { LayoutShell } from "@/components/shared/LayoutShell";
 
 export default function RootLayout({
   children,
@@ -28,14 +45,9 @@ export default function RootLayout({
       className={`${plusJakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans relative">
-        <LoadingScreen />
-        <Navbar />
-        <SmoothScrolling>
-          <main className="flex-1 w-full">
-            {children}
-          </main>
-          <Footer />
-        </SmoothScrolling>
+        <LayoutShell>
+          {children}
+        </LayoutShell>
       </body>
     </html>
   );

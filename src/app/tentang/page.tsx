@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -145,7 +146,7 @@ export default function TentangPage() {
               {/* Card 1 */}
               <div className="flex flex-col items-center text-center bg-white/60 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-white transform-gpu">
                 <p className="text-xs sm:text-sm font-semibold text-gray-500 mb-1">Universitas</p>
-                <p className="font-black text-gray-900 text-sm sm:text-base leading-tight">Kampus<br/>Nusantara</p>
+                <p className="font-black text-gray-900 text-sm sm:text-base leading-tight">UBP<br/>Karawang</p>
               </div>
               {/* Card 2 */}
               <div className="flex flex-col items-center text-center bg-white/60 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-white transform-gpu">
@@ -155,12 +156,12 @@ export default function TentangPage() {
               {/* Card 3 */}
               <div className="flex flex-col items-center text-center bg-white/60 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-white transform-gpu">
                 <div className="bg-google-blue text-white text-[0.6rem] sm:text-[0.65rem] font-black px-3 py-0.5 rounded-full mb-1 uppercase tracking-wider">Desa</div>
-                <p className="font-black text-gray-900 text-sm sm:text-base leading-tight">Sukamaju<br/>Jawa Barat</p>
+                <p className="font-black text-gray-900 text-sm sm:text-base leading-tight">Desa<br/>[Nama Desa]</p>
               </div>
               {/* Card 4 */}
               <div className="flex flex-col items-center text-center bg-white/60 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-white transform-gpu">
                 <p className="text-xs sm:text-sm font-semibold text-gray-500 mb-1">Pembimbing</p>
-                <p className="font-black text-gray-900 text-sm sm:text-base leading-tight">Dr. Budi<br/>Santoso</p>
+                <p className="font-black text-gray-900 text-sm sm:text-base leading-tight">Dr. [Nama<br/>Dosen]</p>
               </div>
             </div>
 
@@ -171,11 +172,9 @@ export default function TentangPage() {
               </h3>
               <p className="text-sm sm:text-base text-gray-600 font-medium italic mb-6">Mewujudkan desa cerdas bebas sampah</p>
               
-              <div onClick={() => setIsModalOpen(true)}>
-                <PillButton variant="green" className="px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg shadow-lg cursor-pointer">
-                  Kenali Kami Lebih Dekat
-                </PillButton>
-              </div>
+              <PillButton onClick={() => setIsModalOpen(true)} variant="green" className="px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg shadow-lg cursor-pointer">
+                Kenali Kami Lebih Dekat
+              </PillButton>
             </div>
             
             {/* Background giant C logo equivalent (Yellow shape) */}
@@ -193,6 +192,15 @@ export default function TentangPage() {
           <div className="h-[400px] sm:h-[600px] w-full -mt-6 sm:-mt-16 bg-transparent [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] relative">
             {showGallery && (
               <CircularGallery
+                items={[
+                  { image: "/images/kkn_students_placeholder.png", text: "Dosen: [Nama Dosen]" },
+                  { image: "/images/kkn_students_placeholder.png", text: "Ketua: [Nama Anggota]" },
+                  { image: "/images/kkn_students_placeholder.png", text: "Anggota: [Nama Anggota]" },
+                  { image: "/images/kkn_students_placeholder.png", text: "Anggota: [Nama Anggota]" },
+                  { image: "/images/kkn_students_placeholder.png", text: "Anggota: [Nama Anggota]" },
+                  { image: "/images/kkn_students_placeholder.png", text: "Anggota: [Nama Anggota]" },
+                  { image: "/images/kkn_students_placeholder.png", text: "Anggota: [Nama Anggota]" },
+                ]}
                 bend={0.5}
                 textColor="#202124"
                 borderRadius={0.05}
@@ -212,7 +220,7 @@ export default function TentangPage() {
           <div className="absolute inset-x-0 top-0 h-[75%] pointer-events-none z-50 pt-10 sm:pt-16">
             <div className="text-center sticky top-[80px] sm:top-[100px] bg-white/60 backdrop-blur-xl py-4 px-6 rounded-[2rem] border border-white/60 shadow-sm mx-auto w-fit">
               <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">Dokumentasi Kegiatan</h2>
-              <p className="text-gray-600 font-medium mt-2">Momen kebersamaan kami selama di desa Sukamaju</p>
+              <p className="text-gray-600 font-medium mt-2">Momen kebersamaan kami selama di Desa [Nama Desa]</p>
             </div>
           </div>
           
@@ -273,7 +281,7 @@ export default function TentangPage() {
           {/* Teks Ucapan (Tengah) */}
           <div className="w-full max-w-5xl relative text-center">
             <div className="leading-[1.9] text-gray-800 text-lg md:text-xl">
-              <TextReveal>Terima kasih dari kami tim mahasiswa KKN Universitas Buana Perjuangan Karawang atas semua momen, tawa, dan pengalaman berharga di Desa Sukamaju ini. Kami berharap karya EduColoring ini dapat terus menjadi jembatan ilmu yang menyenangkan bagi anak-anak untuk mengenal dan menjaga lingkungan sejak dini. Pengabdian ini mungkin telah usai, namun kenangan indah bersama kalian akan selalu membekas. Sampai jumpa di lain kesempatan yang lebih gemilang!</TextReveal>
+              <TextReveal>Terima kasih dari kami tim mahasiswa KKN Universitas Buana Perjuangan Karawang atas semua momen, tawa, dan pengalaman berharga di Desa [Nama Desa] ini. Kami berharap karya EduColoring ini dapat terus menjadi jembatan ilmu yang menyenangkan bagi anak-anak untuk mengenal dan menjaga lingkungan sejak dini. Pengabdian ini mungkin telah usai, namun kenangan indah bersama kalian akan selalu membekas. Sampai jumpa di lain kesempatan yang lebih gemilang!</TextReveal>
             </div>
           </div>
         </div>
@@ -281,73 +289,76 @@ export default function TentangPage() {
       </motion.main>
 
       {/* TWEET MODAL POPUP */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
-            onClick={() => setIsModalOpen(false)}
-          >
+      {typeof window !== 'undefined' && createPortal(
+        <AnimatePresence>
+          {isModalOpen && (
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-md bg-white rounded-3xl px-4 py-6 sm:p-6 shadow-2xl flex flex-col items-center border border-gray-200"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
+              onClick={() => setIsModalOpen(false)}
             >
-              <button 
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-gray-600 font-bold"
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                className="relative w-full max-w-md md:max-w-2xl bg-white rounded-3xl px-4 py-6 sm:p-8 md:p-10 shadow-2xl flex flex-col items-center border border-gray-200"
+                onClick={(e) => e.stopPropagation()}
               >
-                ✕
-              </button>
-              
-              <div className="w-full flex flex-col gap-4 text-gray-700 mt-6 px-1">
-                  
-                  {/* Tweet Profile Header Recreated */}
-                  <div className="flex items-center gap-3 mb-2">
-                    <img 
-                      src="https://pbs.twimg.com/profile_images/1628172918809223170/XzB3N7qZ_400x400.jpg" 
-                      alt="Dillion Profile" 
-                      className="w-12 h-12 rounded-full object-cover"
-                      onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Dillion&background=random' }}
-                    />
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-1">
-                        <span className="font-bold text-[15px] text-gray-900 leading-5">Dillion</span>
-                        <svg viewBox="0 0 24 24" aria-label="Verified account" className="w-[1.1rem] h-[1.1rem] text-[#1d9bf0] fill-current"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.918-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.337 2.25c-.416-.165-.866-.25-1.336-.25-2.21 0-3.918 1.792-3.918 4 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.46.827 2.728 2.034 3.393-.035.195-.053.395-.053.607 0 2.21 1.71 3.998 3.918 3.998.47 0 .92-.084 1.336-.25C9.182 21.585 10.49 22.5 12 22.5s2.816-.917 3.337-2.25c.416.165.866.25 1.336.25 2.21 0 3.918-1.792 3.918-4 0-.212-.018-.412-.053-.607 1.207-.665 2.034-1.933 2.034-3.393zm-13.064 2.81l-3.32-3.313 1.413-1.415 1.865 1.867 5.76-6.577 1.5 1.315-7.218 8.123z"></path></g></svg>
+                <button 
+                  onClick={() => setIsModalOpen(false)}
+                  className="absolute top-4 right-4 md:top-6 md:right-6 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-gray-600 font-bold"
+                >
+                  ✕
+                </button>
+                
+                <div className="w-full flex flex-col gap-4 md:gap-5 text-gray-700 mt-6 md:mt-2 px-1">
+                    
+                    {/* Tweet Profile Header Recreated */}
+                    <div className="flex items-center gap-3 mb-2">
+                      <img 
+                        src="https://pbs.twimg.com/profile_images/1628172918809223170/XzB3N7qZ_400x400.jpg" 
+                        alt="Dillion Profile" 
+                        className="w-12 h-12 rounded-full object-cover"
+                        onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Dillion&background=random' }}
+                      />
+                      <div className="flex flex-col">
+                        <div className="flex items-center gap-1">
+                          <span className="font-bold text-[15px] text-gray-900 leading-5">EduColoring</span>
+                          <svg viewBox="0 0 24 24" aria-label="Verified account" className="w-[1.1rem] h-[1.1rem] text-[#1d9bf0] fill-current"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.918-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.337 2.25c-.416-.165-.866-.25-1.336-.25-2.21 0-3.918 1.792-3.918 4 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.46.827 2.728 2.034 3.393-.035.195-.053.395-.053.607 0 2.21 1.71 3.998 3.918 3.998.47 0 .92-.084 1.336-.25C9.182 21.585 10.49 22.5 12 22.5s2.816-.917 3.337-2.25c.416.165.866.25 1.336.25 2.21 0 3.918-1.792 3.918-4 0-.212-.018-.412-.053-.607 1.207-.665 2.034-1.933 2.034-3.393zm-13.064 2.81l-3.32-3.313 1.413-1.415 1.865 1.867 5.76-6.577 1.5 1.315-7.218 8.123z"></path></g></svg>
+                        </div>
+                        <span className="text-[15px] text-gray-500 leading-5">@educoloring</span>
                       </div>
-                      <span className="text-[15px] text-gray-500 leading-5">@dillionverma</span>
                     </div>
-                  </div>
 
-                  <p className="text-base sm:text-lg leading-relaxed text-justify">
-                    Kami adalah kelompok mahasiswa Kuliah Kerja Nyata (KKN) Universitas Buana Perjuangan Karawang tahun 2026. Website ini merupakan luaran dari program utama kami yang berjudul <strong>"Perancangan Media Mewarnai Manual Bertema Pengelolaan Sampah sebagai Sarana Edukasi Lingkungan"</strong>. Melalui <i>platform</i> penyedia lembar mewarnai ini, kami berinovasi untuk membawa perubahan positif bagi masyarakat desa.
-                  </p>
-                  <div className="bg-google-blue/10 p-4 rounded-2xl border border-google-blue/20">
-                    <h4 className="font-bold text-google-blue mb-2">Visi Kami</h4>
-                    <p className="text-sm sm:text-base">Mewujudkan desa cerdas yang adaptif terhadap teknologi edukasi masa kini, sekaligus menanamkan kesadaran sejak dini tentang pentingnya lingkungan yang bebas sampah.</p>
-                  </div>
-                  <div className="bg-google-green/10 p-4 rounded-2xl border border-google-green/20">
-                    <h4 className="font-bold text-google-green mb-2">Misi Utama</h4>
-                    <ul className="list-disc list-inside space-y-1 text-sm sm:text-base">
-                      <li>Memberikan edukasi interaktif berbasis mewarnai untuk anak-anak.</li>
-                      <li>Mengintegrasikan nilai-nilai kebersihan lingkungan dalam media belajar.</li>
-                      <li>Meningkatkan kreativitas dan motorik anak desa.</li>
-                    </ul>
-                  </div>
-                  <p className="text-center font-medium mt-2 text-gray-900">
-                    Mari bersama-sama membangun generasi cerdas dan lingkungan sehat!
-                  </p>
-              </div>
+                    <p className="text-base sm:text-lg leading-relaxed text-justify">
+                      Kami adalah kelompok mahasiswa Kuliah Kerja Nyata (KKN) Universitas Buana Perjuangan Karawang tahun 2026. Website ini merupakan luaran dari program utama kami yang berjudul <strong>"Perancangan Media Mewarnai Manual Bertema Pengelolaan Sampah sebagai Sarana Edukasi Lingkungan"</strong>. Melalui <i>platform</i> penyedia lembar mewarnai ini, kami berinovasi untuk membawa perubahan positif bagi masyarakat desa.
+                    </p>
+                    <div className="bg-google-blue/10 p-4 rounded-2xl border border-google-blue/20">
+                      <h4 className="font-bold text-google-blue mb-2">Visi Kami</h4>
+                      <p className="text-sm sm:text-base">Mewujudkan desa cerdas yang adaptif terhadap teknologi edukasi masa kini, sekaligus menanamkan kesadaran sejak dini tentang pentingnya lingkungan yang bebas sampah.</p>
+                    </div>
+                    <div className="bg-google-green/10 p-4 rounded-2xl border border-google-green/20">
+                      <h4 className="font-bold text-google-green mb-2">Misi Utama</h4>
+                      <ul className="list-disc list-inside space-y-1 text-sm sm:text-base">
+                        <li>Memberikan edukasi interaktif berbasis mewarnai untuk anak-anak.</li>
+                        <li>Mengintegrasikan nilai-nilai kebersihan lingkungan dalam media belajar.</li>
+                        <li>Meningkatkan kreativitas dan motorik anak desa.</li>
+                      </ul>
+                    </div>
+                    <p className="text-center font-medium mt-2 text-gray-900">
+                      Mari bersama-sama membangun generasi cerdas dan lingkungan sehat!
+                    </p>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 }
