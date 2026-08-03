@@ -57,6 +57,7 @@ export interface Item {
   img: string;
   url: string;
   height: number;
+  categoryName?: string;
 }
 
 interface GridItem extends Item {
@@ -76,6 +77,9 @@ export interface MasonryProps {
   hoverScale?: number;
   blurToFocus?: boolean;
   colorShiftOnHover?: boolean;
+  selectable?: boolean;
+  selectedIds?: string[];
+  onItemClick?: (id: string) => void;
 }
 
 const Masonry: React.FC<MasonryProps> = ({
@@ -87,7 +91,10 @@ const Masonry: React.FC<MasonryProps> = ({
   scaleOnHover = true,
   hoverScale = 0.95,
   blurToFocus = true,
-  colorShiftOnHover = false
+  colorShiftOnHover = false,
+  selectable = false,
+  selectedIds = [],
+  onItemClick
 }) => {
   const columns = useMedia(
     ['(min-width:1500px)', '(min-width:1200px)', '(min-width:900px)', '(min-width:600px)', '(min-width:400px)'],
@@ -246,18 +253,51 @@ const Masonry: React.FC<MasonryProps> = ({
   };
 
   return (
-    <div ref={containerRef} className="list" style={{ minHeight: `${Math.max(...(grid.length > 0 ? grid.map(i => i.y + i.h) : [0]))}px` }}>
+    <div ref={containerRef} className="list relative" style={{ minHeight: `${Math.max(...(grid.length > 0 ? grid.map(i => i.y + i.h) : [0]))}px` }}>
       {grid.map(item => {
+        const isSelected = selectedIds.includes(item.id);
+        
         return (
           <div
             key={item.id}
             data-key={item.id}
-            className="item-wrapper"
+            className={`item-wrapper ${selectable ? 'cursor-pointer' : ''}`}
             style={{ width: item.w, height: item.h, transform: `translate(${item.x}px, ${item.y}px)` }}
             onMouseEnter={e => handleMouseEnter(e, item)}
             onMouseLeave={e => handleMouseLeave(e, item)}
+            onClick={() => {
+              if (selectable && onItemClick) {
+                onItemClick(item.id);
+              }
+            }}
           >
-            <div className="item-img" style={{ backgroundImage: `url(${item.img})` }}>
+            <div className={`item-img ${isSelected ? 'ring-4 ring-google-blue rounded-[1.25rem]' : ''} transition-all duration-300 relative`} style={{ backgroundImage: `url(${item.img})` }}>
+              
+              {/* Checkmark Overlay */}
+              {isSelected && (
+                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-google-blue border-2 border-[#202124] text-white rounded-full p-1 shadow-[2px_2px_0px_#202124] z-20 flex items-center justify-center animate-in zoom-in spin-in-[10deg] duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              )}
+
+              {/* Category Badge */}
+              {item.categoryName && (
+                <div className={`absolute bottom-2 left-2 sm:bottom-4 sm:left-4 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-bold text-white rounded-full shadow z-20 ${
+                  item.categoryName.toLowerCase() === 'organik' ? 'bg-google-green' :
+                  item.categoryName.toLowerCase() === 'anorganik' ? 'bg-google-yellow text-gray-900' :
+                  item.categoryName.toLowerCase() === 'b3' ? 'bg-google-red' :
+                  'bg-gray-800'
+                }`}>
+                  {item.categoryName}
+                </div>
+              )}
+              
+              {/* Dim Overlay when selected */}
+              {isSelected && (
+                <div className="absolute inset-0 bg-white/20 rounded-xl z-10 pointer-events-none" />
+              )}
               {colorShiftOnHover && (
                 <div
                   className="color-overlay"

@@ -13,7 +13,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-16 items-center justify-center rounded-full bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
+        "z-10 flex size-14 sm:size-16 shrink-0 items-center justify-center rounded-full bg-white p-2 sm:p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
         className,
       )}
     >
@@ -36,10 +36,10 @@ export function AnimatedBeamDemo() {
 
   return (
     <div
-      className="relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg bg-transparent p-10"
+      className="relative flex h-[350px] sm:h-[500px] w-full items-center justify-center overflow-hidden rounded-lg bg-transparent p-2 sm:p-10 scale-95 sm:scale-100"
       ref={containerRef}
     >
-      <div className="flex size-full flex-col max-w-4xl max-h-[250px] items-stretch justify-between gap-10">
+      <div className="flex size-full flex-col max-w-4xl max-h-[220px] sm:max-h-[250px] items-stretch justify-between gap-6 sm:gap-10">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div1Ref}>
             <motion.div animate={{ y: [0, -4, 0], rotate: [0, -5, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
@@ -70,7 +70,7 @@ export function AnimatedBeamDemo() {
               </svg>
             </motion.div>
           </Circle>
-          <Circle ref={div4Ref} className="size-32 bg-blue-50 relative overflow-hidden group">
+          <Circle ref={div4Ref} className="size-28 sm:size-32 bg-blue-50 relative overflow-hidden group shrink-0 aspect-square">
             {/* Soft pulsing glow behind text */}
             <motion.div 
               className="absolute inset-0 bg-blue-200/50 rounded-full blur-xl"
@@ -78,7 +78,7 @@ export function AnimatedBeamDemo() {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.span 
-              className="relative z-10 text-xl sm:text-2xl font-black text-google-blue text-center leading-tight drop-shadow-sm group-hover:scale-110 transition-transform duration-300"
+              className="relative z-10 text-lg sm:text-2xl font-black text-google-blue text-center leading-tight drop-shadow-sm group-hover:scale-110 transition-transform duration-300"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >

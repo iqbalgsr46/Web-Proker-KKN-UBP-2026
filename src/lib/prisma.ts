@@ -8,10 +8,12 @@ if (!connectionString) {
   throw new Error("DATABASE_URL must be set in .env");
 }
 
-const pool = new Pool({ connectionString });
-const adapter = new PrismaPg(pool);
+const globalForPrisma = global as unknown as { prisma: PrismaClient, pool: Pool };
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
+const pool = globalForPrisma.pool || new Pool({ connectionString });
+if (process.env.NODE_ENV !== 'production') globalForPrisma.pool = pool;
+
+const adapter = new PrismaPg(pool);
 
 export const prisma =
   globalForPrisma.prisma || new PrismaClient({ adapter });

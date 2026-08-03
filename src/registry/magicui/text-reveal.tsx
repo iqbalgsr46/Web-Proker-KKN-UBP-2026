@@ -29,7 +29,7 @@ export const TextReveal: FC<TextRevealByWordProps> = ({
     <div ref={targetRef} className={cn("relative z-0 w-full max-w-4xl mx-auto py-10", className)}>
       <p
         className={
-          "w-full text-xl font-black text-black/20 md:text-2xl lg:text-3xl xl:text-4xl leading-tight text-center md:text-justify"
+          "w-full text-lg sm:text-xl font-black text-black/20 md:text-2xl lg:text-3xl xl:text-4xl leading-tight text-justify px-2 sm:px-0"
         }
       >
         {words.map((word, i) => {

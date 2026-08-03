@@ -33,7 +33,7 @@ model ColoringPage {
   slug          String          @unique
   description   String?
   objective     String?         // Tujuan edukasi
-  pdfUrl        String
+  pdfUrl        String?         // Sekarang digunakan untuk menyimpan URL gambar siap cetak A4
   thumbnailUrl  String
   videoUrl      String
   qrCodeUrl     String?         // Generate URL QR Code image

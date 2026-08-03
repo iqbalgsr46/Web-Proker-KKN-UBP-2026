@@ -64,12 +64,12 @@ export default async function LembarMewarnaiPage() {
             {coloringPages.map((page) => (
               <div key={page.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-xl bg-gray-100 overflow-hidden flex-shrink-0">
+                  <div className="w-20 h-20 rounded-xl bg-white border border-gray-200 overflow-hidden flex-shrink-0">
                     {page.thumbnailUrl ? (
-                      <img src={page.thumbnailUrl} alt={page.title} className="w-full h-full object-cover" />
+                      <img src={page.thumbnailUrl} alt={page.title} className="w-full h-full object-contain p-1" />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <FileText className="w-5 h-5 text-gray-400" />
+                      <div className="w-full h-full flex items-center justify-center bg-gray-50">
+                        <FileText className="w-6 h-6 text-gray-400" />
                       </div>
                     )}
                   </div>
@@ -116,12 +116,12 @@ export default async function LembarMewarnaiPage() {
                     <tr key={page.id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
                       <td className="py-4 px-6">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-gray-100 overflow-hidden flex-shrink-0">
+                          <div className="w-24 h-24 rounded-xl bg-white border border-gray-200 overflow-hidden flex-shrink-0">
                             {page.thumbnailUrl ? (
-                              <img src={page.thumbnailUrl} alt={page.title} className="w-full h-full object-cover" />
+                              <img src={page.thumbnailUrl} alt={page.title} className="w-full h-full object-contain p-1" />
                             ) : (
-                              <div className="w-full h-full flex items-center justify-center">
-                                <FileText className="w-5 h-5 text-gray-400" />
+                              <div className="w-full h-full flex items-center justify-center bg-gray-50">
+                                <FileText className="w-6 h-6 text-gray-400" />
                               </div>
                             )}
                           </div>

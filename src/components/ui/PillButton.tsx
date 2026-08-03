@@ -16,7 +16,7 @@ export function PillButton({
     green: "bg-google-green text-white",
   };
   
-  const commonClasses = `px-10 py-4 rounded-full font-bold text-lg tracking-wide transition-all border-2 border-[#202124] shadow-[4px_4px_0px_#202124] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#202124] active:translate-y-1 active:translate-x-1 active:shadow-none flex items-center justify-center gap-2 ${variants[variant]} ${className}`;
+  const commonClasses = `px-6 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg tracking-wide transition-all border-2 border-[#202124] shadow-[4px_4px_0px_#202124] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#202124] active:translate-y-1 active:translate-x-1 active:shadow-none flex items-center justify-center gap-2 ${variants[variant]} ${className}`;
 
   if (href) {
     return (

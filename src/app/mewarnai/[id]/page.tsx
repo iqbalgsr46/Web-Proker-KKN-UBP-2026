@@ -110,7 +110,7 @@ export default function KategoriMewarnaiPage() {
         <AbstractBlob type="spark" color="yellow" className="absolute top-[20%] right-[15%] w-24 h-24 opacity-25 rotate-12 pointer-events-none transform-gpu" />
       </div>
 
-      <main className="flex-1 w-full flex flex-col items-center pt-8 pb-32 px-4 sm:px-8 z-10">
+      <main className="flex-1 w-full flex flex-col items-center pt-4 sm:pt-8 pb-20 sm:pb-32 px-4 sm:px-8 z-10">
         {/* Back Button */}
         <div className="w-full max-w-4xl flex justify-start mb-6">
           <Link href="/kategori">
@@ -123,46 +123,46 @@ export default function KategoriMewarnaiPage() {
         </div>
 
         {/* Hero Section */}
-        <div className="w-full max-w-4xl mx-auto mb-12 text-center">
-          <span className="text-6xl mb-4 block">{data.icon}</span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-3">
+        <div className="w-full max-w-4xl mx-auto mb-8 sm:mb-12 text-center">
+          <span className="text-4xl sm:text-6xl mb-2 sm:mb-4 block">{data.icon}</span>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 sm:mb-3 px-2">
             {data.title}
           </h1>
-          <p className="text-lg text-gray-600 font-medium mb-6 max-w-xl mx-auto">{data.subtitle}</p>
-          <div className={`inline-flex items-center gap-2 px-5 py-1.5 rounded-full ${colors.light} ${colors.border} border`}>
-            <span className={`text-sm font-bold ${colors.text}`}>Karya KKN UBP Karawang</span>
+          <p className="text-base sm:text-lg text-gray-600 font-medium mb-4 sm:mb-6 max-w-xl mx-auto px-4">{data.subtitle}</p>
+          <div className={`inline-flex items-center gap-2 px-4 sm:px-5 py-1 sm:py-1.5 rounded-full ${colors.light} ${colors.border} border`}>
+            <span className={`text-xs sm:text-sm font-bold ${colors.text}`}>Karya KKN UBP Karawang</span>
           </div>
         </div>
 
         {/* Deskripsi Edukatif */}
-        <GlassCard className="w-full max-w-3xl mx-auto mb-12 p-6 sm:p-8">
-          <h2 className="text-xl font-black text-gray-900 mb-3 flex items-center gap-2">
+        <GlassCard className="w-full max-w-3xl mx-auto mb-8 sm:mb-12 p-5 sm:p-8">
+          <h2 className="text-lg sm:text-xl font-black text-gray-900 mb-2 sm:mb-3 flex items-center gap-2">
             <span>📖</span> Apa itu {data.title}?
           </h2>
-          <p className="text-gray-700 leading-relaxed text-base mb-6">{data.description}</p>
+          <p className="text-gray-700 leading-relaxed text-sm sm:text-base mb-5 sm:mb-6">{data.description}</p>
           
           {/* Fakta Menarik */}
-          <h3 className="text-sm font-black text-gray-500 uppercase tracking-widest mb-4">Tahukah Kamu?</h3>
+          <h3 className="text-xs sm:text-sm font-black text-gray-500 uppercase tracking-widest mb-3 sm:mb-4">Tahukah Kamu?</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {data.facts.map((fact, i) => (
-              <div key={i} className={`${colors.light} ${colors.border} border rounded-2xl p-4 text-center`}>
-                <span className="text-2xl block mb-2">{fact.icon}</span>
-                <p className="text-sm text-gray-700 font-medium leading-snug">{fact.text}</p>
+              <div key={i} className={`${colors.light} ${colors.border} border rounded-2xl p-3 sm:p-4 text-center`}>
+                <span className="text-xl sm:text-2xl block mb-1.5 sm:mb-2">{fact.icon}</span>
+                <p className="text-xs sm:text-sm text-gray-700 font-medium leading-snug">{fact.text}</p>
               </div>
             ))}
           </div>
         </GlassCard>
 
         {/* Grid Lembar Mewarnai */}
-        <div className="w-full max-w-4xl mx-auto mb-12">
-          <h2 className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight text-center mb-2">
+        <div className="w-full max-w-4xl mx-auto mb-10 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 tracking-tight text-center mb-1 sm:mb-2">
             Lembar Mewarnai
           </h2>
-          <p className="text-gray-500 font-medium text-center mb-8">Klik untuk melihat preview, lalu unduh atau cetak!</p>
+          <p className="text-sm sm:text-base text-gray-500 font-medium text-center mb-6 sm:mb-8">Klik untuk melihat preview, lalu unduh atau cetak!</p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {data.sheets.map((sheet) => (
-              <div key={sheet.id} className="group relative bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
+              <div key={sheet.id} className="group relative bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
                 <div className="aspect-[4/3] relative overflow-hidden bg-gray-50">
                   <img 
                     src={sheet.image} 
@@ -172,13 +172,13 @@ export default function KategoriMewarnaiPage() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-5 flex items-center justify-between gap-3">
+                <div className="p-4 sm:p-5 flex items-center justify-between gap-2 sm:gap-3">
                   <div>
-                    <h3 className="font-black text-gray-900 text-base">{sheet.title}</h3>
-                    <p className="text-xs text-gray-500 font-medium mt-0.5">Lembar Mewarnai Edukatif</p>
+                    <h3 className="font-black text-gray-900 text-sm sm:text-base">{sheet.title}</h3>
+                    <p className="text-[10px] sm:text-xs text-gray-500 font-medium mt-0.5">Lembar Mewarnai Edukatif</p>
                   </div>
-                  <div className={`${colors.bg} text-white p-2.5 rounded-xl shadow-md shrink-0`}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <div className={`${colors.bg} text-white p-2 sm:p-2.5 rounded-lg sm:rounded-xl shadow-md shrink-0`}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="sm:w-[18px] sm:h-[18px]">
                       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                       <polyline points="7 10 12 15 17 10" />
                       <line x1="12" y1="15" x2="12" y2="3" />
@@ -191,18 +191,19 @@ export default function KategoriMewarnaiPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="w-full max-w-2xl mx-auto text-center">
-          <GlassCard className="p-8 flex flex-col items-center">
-            <span className="text-4xl mb-3">🖨️</span>
-            <h3 className="text-xl font-black text-gray-900 mb-2">Unduh Semua Sekaligus</h3>
-            <p className="text-gray-600 text-sm mb-6 max-w-md">
+        <div className="w-full max-w-2xl mx-auto text-center px-2">
+          <GlassCard className="p-6 sm:p-8 flex flex-col items-center">
+            <span className="text-3xl sm:text-4xl mb-2 sm:mb-3">🖨️</span>
+            <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-2">Unduh Semua Sekaligus</h3>
+            <p className="text-gray-600 text-xs sm:text-sm mb-5 sm:mb-6 max-w-md">
               Dapatkan seluruh koleksi lembar mewarnai dalam satu file PDF — siap cetak dan bagikan ke seluruh kelas!
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center w-full">
               <PillButton
                 variant={data.color === "green" ? "green" : data.color === "yellow" ? "yellow" : "red"}
                 href="/Lembar_Mewarnai_Pengelolaan_Sampah.pdf"
                 download="Lembar_Mewarnai_Pengelolaan_Sampah.pdf"
+                className="w-full sm:w-auto"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -211,8 +212,8 @@ export default function KategoriMewarnaiPage() {
                 </svg>
                 Unduh PDF
               </PillButton>
-              <Link href="/kumpulan-mewarnai">
-                <PillButton variant="blue">Lihat Semua Koleksi</PillButton>
+              <Link href="/kumpulan-mewarnai" className="w-full sm:w-auto">
+                <PillButton variant="blue" className="w-full">Lihat Semua Koleksi</PillButton>
               </Link>
             </div>
           </GlassCard>

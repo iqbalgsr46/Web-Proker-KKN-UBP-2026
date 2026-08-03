@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Upload, FileText, Image as ImageIcon, Video, Save, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import QRCode from "qrcode";
 
 export default function TambahLembarPage() {
   const router = useRouter();
@@ -13,7 +14,6 @@ export default function TambahLembarPage() {
   const [categories, setCategories] = useState<{id: string, name: string}[]>([]);
 
   // State File
-  const [pdfFile, setPdfFile] = useState<File | null>(null);
   const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
 
   useEffect(() => {
@@ -71,8 +71,8 @@ export default function TambahLembarPage() {
     setLoading(true);
     setError("");
 
-    if (!pdfFile) {
-      setError("File PDF Lembar Mewarnai wajib diunggah.");
+    if (!thumbnailFile) {
+      setError("Gambar utama lembar mewarnai wajib diunggah.");
       setLoading(false);
       return;
     }
@@ -101,13 +101,103 @@ export default function TambahLembarPage() {
         }
       }
 
-      // 1. Upload PDF
-      const pdfUrl = await uploadToSupabase(pdfFile, "pdfs");
+      // 1. Upload Thumbnail Asli
+      const thumbnailUrl = await uploadToSupabase(thumbnailFile, "thumbnails");
 
-      // 2. Upload Thumbnail (Opsional)
-      let thumbnailUrl = "";
-      if (thumbnailFile) {
-        thumbnailUrl = await uploadToSupabase(thumbnailFile, "thumbnails");
+      // 2. Generate A4 Layout (Printable Image)
+      let pdfUrl = "";
+      const a4Canvas = document.createElement("canvas");
+      const ctx = a4Canvas.getContext("2d");
+      
+      if (ctx) {
+        // A4 aspect ratio at 150 DPI
+        const width = 1240;
+        const height = 1754;
+        a4Canvas.width = width;
+        a4Canvas.height = height;
+
+        // Background Putih
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, width, height);
+
+        // Load Gambar
+        const imgUrl = URL.createObjectURL(thumbnailFile);
+        const img = new Image();
+        await new Promise((resolve) => {
+          img.onload = resolve;
+          img.src = imgUrl;
+        });
+
+        // Hitung Posisi Gambar
+        const padding = 100;
+        const qrGap = 100;
+        const qrSize = 250;
+        const maxImgWidth = width - (padding * 2);
+        const maxImgHeight = height - (padding * 2) - qrSize - qrGap; // Sisa ruang untuk gambar agar tidak mepet QR
+
+        const imgRatio = img.width / img.height;
+        const boxRatio = maxImgWidth / maxImgHeight;
+        
+        let drawWidth, drawHeight;
+        if (imgRatio > boxRatio) {
+          drawWidth = maxImgWidth;
+          drawHeight = drawWidth / imgRatio;
+        } else {
+          drawHeight = maxImgHeight;
+          drawWidth = drawHeight * imgRatio;
+        }
+
+        const drawX = (width - drawWidth) / 2;
+        const drawY = padding;
+
+        // Shadow
+        ctx.shadowColor = "rgba(0, 0, 0, 0.15)";
+        ctx.shadowBlur = 20;
+        ctx.shadowOffsetX = 10;
+        ctx.shadowOffsetY = 10;
+
+        // Draw Image
+        ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
+
+        // Reset Shadow & Draw Stroke
+        ctx.shadowColor = "transparent";
+        ctx.lineWidth = 8;
+        ctx.strokeStyle = "#202124";
+        ctx.strokeRect(drawX, drawY, drawWidth, drawHeight);
+
+        // Draw QR Code
+        if (videoUrl) {
+          try {
+            const slug = generateSlug(title);
+            const scanUrl = `${window.location.origin}/scan/${slug}`;
+            const qrDataUrl = await QRCode.toDataURL(scanUrl, { width: qrSize, margin: 1 });
+            const qrImg = new Image();
+            await new Promise((resolve) => {
+              qrImg.onload = resolve;
+              qrImg.src = qrDataUrl;
+            });
+
+            // Sejajarkan QR dengan sisi kiri kotak gambar, dan letakkan di bawahnya
+            const qrX = drawX;
+            const qrY = drawY + drawHeight + qrGap;
+            
+            ctx.drawImage(qrImg, qrX, qrY, qrSize, qrSize);
+
+            ctx.fillStyle = "#202124";
+            ctx.font = "bold 36px sans-serif";
+            ctx.fillText("Scan QR untuk Video", qrX + qrSize + 30, qrY + (qrSize / 2) - 10);
+            ctx.fillText("Edukasi Mahasiswa KKN", qrX + qrSize + 30, qrY + (qrSize / 2) + 35);
+          } catch (qrErr) {
+            console.error("Gagal generate QR Code", qrErr);
+          }
+        }
+
+        // Convert canvas ke File
+        const blob = await new Promise<Blob>((resolve) => a4Canvas.toBlob((b) => resolve(b!), "image/jpeg", 0.92));
+        const printFile = new File([blob], `print-${thumbnailFile.name}.jpg`, { type: "image/jpeg" });
+
+        // Upload gambar A4 ke storage
+        pdfUrl = await uploadToSupabase(printFile, "prints");
       }
 
       // 3. Simpan ke Database Prisma
@@ -237,41 +327,28 @@ export default function TambahLembarPage() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 
-                {/* PDF Upload */}
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">File PDF (Kertas A4) *</label>
-                  <div className="relative border-2 border-dashed border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/50 transition-all cursor-pointer bg-gray-50">
-                    <input 
-                      type="file" 
-                      accept=".pdf"
-                      required
-                      onChange={(e) => setPdfFile(e.target.files?.[0] || null)}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                    />
-                    <FileText className={`w-8 h-8 mb-2 ${pdfFile ? 'text-google-blue' : 'text-gray-400'}`} />
-                    <p className="text-sm font-bold text-gray-700">
-                      {pdfFile ? pdfFile.name : "Pilih atau Tarik file PDF"}
-                    </p>
-                    <p className="text-xs text-gray-500 mt-1">Maks 10MB</p>
-                  </div>
-                </div>
-
-                {/* Thumbnail Upload */}
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Gambar Thumbnail (Opsional)</label>
-                  <div className="relative border-2 border-dashed border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-google-green hover:bg-green-50/50 transition-all cursor-pointer bg-gray-50">
+                {/* Thumbnail Upload (Required now) */}
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Gambar Utama Lembar Mewarnai *</label>
+                  <div className="relative border-2 border-dashed border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/50 transition-all cursor-pointer bg-gray-50 h-48">
                     <input 
                       type="file" 
                       accept="image/*"
+                      required
                       onChange={(e) => setThumbnailFile(e.target.files?.[0] || null)}
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                     />
-                    <ImageIcon className={`w-8 h-8 mb-2 ${thumbnailFile ? 'text-google-green' : 'text-gray-400'}`} />
+                    {thumbnailFile ? (
+                      <div className="w-full h-32 mb-2 relative rounded-lg overflow-hidden border border-gray-200">
+                        <img src={URL.createObjectURL(thumbnailFile)} alt="Preview" className="w-full h-full object-cover" />
+                      </div>
+                    ) : (
+                      <ImageIcon className="w-8 h-8 mb-2 text-gray-400" />
+                    )}
                     <p className="text-sm font-bold text-gray-700">
-                      {thumbnailFile ? thumbnailFile.name : "Pilih gambar (JPG/PNG)"
-                      }
+                      {thumbnailFile ? thumbnailFile.name : "Pilih gambar Lembar Mewarnai (JPG/PNG)"}
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">Untuk pratinjau di aplikasi</p>
+                    <p className="text-xs text-gray-500 mt-1">Sistem akan otomatis mengatur layout A4, garis tepi, dan QR Code untuk cetak.</p>
                   </div>
                 </div>
 
