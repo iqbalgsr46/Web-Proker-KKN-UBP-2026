@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { Plus, FileText, Download, Eye } from "lucide-react";
 import { DeleteButton } from "@/components/admin/DeleteButton";
+import { EditButton } from "@/components/admin/EditButton";
 
 export const metadata = {
   title: "Lembar Mewarnai | EduColoring Admin",
@@ -17,6 +18,8 @@ export default async function LembarMewarnaiPage() {
       _count: { select: { submissions: true, scans: true } },
     },
   });
+
+  const categories = await prisma.category.findMany();
 
   return (
     <div className="p-4 md:p-8 max-w-7xl mx-auto w-full">
@@ -90,7 +93,10 @@ export default async function LembarMewarnaiPage() {
                     </span>
                     <span>{page._count.submissions} karya</span>
                   </div>
-                  <DeleteButton id={page.id} type="coloring-page" />
+                  <div className="flex gap-2">
+                    <EditButton page={page} categories={categories} />
+                    <DeleteButton id={page.id} type="coloring-page" />
+                  </div>
                 </div>
               </div>
             ))}
@@ -154,7 +160,10 @@ export default async function LembarMewarnaiPage() {
                         })}
                       </td>
                       <td className="py-4 px-6 text-right">
-                        <DeleteButton id={page.id} type="coloring-page" />
+                        <div className="flex justify-end gap-2">
+                          <EditButton page={page} categories={categories} />
+                          <DeleteButton id={page.id} type="coloring-page" />
+                        </div>
                       </td>
                     </tr>
                   ))}

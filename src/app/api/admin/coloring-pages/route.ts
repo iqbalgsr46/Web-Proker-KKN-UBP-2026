@@ -48,3 +48,30 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: "Gagal menghapus lembar mewarnai." }, { status: 500 });
   }
 }
+// PATCH: Update coloring page
+export async function PATCH(request: Request) {
+  try {
+    const data = await request.json();
+    const { id, title, description, objective, videoUrl, categoryId } = data;
+
+    if (!id) {
+      return NextResponse.json({ error: "ID tidak valid." }, { status: 400 });
+    }
+
+    const updatedPage = await prisma.coloringPage.update({
+      where: { id },
+      data: {
+        title,
+        description,
+        objective,
+        videoUrl,
+        categoryId,
+      },
+    });
+
+    return NextResponse.json({ success: true, data: updatedPage });
+  } catch (error) {
+    console.error("ColoringPage update error:", error);
+    return NextResponse.json({ error: "Gagal memperbarui data ke database." }, { status: 500 });
+  }
+}
