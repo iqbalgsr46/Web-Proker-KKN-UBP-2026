@@ -42,7 +42,12 @@ export async function GET(
       if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://')) {
         finalUrl = 'https://' + finalUrl;
       }
-      return NextResponse.redirect(finalUrl);
+      try {
+        return NextResponse.redirect(new URL(finalUrl));
+      } catch (urlError) {
+        console.error("Invalid URL format:", finalUrl);
+        return NextResponse.redirect(new URL("/kumpulan-mewarnai", request.url));
+      }
     }
 
     // Fallback jika tidak ada video url
