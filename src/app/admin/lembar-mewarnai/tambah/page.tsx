@@ -168,7 +168,9 @@ export default function TambahLembarPage() {
         // Draw QR Code
         if (videoUrl) {
           try {
-            const qrDataUrl = await QRCode.toDataURL(videoUrl, { width: qrSize, margin: 1 });
+            const slug = generateSlug(title);
+            const scanUrl = `${window.location.origin}/scan/${slug}`;
+            const qrDataUrl = await QRCode.toDataURL(scanUrl, { width: qrSize, margin: 1 });
             const qrImg = new Image();
             await new Promise((resolve) => {
               qrImg.onload = resolve;
