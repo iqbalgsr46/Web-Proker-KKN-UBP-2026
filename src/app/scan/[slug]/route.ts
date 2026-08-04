@@ -32,7 +32,11 @@ export async function GET(
 
     // Redirect ke video URL aslinya
     if (page.videoUrl) {
-      return NextResponse.redirect(page.videoUrl);
+      let finalUrl = page.videoUrl.trim();
+      if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://')) {
+        finalUrl = 'https://' + finalUrl;
+      }
+      return NextResponse.redirect(finalUrl);
     }
 
     // Fallback jika tidak ada video url
