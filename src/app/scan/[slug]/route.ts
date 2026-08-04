@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(
   request: NextRequest,
   context: { params: Promise<{ slug: string }> }
@@ -8,10 +10,14 @@ export async function GET(
   try {
     const params = await context.params;
     const { slug } = params;
+    
+    console.log("SCAN ROUTE HIT! Slug:", slug);
 
     const page = await prisma.coloringPage.findUnique({
       where: { slug },
     });
+    
+    console.log("PAGE FOUND:", page ? page.title : "Not Found", "| videoUrl:", page?.videoUrl);
 
     if (!page) {
       return NextResponse.redirect(new URL("/kumpulan-mewarnai", request.url));
