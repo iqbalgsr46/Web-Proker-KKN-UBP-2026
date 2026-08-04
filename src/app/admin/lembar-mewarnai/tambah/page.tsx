@@ -330,7 +330,7 @@ export default function TambahLembarPage() {
                 {/* Thumbnail Upload (Required now) */}
                 <div className="md:col-span-2">
                   <label className="block text-sm font-bold text-gray-700 mb-2">Gambar Utama Lembar Mewarnai *</label>
-                  <div className="relative border-2 border-dashed border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/50 transition-all cursor-pointer bg-gray-50 h-48">
+                  <div className="relative border-2 border-dashed border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/50 transition-all cursor-pointer bg-gray-50 min-h-[12rem] h-auto">
                     <input 
                       type="file" 
                       accept="image/*"
@@ -339,16 +339,18 @@ export default function TambahLembarPage() {
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                     />
                     {thumbnailFile ? (
-                      <div className="w-full h-32 mb-2 relative rounded-lg overflow-hidden border border-gray-200">
-                        <img src={URL.createObjectURL(thumbnailFile)} alt="Preview" className="w-full h-full object-cover" />
+                      <div className="w-full sm:w-auto sm:max-w-xs h-32 md:h-40 mb-3 relative rounded-lg overflow-hidden border border-gray-200 flex-shrink-0">
+                        <img src={URL.createObjectURL(thumbnailFile)} alt="Preview" className="w-full h-full object-contain bg-white" />
                       </div>
                     ) : (
-                      <ImageIcon className="w-8 h-8 mb-2 text-gray-400" />
+                      <ImageIcon className="w-8 h-8 mb-3 text-gray-400" />
                     )}
-                    <p className="text-sm font-bold text-gray-700">
-                      {thumbnailFile ? thumbnailFile.name : "Pilih gambar Lembar Mewarnai (JPG/PNG)"}
-                    </p>
-                    <p className="text-xs text-gray-500 mt-1">Sistem akan otomatis mengatur layout A4, garis tepi, dan QR Code untuk cetak.</p>
+                    <div className="w-full flex flex-col items-center justify-center pointer-events-none">
+                      <p className="text-sm font-bold text-gray-700 truncate w-full px-2 max-w-full">
+                        {thumbnailFile ? thumbnailFile.name : "Pilih gambar Lembar Mewarnai (JPG/PNG)"}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1 max-w-sm text-balance">Sistem akan otomatis mengatur layout A4, garis tepi, dan QR Code untuk cetak.</p>
+                    </div>
                   </div>
                 </div>
 
