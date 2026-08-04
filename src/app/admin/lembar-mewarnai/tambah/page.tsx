@@ -84,6 +84,9 @@ export default function TambahLembarPage() {
     const videoUrl = formData.get("videoUrl") as string;
     let categoryId = formData.get("categoryId") as string;
 
+    // PENTING: Generate slug SEKALI saja agar QR Code dan Database menggunakan slug yang SAMA
+    const slug = generateSlug(title);
+
     try {
       // Jika tidak ada kategori, buat kategori default
       if (!categoryId) {
@@ -168,7 +171,6 @@ export default function TambahLembarPage() {
         // Draw QR Code
         if (videoUrl) {
           try {
-            const slug = generateSlug(title);
             const scanUrl = `${window.location.origin}/scan/${slug}`;
             const qrDataUrl = await QRCode.toDataURL(scanUrl, { width: qrSize, margin: 1 });
             const qrImg = new Image();
@@ -206,7 +208,7 @@ export default function TambahLembarPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           title,
-          slug: generateSlug(title),
+          slug,
           description,
           objective,
           pdfUrl,
