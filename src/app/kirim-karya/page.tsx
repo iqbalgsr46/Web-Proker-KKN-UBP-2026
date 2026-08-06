@@ -244,10 +244,10 @@ export default function KirimKaryaPage() {
                       <ImageIcon className="w-7 h-7 text-google-blue" />
                     </div>
                   )}
-                  <p className="text-sm font-bold text-gray-700 mt-auto">
+                  <p className="text-sm font-bold text-gray-700 mt-4">
                     {imageFile ? imageFile.name : "Tap untuk pilih foto"}
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">JPG, PNG — Maks 10MB</p>
+                  <p className="text-xs text-gray-500 mt-1.5">JPG, PNG — Maks 10MB</p>
                 </div>
               </div>
 
