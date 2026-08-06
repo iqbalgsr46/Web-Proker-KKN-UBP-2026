@@ -23,11 +23,16 @@ const GamepadIcon = (props: any) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg>
 );
 
+const SendIcon = (props: any) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+);
+
 const NAV_ITEMS = [
   { href: "/", icon: HomeIcon, label: "Beranda" },
   { href: "/kategori", icon: GridIcon, label: "Kategori" },
   { href: "/game", icon: GamepadIcon, label: "Main Game" },
   { href: "/galeri", icon: ImageIcon, label: "Galeri" },
+  { href: "/kirim-karya", icon: SendIcon, label: "Kirim Karya" },
   { href: "/tentang", icon: UsersIcon, label: "Tentang Kami" },
 ];
 
