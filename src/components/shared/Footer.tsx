@@ -7,7 +7,7 @@ import { AbstractBlob } from "../ui/AbstractBlob";
 export function Footer() {
   const pathname = usePathname();
 
-  if (pathname === "/" || pathname === "/game") {
+  if (pathname === "/" || pathname === "/game" || pathname === "/kirim-karya") {
     return null;
   }
 
