@@ -218,17 +218,17 @@ export default function KirimKaryaPage() {
         </div>
 
         {/* Form Card */}
-        <form onSubmit={handleSubmit} className="w-full max-w-lg">
+        <form onSubmit={handleSubmit} className="w-full max-w-4xl">
           <div className="backdrop-blur-xl bg-white/70 border border-white/60 rounded-[2.5rem] shadow-xl overflow-hidden">
-            <div className="p-5 sm:p-8 space-y-5">
-
-              {/* Upload Foto */}
-              <div>
+            <div className="p-5 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              
+              {/* Kolom Kiri: Upload Foto */}
+              <div className="flex flex-col h-full">
                 <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
                   <Camera className="w-4 h-4 text-google-blue" />
                   Foto Karya Mewarnai *
                 </label>
-                <div className="relative border-2 border-dashed border-gray-200 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/30 transition-all cursor-pointer bg-white/50 min-h-[10rem]">
+                <div className="relative border-2 border-dashed border-gray-200 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/30 transition-all cursor-pointer bg-white/50 min-h-[16rem] flex-1">
                   <input
                     type="file"
                     accept="image/*"
@@ -244,90 +244,95 @@ export default function KirimKaryaPage() {
                       <ImageIcon className="w-7 h-7 text-google-blue" />
                     </div>
                   )}
-                  <p className="text-sm font-bold text-gray-700">
+                  <p className="text-sm font-bold text-gray-700 mt-auto">
                     {imageFile ? imageFile.name : "Tap untuk pilih foto"}
                   </p>
                   <p className="text-xs text-gray-500 mt-1">JPG, PNG — Maks 10MB</p>
                 </div>
               </div>
 
-              {/* Pilih Lembar Mewarnai */}
-              <div>
-                <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
-                  <Sparkles className="w-4 h-4 text-google-yellow" />
-                  Lembar Mewarnai yang Diwarnai *
-                </label>
-                <select
-                  value={coloringPageId}
-                  onChange={(e) => setColoringPageId(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue transition-all outline-none font-medium text-sm appearance-none"
-                >
-                  <option value="">— Pilih lembar mewarnai —</option>
-                  {coloringPages.map((page) => (
-                    <option key={page.id} value={page.id}>{page.title}</option>
-                  ))}
-                </select>
-              </div>
+              {/* Kolom Kanan: Input & Submit */}
+              <div className="flex flex-col justify-between space-y-5">
+                <div className="space-y-5">
+                  {/* Pilih Lembar Mewarnai */}
+                  <div>
+                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                      <Sparkles className="w-4 h-4 text-google-yellow" />
+                      Lembar Mewarnai yang Diwarnai *
+                    </label>
+                    <select
+                      value={coloringPageId}
+                      onChange={(e) => setColoringPageId(e.target.value)}
+                      className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue transition-all outline-none font-medium text-sm appearance-none"
+                    >
+                      <option value="">— Pilih lembar mewarnai —</option>
+                      {coloringPages.map((page) => (
+                        <option key={page.id} value={page.id}>{page.title}</option>
+                      ))}
+                    </select>
+                  </div>
 
-              {/* Nama Anak */}
-              <div>
-                <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
-                  <User className="w-4 h-4 text-google-red" />
-                  Nama Anak *
-                </label>
-                <input
-                  type="text"
-                  value={childName}
-                  onChange={(e) => setChildName(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue transition-all outline-none font-medium text-sm"
-                  placeholder="Contoh: Aisyah"
-                />
-              </div>
+                  {/* Nama Anak */}
+                  <div>
+                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                      <User className="w-4 h-4 text-google-red" />
+                      Nama Anak *
+                    </label>
+                    <input
+                      type="text"
+                      value={childName}
+                      onChange={(e) => setChildName(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue transition-all outline-none font-medium text-sm"
+                      placeholder="Contoh: Aisyah"
+                    />
+                  </div>
 
-              {/* Nama Pengirim */}
-              <div>
-                <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
-                  <UserCheck className="w-4 h-4 text-google-green" />
-                  Nama Guru / Orang Tua *
-                </label>
-                <input
-                  type="text"
-                  value={submitterName}
-                  onChange={(e) => setSubmitterName(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue transition-all outline-none font-medium text-sm"
-                  placeholder="Contoh: Bu Guru Ani"
-                />
-              </div>
+                  {/* Nama Pengirim */}
+                  <div>
+                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                      <UserCheck className="w-4 h-4 text-google-green" />
+                      Nama Guru / Orang Tua *
+                    </label>
+                    <input
+                      type="text"
+                      value={submitterName}
+                      onChange={(e) => setSubmitterName(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue transition-all outline-none font-medium text-sm"
+                      placeholder="Contoh: Bu Guru Ani"
+                    />
+                  </div>
 
-              {/* Error */}
-              {error && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium">
-                  {error}
+                  {/* Error */}
+                  {error && (
+                    <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium">
+                      {error}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
 
-            {/* Submit Button */}
-            <div className="p-5 sm:p-8 pt-0">
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-google-blue text-white font-bold text-sm rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:hover:scale-100"
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    Mengunggah Karya...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Kirim Karya
-                  </>
-                )}
-              </button>
+                {/* Submit Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-google-blue text-white font-bold text-sm rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:hover:scale-100"
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Mengunggah Karya...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        Kirim Karya
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </form>
