@@ -253,28 +253,33 @@ export default function KirimKaryaPage() {
 
               {/* Kolom Kanan: Input & Submit */}
               <div className="flex flex-col justify-between space-y-5">
-                <div className="space-y-5">
+                <div className="space-y-6">
                   {/* Pilih Lembar Mewarnai */}
                   <div>
-                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2.5">
                       <Sparkles className="w-4 h-4 text-google-yellow" />
                       Lembar Mewarnai yang Diwarnai *
                     </label>
-                    <select
-                      value={coloringPageId}
-                      onChange={(e) => setColoringPageId(e.target.value)}
-                      className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue transition-all outline-none font-medium text-sm appearance-none"
-                    >
-                      <option value="">— Pilih lembar mewarnai —</option>
-                      {coloringPages.map((page) => (
-                        <option key={page.id} value={page.id}>{page.title}</option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select
+                        value={coloringPageId}
+                        onChange={(e) => setColoringPageId(e.target.value)}
+                        className="w-full px-5 py-3.5 bg-gray-50/80 border-2 border-transparent rounded-2xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-sm appearance-none text-gray-900 pr-10 cursor-pointer"
+                      >
+                        <option value="">— Pilih lembar mewarnai —</option>
+                        {coloringPages.map((page) => (
+                          <option key={page.id} value={page.id}>{page.title}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Nama Anak */}
                   <div>
-                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2.5">
                       <User className="w-4 h-4 text-google-red" />
                       Nama Anak *
                     </label>
@@ -283,14 +288,14 @@ export default function KirimKaryaPage() {
                       value={childName}
                       onChange={(e) => setChildName(e.target.value)}
                       required
-                      className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue transition-all outline-none font-medium text-sm"
+                      className="w-full px-5 py-3.5 bg-gray-50/80 border-2 border-transparent rounded-2xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-sm text-gray-900 placeholder:text-gray-400"
                       placeholder="Contoh: Aisyah"
                     />
                   </div>
 
                   {/* Nama Pengirim */}
                   <div>
-                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2.5">
                       <UserCheck className="w-4 h-4 text-google-green" />
                       Nama Guru / Orang Tua *
                     </label>
@@ -299,14 +304,14 @@ export default function KirimKaryaPage() {
                       value={submitterName}
                       onChange={(e) => setSubmitterName(e.target.value)}
                       required
-                      className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue transition-all outline-none font-medium text-sm"
+                      className="w-full px-5 py-3.5 bg-gray-50/80 border-2 border-transparent rounded-2xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-sm text-gray-900 placeholder:text-gray-400"
                       placeholder="Contoh: Bu Guru Ani"
                     />
                   </div>
 
                   {/* Error */}
                   {error && (
-                    <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium">
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-2xl text-red-600 text-sm font-medium">
                       {error}
                     </div>
                   )}
