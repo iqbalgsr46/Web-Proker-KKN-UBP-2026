@@ -148,7 +148,7 @@ export default function KirimKaryaPage() {
               <CheckCircle2 className="w-10 h-10 text-green-500" />
             </div>
             <h2 className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight mb-3">
-              Karya Terkirim! 🎉
+              Karya Terkirim!
             </h2>
             <p className="text-gray-600 font-medium mb-8 text-balance">
               Terima kasih! Karya mewarnai sudah berhasil dikirim dan sedang menunggu persetujuan Admin untuk ditampilkan di galeri.
@@ -225,7 +225,7 @@ export default function KirimKaryaPage() {
               {/* Kolom Kiri: Upload Foto */}
               <div className="flex flex-col h-full">
                 <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
-                  <Camera className="w-4 h-4 text-google-blue" />
+                  <Camera className="w-4 h-4 text-gray-400" />
                   Foto Karya Mewarnai *
                 </label>
                 <div className="relative border-2 border-dashed border-gray-200 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/30 transition-all cursor-pointer bg-white/50 min-h-[16rem] flex-1">
@@ -257,7 +257,7 @@ export default function KirimKaryaPage() {
                   {/* Pilih Lembar Mewarnai */}
                   <div>
                     <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2.5">
-                      <Sparkles className="w-4 h-4 text-google-yellow" />
+                      <Sparkles className="w-4 h-4 text-gray-400" />
                       Lembar Mewarnai yang Diwarnai *
                     </label>
                     <div className="relative">
@@ -280,7 +280,7 @@ export default function KirimKaryaPage() {
                   {/* Nama Anak */}
                   <div>
                     <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2.5">
-                      <User className="w-4 h-4 text-google-red" />
+                      <User className="w-4 h-4 text-gray-400" />
                       Nama Anak *
                     </label>
                     <input
@@ -296,7 +296,7 @@ export default function KirimKaryaPage() {
                   {/* Nama Pengirim */}
                   <div>
                     <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2.5">
-                      <UserCheck className="w-4 h-4 text-google-green" />
+                      <UserCheck className="w-4 h-4 text-gray-400" />
                       Nama Guru / Orang Tua *
                     </label>
                     <input
