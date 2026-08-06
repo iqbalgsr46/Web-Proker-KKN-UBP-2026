@@ -198,7 +198,7 @@ export default function KirimKaryaPage() {
         </div>
       </div>
 
-      <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-6 mt-8 sm:mt-16 z-10">
+      <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-6 mt-8 sm:mt-16 pb-32 z-10">
         {/* Header */}
         <div className="w-full max-w-lg flex items-center gap-3 mb-6">
           <Link
