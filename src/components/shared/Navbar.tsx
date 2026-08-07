@@ -51,7 +51,7 @@ export function Navbar() {
 
   return (
     <div className="fixed bottom-6 left-0 right-0 z-[100] flex justify-center w-full pointer-events-none px-4">
-      <div className="pointer-events-auto">
+      <div className="pointer-events-auto transform-gpu scale-[0.85] sm:scale-100 origin-bottom">
         <Dock direction="middle">
           {NAV_ITEMS.map((item) => {
             const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
