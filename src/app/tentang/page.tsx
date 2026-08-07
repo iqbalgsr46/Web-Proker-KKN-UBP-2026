@@ -289,7 +289,7 @@ export default function TentangPage() {
                 image: "/images/kkn_students_placeholder.png",
                 title: `Momen KKN ${i + 1}`
               }))}
-              className="md:-ml-12 lg:-ml-24"
+              className="md:-ml-6 lg:-ml-10"
               columns={typeof window !== 'undefined' && window.innerWidth < 640 ? 3 : 5}
               tileWidth={typeof window !== 'undefined' && window.innerWidth < 640 ? 115 : 200}
               tileHeight={typeof window !== 'undefined' && window.innerWidth < 640 ? 76 : 132}
