@@ -290,11 +290,12 @@ export default function TentangPage() {
                 title: `Momen KKN ${i + 1}`
               }))}
               columns={typeof window !== 'undefined' && window.innerWidth < 640 ? 3 : 5}
-              tileWidth={typeof window !== 'undefined' && window.innerWidth < 640 ? 96 : 200}
-              tileHeight={typeof window !== 'undefined' && window.innerWidth < 640 ? 64 : 132}
+              tileWidth={typeof window !== 'undefined' && window.innerWidth < 640 ? 115 : 200}
+              tileHeight={typeof window !== 'undefined' && window.innerWidth < 640 ? 76 : 132}
               gap={typeof window !== 'undefined' && window.innerWidth < 640 ? 8 : 12}
               tilt={10}
-              perspective={typeof window !== 'undefined' && window.innerWidth < 640 ? 800 : 1500}
+              turn={typeof window !== 'undefined' && window.innerWidth < 640 ? 0 : -14}
+              perspective={typeof window !== 'undefined' && window.innerWidth < 640 ? 900 : 1500}
               depth={typeof window !== 'undefined' && window.innerWidth < 640 ? 80 : 100}
               speed={30}
               parallax={typeof window !== 'undefined' && window.innerWidth < 640 ? 0 : 0.4}
