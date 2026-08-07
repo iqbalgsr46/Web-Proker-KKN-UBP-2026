@@ -41,9 +41,9 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${plusJakarta.variable} h-full antialiased`}
+      className={`${plusJakarta.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans relative">
+      <body className="min-h-screen flex flex-col font-sans relative">
         <LayoutShell>
           {children}
         </LayoutShell>
