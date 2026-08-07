@@ -13,16 +13,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "EduColoring | Media Mewarnai Pengelolaan Sampah",
     description: "Karya inovatif mahasiswa KKN UBP Karawang untuk mengedukasi anak usia dini tentang lingkungan.",
-    url: "https://educoloring.ubpkarawang.ac.id",
+    url: "https://www.educoloring.my.id",
     siteName: "EduColoring",
-    images: [
-      {
-        url: "https://educoloring.ubpkarawang.ac.id/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "EduColoring Preview",
-      }
-    ],
     locale: "id_ID",
     type: "website",
   },

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/api/admin/'], // Hindari bot dari meng-crawl halaman admin
     },
-    sitemap: 'https://educoloring.ubpkarawang.ac.id/sitemap.xml',
+    sitemap: 'https://www.educoloring.my.id/sitemap.xml',
   }
 }

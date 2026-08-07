@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://educoloring.ubpkarawang.ac.id'
+  const baseUrl = 'https://www.educoloring.my.id'
   
   return [
     {
