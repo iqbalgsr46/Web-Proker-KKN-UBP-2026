@@ -181,8 +181,8 @@ export default function KirimKaryaPage() {
   }
 
   return (
-    <div className="relative w-full min-h-[100dvh] flex flex-col bg-transparent">
-      {/* Background */}
+    <div className="h-[100dvh] w-full relative overflow-hidden bg-[#fafafa] flex flex-col">
+      {/* Background with abstract blobs */}
       <div className="absolute inset-0 -z-10 pointer-events-none bg-white overflow-hidden">
         <div className="absolute inset-0 blur-[120px]">
           <AbstractBlob type="gemini-spark" color="blue" className="absolute top-[5%] left-[-5%] w-64 md:w-96 h-64 md:h-96 opacity-50 rotate-12 pointer-events-none transform-gpu" />
@@ -198,9 +198,9 @@ export default function KirimKaryaPage() {
         </div>
       </div>
 
-      <main className="flex-1 w-full flex flex-col items-center justify-center p-3 sm:p-6 py-6 sm:py-12 z-10">
+      <main className="flex-1 w-full flex flex-col items-center justify-center p-3 sm:p-6 z-10 overflow-y-auto">
         {/* Header */}
-        <div className="w-full max-w-4xl flex items-center gap-3 mb-4 sm:mb-6">
+        <div className="w-full max-w-4xl flex items-center gap-2 sm:gap-3 mb-2 sm:mb-6 shrink-0">
           <Link
             href="/galeri"
             className="w-10 h-10 backdrop-blur-xl bg-white/70 border border-white/60 rounded-xl flex items-center justify-center text-gray-600 hover:bg-white/90 transition-colors shadow-sm"
@@ -218,17 +218,17 @@ export default function KirimKaryaPage() {
         </div>
 
         {/* Form Card */}
-        <form onSubmit={handleSubmit} className="w-full max-w-4xl">
-          <div className="backdrop-blur-xl bg-white/70 border border-white/60 rounded-3xl sm:rounded-[2.5rem] shadow-xl overflow-hidden">
-            <div className="p-4 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+        <form onSubmit={handleSubmit} className="w-full max-w-4xl flex-1 md:flex-initial flex flex-col min-h-0">
+          <div className="backdrop-blur-xl bg-white/70 border border-white/60 rounded-3xl sm:rounded-[2.5rem] shadow-xl overflow-hidden flex-1 flex flex-col">
+            <div className="p-3 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-8 flex-1">
               
               {/* Kolom Kiri: Upload Foto */}
               <div className="flex flex-col h-full">
-                <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
-                  <Camera className="w-4 h-4 text-gray-400" />
+                <label className="flex items-center gap-2 text-xs sm:text-sm font-bold text-gray-800 mb-1.5 sm:mb-2">
+                  <Camera className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
                   Foto Karya Mewarnai *
                 </label>
-                <div className="relative border-2 border-dashed border-gray-200 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/30 transition-all cursor-pointer bg-white/50 min-h-[12rem] md:min-h-[16rem] flex-1">
+                <div className="relative border-2 border-dashed border-gray-200 rounded-2xl p-2 sm:p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/30 transition-all cursor-pointer bg-white/50 min-h-[5rem] md:min-h-[16rem] flex-1">
                   <input
                     type="file"
                     accept="image/*"
@@ -236,35 +236,35 @@ export default function KirimKaryaPage() {
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                   />
                   {imagePreview ? (
-                    <div className="w-full max-w-[200px] aspect-[3/4] mb-3 relative rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                    <div className="w-full max-w-[80px] md:max-w-[200px] aspect-[3/4] mb-1.5 sm:mb-3 relative rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                       <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
                     </div>
                   ) : (
-                    <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-3">
-                      <ImageIcon className="w-7 h-7 text-google-blue" />
+                    <div className="w-10 h-10 md:w-16 md:h-16 bg-blue-50 rounded-full flex items-center justify-center mb-1 sm:mb-3">
+                      <ImageIcon className="w-5 h-5 md:w-7 md:h-7 text-google-blue" />
                     </div>
                   )}
-                  <p className="text-sm font-bold text-gray-700 mt-4">
+                  <p className="text-xs sm:text-sm font-bold text-gray-700 mt-1 sm:mt-4">
                     {imageFile ? imageFile.name : "Tap untuk pilih foto"}
                   </p>
-                  <p className="text-xs text-gray-500 mt-1.5">JPG, PNG — Maks 10MB</p>
+                  <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1.5">JPG, PNG — Maks 10MB</p>
                 </div>
               </div>
 
               {/* Kolom Kanan: Input & Submit */}
-              <div className="flex flex-col justify-between space-y-4 sm:space-y-5">
-                <div className="space-y-4 sm:space-y-6">
+              <div className="flex flex-col justify-between space-y-3 sm:space-y-5">
+                <div className="space-y-2.5 sm:space-y-6">
                   {/* Pilih Lembar Mewarnai */}
                   <div>
-                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-1.5 sm:mb-2.5">
-                      <Sparkles className="w-4 h-4 text-gray-400" />
+                    <label className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-gray-800 mb-1 sm:mb-2.5">
+                      <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
                       Lembar Mewarnai yang Diwarnai *
                     </label>
                     <div className="relative">
                       <select
                         value={coloringPageId}
                         onChange={(e) => setColoringPageId(e.target.value)}
-                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-gray-50/80 border-2 border-transparent rounded-2xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-sm appearance-none text-gray-900 pr-10 cursor-pointer"
+                        className="w-full px-3 sm:px-5 py-2 sm:py-3.5 bg-gray-50/80 border-2 border-transparent rounded-xl sm:rounded-2xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-xs sm:text-sm appearance-none text-gray-900 pr-10 cursor-pointer"
                       >
                         <option value="">— Pilih lembar mewarnai —</option>
                         {coloringPages.map((page) => (
@@ -279,8 +279,8 @@ export default function KirimKaryaPage() {
 
                   {/* Nama Anak */}
                   <div>
-                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-1.5 sm:mb-2.5">
-                      <User className="w-4 h-4 text-gray-400" />
+                    <label className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-gray-800 mb-1 sm:mb-2.5">
+                      <User className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
                       Nama Anak *
                     </label>
                     <input
@@ -288,15 +288,15 @@ export default function KirimKaryaPage() {
                       value={childName}
                       onChange={(e) => setChildName(e.target.value)}
                       required
-                      className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-gray-50/80 border-2 border-transparent rounded-2xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-sm text-gray-900 placeholder:text-gray-400"
+                      className="w-full px-3 sm:px-5 py-2 sm:py-3.5 bg-gray-50/80 border-2 border-transparent rounded-xl sm:rounded-2xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-xs sm:text-sm text-gray-900 placeholder:text-gray-400"
                       placeholder="Contoh: Aisyah"
                     />
                   </div>
 
                   {/* Nama Pengirim */}
                   <div>
-                    <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-1.5 sm:mb-2.5">
-                      <UserCheck className="w-4 h-4 text-gray-400" />
+                    <label className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-gray-800 mb-1 sm:mb-2.5">
+                      <UserCheck className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
                       Nama Guru / Orang Tua *
                     </label>
                     <input
@@ -304,7 +304,7 @@ export default function KirimKaryaPage() {
                       value={submitterName}
                       onChange={(e) => setSubmitterName(e.target.value)}
                       required
-                      className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-gray-50/80 border-2 border-transparent rounded-2xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-sm text-gray-900 placeholder:text-gray-400"
+                      className="w-full px-3 sm:px-5 py-2 sm:py-3.5 bg-gray-50/80 border-2 border-transparent rounded-xl sm:rounded-2xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-xs sm:text-sm text-gray-900 placeholder:text-gray-400"
                       placeholder="Contoh: Bu Guru Ani"
                     />
                   </div>
@@ -318,11 +318,11 @@ export default function KirimKaryaPage() {
                 </div>
 
                 {/* Submit Button */}
-                <div className="pt-2">
+                <div className="pt-1 sm:pt-2">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-google-blue text-white font-bold text-sm rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:hover:scale-100"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-2.5 sm:py-4 bg-google-blue text-white font-bold text-xs sm:text-sm rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:hover:scale-100"
                   >
                     {loading ? (
                       <>
@@ -343,7 +343,7 @@ export default function KirimKaryaPage() {
         </form>
 
         {/* Info text */}
-        <p className="text-xs text-gray-400 font-medium mt-6 text-center max-w-sm text-balance">
+        <p className="text-[10px] sm:text-xs text-gray-400 font-medium mt-3 sm:mt-6 text-center max-w-sm text-balance shrink-0">
           Karya yang dikirim akan ditinjau terlebih dahulu oleh Admin sebelum ditampilkan di Galeri Karya Anak.
         </p>
       </main>
