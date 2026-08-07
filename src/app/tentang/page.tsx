@@ -12,6 +12,7 @@ import CircularGallery from "@/components/ui/CircularGallery";
 import ScrollStack from "@/components/ui/ScrollStack";
 import { ScrollStackItem } from "@/components/ui/ScrollStack";
 import DriftWall from "@/components/ui/DriftWall";
+import ScrollExpand from "@/components/ui/ScrollExpand";
 import { TextReveal } from "@/registry/magicui/text-reveal";
 
 export default function TentangPage() {
@@ -304,6 +305,24 @@ export default function TentangPage() {
               dim={1}
               overlayColor="transparent"
             />
+          </div>
+        </div>
+
+        {/* ========================================= */}
+        {/* SCROLL EXPAND SECTION (AKHIR PERJALANAN) */}
+        {/* ========================================= */}
+        <div className="w-full relative z-10 max-w-7xl mx-auto px-2 sm:px-8 pb-10 sm:pb-16 mt-4 sm:mt-8">
+          <div className="w-full h-[600px] sm:h-[800px]">
+            <ScrollExpand 
+              src="/images/kkn_students_placeholder.png" 
+              title="Kenangan Abadi" 
+              scrollHint="Scroll untuk melihat lebih dekat"
+              useWindowScroll={true}
+              mediaZoom={1.3}
+            >
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-black text-white mb-2 leading-none drop-shadow-md">Perpisahan Bukan Akhir</h2>
+              <p className="text-xs sm:text-xl md:text-2xl text-white/90 font-medium max-w-2xl mx-auto drop-shadow-md">Setiap sudut desa ini akan selalu menjadi bagian dari cerita perjalanan kami.</p>
+            </ScrollExpand>
           </div>
         </div>
 
