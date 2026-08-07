@@ -289,13 +289,12 @@ export default function TentangPage() {
                 image: "/images/kkn_students_placeholder.png",
                 title: `Momen KKN ${i + 1}`
               }))}
-              className="md:-ml-6 lg:-ml-10"
-              columns={typeof window !== 'undefined' && window.innerWidth < 640 ? 3 : 5}
+              columns={typeof window !== 'undefined' && window.innerWidth < 640 ? 3 : typeof window !== 'undefined' && window.innerWidth < 1024 ? 5 : 6}
               tileWidth={typeof window !== 'undefined' && window.innerWidth < 640 ? 115 : 200}
               tileHeight={typeof window !== 'undefined' && window.innerWidth < 640 ? 76 : 132}
               gap={typeof window !== 'undefined' && window.innerWidth < 640 ? 8 : 12}
               tilt={10}
-              turn={typeof window !== 'undefined' && window.innerWidth < 640 ? 0 : -14}
+              turn={0}
               perspective={typeof window !== 'undefined' && window.innerWidth < 640 ? 900 : 1500}
               depth={typeof window !== 'undefined' && window.innerWidth < 640 ? 80 : 100}
               speed={30}
