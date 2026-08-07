@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Upload, Camera, User, UserCheck, Image as ImageIcon, Loader2, Send, Sparkles, CheckCircle2, X } from "lucide-react";
+import { ArrowLeft, Upload, Camera, User, UserCheck, Image as ImageIcon, Loader2, Send, Sparkles, CheckCircle2, X, ChevronDown, Check } from "lucide-react";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { supabase } from "@/lib/supabase";
 import confetti from "canvas-confetti";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function KirimKaryaPage() {
   const router = useRouter();
@@ -20,6 +21,18 @@ export default function KirimKaryaPage() {
   const [submitterName, setSubmitterName] = useState("");
   const [coloringPageId, setColoringPageId] = useState("");
   const [coloringPages, setColoringPages] = useState<{ id: string; title: string }[]>([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Fetch daftar lembar mewarnai
   useEffect(() => {
@@ -300,20 +313,59 @@ export default function KirimKaryaPage() {
                     <label className="block text-xs sm:text-sm font-bold text-gray-800 mb-1.5 sm:mb-2">
                       Lembar Mewarnai yang Diwarnai <span className="text-red-500">*</span>
                     </label>
-                    <div className="relative">
-                      <select
-                        value={coloringPageId}
-                        onChange={(e) => setColoringPageId(e.target.value)}
-                        className="w-full px-4 py-3 bg-gray-50/80 border border-gray-200 rounded-xl hover:bg-gray-100/50 focus:bg-white focus:border-google-blue focus:ring-4 focus:ring-google-blue/10 transition-all outline-none font-medium text-xs sm:text-sm appearance-none text-gray-900 pr-10 cursor-pointer shadow-sm"
+                    <div className="relative" ref={dropdownRef}>
+                      <button
+                        type="button"
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className={`w-full flex items-center justify-between px-4 py-3 sm:py-3.5 bg-gray-50/80 border ${isDropdownOpen ? 'border-google-blue ring-4 ring-google-blue/10 bg-white' : 'border-gray-200'} rounded-xl hover:bg-gray-100/50 transition-all outline-none font-medium text-xs sm:text-sm text-gray-900 cursor-pointer shadow-sm`}
                       >
-                        <option value="">— Pilih lembar mewarnai —</option>
-                        {coloringPages.map((page) => (
-                          <option key={page.id} value={page.id}>{page.title}</option>
-                        ))}
-                      </select>
-                      <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                      </div>
+                        <span className="truncate pr-4 text-left">
+                          {coloringPageId 
+                            ? coloringPages.find(p => p.id === coloringPageId)?.title 
+                            : "— Pilih lembar mewarnai —"}
+                        </span>
+                        <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 shrink-0 ${isDropdownOpen ? 'rotate-180 text-google-blue' : ''}`} strokeWidth={2.5} />
+                      </button>
+
+                      <AnimatePresence>
+                        {isDropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute z-50 w-full mt-2 bg-white/90 backdrop-blur-xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl overflow-hidden"
+                          >
+                            <div className="max-h-60 overflow-y-auto py-1 custom-scrollbar">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setColoringPageId("");
+                                  setIsDropdownOpen(false);
+                                }}
+                                className={`w-full text-left px-4 py-3 sm:py-2.5 text-xs sm:text-sm transition-colors flex items-center justify-between group ${!coloringPageId ? 'bg-blue-50 text-google-blue font-bold' : 'text-gray-600 hover:bg-gray-50 font-medium'}`}
+                              >
+                                <span className="truncate pr-4 group-hover:translate-x-1 transition-transform">— Pilih lembar mewarnai —</span>
+                                {!coloringPageId && <Check className="w-4 h-4 shrink-0" strokeWidth={2.5} />}
+                              </button>
+                              {coloringPages.map((page) => (
+                                <button
+                                  key={page.id}
+                                  type="button"
+                                  onClick={() => {
+                                    setColoringPageId(page.id);
+                                    setIsDropdownOpen(false);
+                                  }}
+                                  className={`w-full text-left px-4 py-3 sm:py-2.5 text-xs sm:text-sm transition-colors flex items-center justify-between group ${coloringPageId === page.id ? 'bg-blue-50 text-google-blue font-bold' : 'text-gray-700 hover:bg-gray-50 font-medium'}`}
+                                >
+                                  <span className="truncate pr-4 group-hover:translate-x-1 transition-transform">{page.title}</span>
+                                  {coloringPageId === page.id && <Check className="w-4 h-4 shrink-0" strokeWidth={2.5} />}
+                                </button>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </div>
 
