@@ -203,9 +203,9 @@ export default function KirimKaryaPage() {
         <div className="w-full max-w-3xl flex items-center relative mb-4 sm:mb-6 shrink-0">
           <Link
             href="/galeri"
-            className="absolute left-0 w-10 h-10 backdrop-blur-xl bg-white/70 border border-white/60 rounded-xl flex items-center justify-center text-gray-600 hover:bg-white/90 transition-colors shadow-sm z-10"
+            className="absolute left-0 w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-google-blue hover:bg-blue-50 transition-all duration-300 shadow-sm hover:shadow-md active:scale-90 z-10 border border-gray-200/60"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-5 h-5 sm:w-5 sm:h-5" strokeWidth={2.5} />
           </Link>
           <div className="w-full text-center">
             <h1 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight leading-tight">
