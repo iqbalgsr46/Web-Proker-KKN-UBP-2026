@@ -183,8 +183,16 @@ export default function KirimKaryaPage() {
 
   return (
     <div className="min-h-[100dvh] w-full relative overflow-x-hidden flex flex-col bg-[#fafafa]">
-      {/* Background Ornaments (Blurred for a glowing ambient effect) */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 blur-[80px] md:blur-[120px] opacity-80">
+      {/* 1. Blurred Glowing Mesh Gradient (Ambient Color) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 blur-[80px] md:blur-[120px] opacity-70">
+        <AbstractBlob type="hexagon" color="green" className="w-96 h-96 absolute top-[-10%] left-[-5%] transform-gpu" />
+        <AbstractBlob type="circle-spark" color="red" className="w-80 h-80 absolute top-[20%] right-[-5%] transform-gpu" />
+        <AbstractBlob type="cross-spark" color="blue" className="w-[30rem] h-[30rem] absolute bottom-[-10%] left-[10%] transform-gpu" />
+        <AbstractBlob type="cross" color="yellow" className="w-96 h-96 absolute bottom-[10%] right-[-10%] transform-gpu" />
+      </div>
+
+      {/* 2. Sharp Vector Ornaments (Solid Shapes) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <AbstractBlob type="hexagon" color="green" className="w-32 md:w-44 h-32 md:h-44 absolute top-[5%] left-[5%] md:top-[18%] md:left-[10%] -rotate-12 transform-gpu" />
         <AbstractBlob type="circle-spark" color="red" className="w-20 md:w-28 h-20 md:h-28 absolute top-[10%] right-[8%] md:top-[12%] md:right-[15%] blur-[2px] rotate-45 transform-gpu" />
         <AbstractBlob type="cross-spark" color="blue" className="w-48 md:w-72 h-48 md:h-72 absolute bottom-[5%] -left-[15%] md:bottom-[10%] md:-left-[2%] rotate-12 transform-gpu" />
