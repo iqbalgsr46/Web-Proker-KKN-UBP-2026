@@ -58,7 +58,7 @@ export default function GaleriPage() {
     <div className="relative w-full min-h-[100dvh] flex flex-col bg-transparent">
 
       {/* 1. Blurred Glowing Mesh Gradient (Ambient Color - Penuh Warna 100%) */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 blur-[100px] md:blur-[140px] opacity-100 mix-blend-multiply">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 blur-[100px] md:blur-[140px] opacity-85">
         {/* Sudut Kiri Atas - Biru Lembut */}
         <AbstractBlob type="circle-spark" color="blue" className="w-[60rem] h-[60rem] md:w-[80rem] md:h-[80rem] absolute -top-[20%] -left-[20%] transform-gpu" />
         {/* Kanan Atas - Kuning Merah Hangat */}
@@ -67,8 +67,8 @@ export default function GaleriPage() {
         <AbstractBlob type="cross-spark" color="green" className="w-[70rem] h-[70rem] md:w-[90rem] md:h-[90rem] absolute -bottom-[20%] -left-[20%] transform-gpu" />
         {/* Kanan Bawah - Biru Dalam */}
         <AbstractBlob type="hexagon" color="blue" className="w-[60rem] h-[60rem] md:w-[80rem] md:h-[80rem] absolute -bottom-[10%] -right-[15%] transform-gpu" />
-        {/* Tengah - Aksen Merah Kuat */}
-        <AbstractBlob type="circle-spark" color="red" className="w-[50rem] h-[50rem] md:w-[70rem] md:h-[70rem] absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 transform-gpu" />
+        {/* Tengah - Aksen Kuning Lembut (Lebih bersahabat dibanding Merah tebal) */}
+        <AbstractBlob type="circle-spark" color="yellow" className="w-[50rem] h-[50rem] md:w-[70rem] md:h-[70rem] absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 transform-gpu opacity-70" />
       </div>
 
       {/* 2. Sharp Vector Ornaments (Solid Shapes, Elegan & Minimalis) */}
