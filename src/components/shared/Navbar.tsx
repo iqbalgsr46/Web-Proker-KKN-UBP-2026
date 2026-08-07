@@ -35,7 +35,6 @@ const DownloadIcon = (props: any) => (
 const NAV_ITEMS = [
   { href: "/", icon: HomeIcon, label: "Beranda" },
   { href: "/kategori", icon: GridIcon, label: "Kategori" },
-  { href: "/game", icon: GamepadIcon, label: "Main Game" },
   { href: "/galeri", icon: ImageIcon, label: "Galeri" },
   { href: "/kirim-karya", icon: SendIcon, label: "Kirim Karya" },
   { href: "/tentang", icon: UsersIcon, label: "Tentang Kami" },
