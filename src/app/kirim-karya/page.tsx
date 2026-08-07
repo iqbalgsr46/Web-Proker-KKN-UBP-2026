@@ -200,7 +200,7 @@ export default function KirimKaryaPage() {
 
       <main className="flex-1 w-full flex flex-col items-center justify-center p-3 sm:p-6 z-10 overflow-y-auto">
         {/* Header */}
-        <div className="w-full max-w-4xl flex items-center relative mb-4 sm:mb-6 shrink-0">
+        <div className="w-full max-w-3xl flex items-center relative mb-4 sm:mb-6 shrink-0">
           <Link
             href="/galeri"
             className="absolute left-0 w-10 h-10 backdrop-blur-xl bg-white/70 border border-white/60 rounded-xl flex items-center justify-center text-gray-600 hover:bg-white/90 transition-colors shadow-sm z-10"
@@ -218,12 +218,12 @@ export default function KirimKaryaPage() {
         </div>
 
         {/* Form Card */}
-        <form onSubmit={handleSubmit} className="w-full max-w-4xl flex-1 md:flex-initial flex flex-col min-h-0">
+        <form onSubmit={handleSubmit} className="w-full max-w-3xl flex-1 md:flex-initial flex flex-col min-h-0">
           <div className="backdrop-blur-xl bg-white/70 border border-white/60 rounded-3xl sm:rounded-[2.5rem] shadow-xl overflow-hidden flex-1 flex flex-col">
-            <div className="p-4 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 flex-1">
+            <div className="p-4 sm:p-8 grid grid-cols-1 md:grid-cols-5 gap-5 sm:gap-8 flex-1">
               
               {/* Kolom Kiri: Upload Foto */}
-              <div className="flex flex-col h-full">
+              <div className="flex flex-col h-full md:col-span-2">
                 <label className="block text-xs sm:text-sm font-bold text-gray-800 mb-2 sm:mb-3">
                   Foto Karya Mewarnai <span className="text-red-500">*</span>
                 </label>
@@ -291,7 +291,7 @@ export default function KirimKaryaPage() {
               </div>
 
               {/* Kolom Kanan: Input & Submit */}
-              <div className="flex flex-col justify-between space-y-3 sm:space-y-5">
+              <div className="flex flex-col justify-between space-y-3 sm:space-y-5 md:col-span-3">
                 <div className="space-y-2.5 sm:space-y-6">
                   {/* Pilih Lembar Mewarnai */}
                   <div>
