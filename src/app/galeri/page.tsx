@@ -88,15 +88,15 @@ export default function GaleriPage() {
       <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-8 mt-8 sm:mt-16 md:mt-24 z-10 overflow-hidden">
         
         {/* Header */}
-        <div className="flex flex-row items-center justify-center gap-1.5 sm:gap-4 mb-6 sm:mb-8 mt-2 sm:mt-4 w-full px-2">
+        <div className="flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6 mb-6 sm:mb-8 mt-2 sm:mt-4 w-full px-2">
           {/* Left Bracket */}
-          <svg viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 w-8 h-16 sm:w-[45px] sm:h-[90px] md:translate-x-4">
+          <svg viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 w-8 h-16 sm:w-[45px] sm:h-[90px]">
             <path d="M 40 10 L 33 10 A 13 13 0 0 0 20 23 L 20 35 L 10 45 L 20 55 L 20 67 A 13 13 0 0 0 33 80 L 40 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             <path d="M 40 10 L 33 10 A 13 13 0 0 0 20 23 L 20 35 L 10 45 L 20 55 L 20 67 A 13 13 0 0 0 33 80 L 40 80" stroke="#FBBC04" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
           </svg>
 
           {/* Center Content */}
-          <div className="flex flex-col items-center justify-center px-1 sm:px-0 w-auto z-10 shrink">
+          <div className="flex flex-col items-center justify-center px-1 sm:px-0 w-auto min-w-[150px] sm:min-w-[240px] md:min-w-[380px] z-10 shrink">
             <h2 className="mt-3 sm:mt-4 text-[1.1rem] sm:text-xl md:text-3xl font-black text-gray-900 tracking-tight text-center mb-1 sm:mb-2">
               Galeri
             </h2>
@@ -109,7 +109,7 @@ export default function GaleriPage() {
           </div>
 
           {/* Right Bracket */}
-          <svg viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 w-8 h-16 sm:w-[45px] sm:h-[90px] md:-translate-x-4">
+          <svg viewBox="0 0 45 90" fill="none" className="drop-shadow-sm overflow-visible shrink-0 w-8 h-16 sm:w-[45px] sm:h-[90px]">
             <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#202124" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             <path d="M 5 10 L 12 10 A 13 13 0 0 1 25 23 L 25 35 L 35 45 L 25 55 L 25 67 A 13 13 0 0 1 12 80 L 5 80" stroke="#FBBC04" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
           </svg>
