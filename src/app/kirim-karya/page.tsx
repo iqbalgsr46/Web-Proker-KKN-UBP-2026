@@ -183,8 +183,8 @@ export default function KirimKaryaPage() {
 
   return (
     <div className="min-h-[100dvh] w-full relative overflow-x-hidden flex flex-col bg-[#fafafa]">
-      {/* Background Ornaments (Same as Home Page for consistency) */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+      {/* Background Ornaments (Blurred for a glowing ambient effect) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 blur-[80px] md:blur-[120px] opacity-80">
         <AbstractBlob type="hexagon" color="green" className="w-32 md:w-44 h-32 md:h-44 absolute top-[5%] left-[5%] md:top-[18%] md:left-[10%] -rotate-12 transform-gpu" />
         <AbstractBlob type="circle-spark" color="red" className="w-20 md:w-28 h-20 md:h-28 absolute top-[10%] right-[8%] md:top-[12%] md:right-[15%] blur-[2px] rotate-45 transform-gpu" />
         <AbstractBlob type="cross-spark" color="blue" className="w-48 md:w-72 h-48 md:h-72 absolute bottom-[5%] -left-[15%] md:bottom-[10%] md:-left-[2%] rotate-12 transform-gpu" />
