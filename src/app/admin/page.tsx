@@ -42,8 +42,8 @@ export default async function AdminDashboard() {
   return (
     <div className="p-4 md:p-8 max-w-7xl mx-auto w-full">
       <div className="mb-6 md:mb-8">
-        <h1 className="text-xl md:text-3xl font-black text-gray-900 tracking-tight">Ringkasan <span className="text-google-blue">Aktivitas</span></h1>
-        <p className="text-gray-500 mt-1 font-medium text-xs md:text-base">
+        <h1 className="text-xl md:text-2xl font-bold text-gray-900">Ringkasan Aktivitas</h1>
+        <p className="text-gray-500 mt-1 text-sm">
           Pantau perkembangan dan partisipasi anak-anak di EduColoring.
         </p>
       </div>
@@ -84,10 +84,10 @@ export default async function AdminDashboard() {
       </div>
 
       {/* Recent Submissions */}
-      <div className="bg-white rounded-2xl md:rounded-3xl border border-gray-100 shadow-sm p-4 md:p-8">
-        <div className="flex items-center justify-between mb-4 md:mb-6">
-          <h2 className="text-base md:text-xl font-bold text-gray-900">Karya Terbaru</h2>
-          <a href="/admin/karya" className="text-xs md:text-sm font-bold text-google-blue hover:underline">
+      <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 md:p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-bold text-gray-900">Karya Terbaru</h2>
+          <a href="/admin/karya" className="text-sm font-medium text-gray-600 hover:text-gray-900 hover:underline">
             Lihat Semua
           </a>
         </div>
@@ -125,19 +125,19 @@ export default async function AdminDashboard() {
 
             {/* Desktop: Table */}
             <div className="hidden md:block overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-gray-100">
-                    <th className="text-left py-3 px-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Nama Anak</th>
-                    <th className="text-left py-3 px-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Pengirim</th>
-                    <th className="text-left py-3 px-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Lembar</th>
-                    <th className="text-left py-3 px-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Status</th>
-                    <th className="text-left py-3 px-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Tanggal</th>
+              <table className="w-full text-sm text-left">
+                <thead className="bg-gray-50/50 text-gray-500">
+                  <tr className="border-b border-gray-200">
+                    <th className="py-3 px-4 font-semibold">Nama Anak</th>
+                    <th className="py-3 px-4 font-semibold">Pengirim</th>
+                    <th className="py-3 px-4 font-semibold">Lembar</th>
+                    <th className="py-3 px-4 font-semibold">Status</th>
+                    <th className="py-3 px-4 font-semibold">Tanggal</th>
                   </tr>
                 </thead>
                 <tbody>
                   {recentSubmissions.map((sub) => (
-                    <tr key={sub.id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                    <tr key={sub.id} className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
                       <td className="py-3 px-4 font-medium text-gray-900">{sub.childName}</td>
                       <td className="py-3 px-4 text-gray-600">{sub.submitterName}</td>
                       <td className="py-3 px-4 text-gray-600">{sub.coloringPage.title}</td>

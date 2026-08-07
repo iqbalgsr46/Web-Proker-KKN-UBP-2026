@@ -44,29 +44,23 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center px-4 py-12 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background Blobs (Admin version - subtle) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-        <div className="absolute -top-[10%] -left-[10%] w-96 h-96 bg-google-blue rounded-full blur-[100px]" />
-        <div className="absolute -bottom-[10%] -right-[10%] w-96 h-96 bg-google-yellow rounded-full blur-[100px]" />
-      </div>
-
-      <div className="mx-auto w-full max-w-md relative z-10">
+    <div className="min-h-screen bg-[#FAFAFA] flex flex-col justify-center px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-md">
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-md border border-gray-100">
-            <ShieldCheck className="w-8 h-8 text-google-blue" />
+          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm border border-gray-200">
+            <ShieldCheck className="w-6 h-6 text-gray-900" />
           </div>
         </div>
-        <h2 className="mt-2 text-center text-3xl font-black text-gray-900 tracking-tight">
-          Masuk ke <span className="text-google-blue">Admin</span>
+        <h2 className="mt-2 text-center text-2xl font-bold text-gray-900 tracking-tight">
+          Masuk ke Admin
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Kelola lembar mewarnai dan karya anak-anak
+        <p className="mt-2 text-center text-sm text-gray-500">
+          Gunakan kredensial Anda untuk melanjutkan
         </p>
       </div>
 
-      <div className="mt-8 mx-auto w-full max-w-md relative z-10">
-        <div className="bg-white py-8 px-5 shadow-xl shadow-gray-200/50 rounded-2xl sm:rounded-3xl sm:px-10 border border-gray-100">
+      <div className="mt-8 mx-auto w-full max-w-md">
+        <div className="bg-white py-8 px-5 shadow-sm rounded-xl sm:px-10 border border-gray-200">
           <form className="space-y-6" onSubmit={handleLogin}>
             <div>
               <label htmlFor="email" className="block text-sm font-bold text-gray-900">
@@ -83,7 +77,7 @@ export default function AdminLoginPage() {
                   autoComplete="email"
                   required
 
-                  className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue sm:text-sm transition-all"
+                  className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 sm:text-sm transition-all"
                   placeholder="admin@educoloring.com"
                 />
               </div>
@@ -103,7 +97,7 @@ export default function AdminLoginPage() {
                   type={showPassword ? "text" : "password"}
                   autoComplete="current-password"
                   required
-                  className="block w-full pl-10 pr-10 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-google-blue focus:border-google-blue sm:text-sm transition-all"
+                  className="block w-full pl-10 pr-10 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 sm:text-sm transition-all"
                   placeholder="••••••••"
                 />
                 <button
@@ -117,7 +111,7 @@ export default function AdminLoginPage() {
             </div>
 
             {error && (
-              <div className="text-red-500 text-sm font-medium bg-red-50 p-3 rounded-lg border border-red-100">
+              <div className="text-red-500 text-sm font-medium bg-red-50 p-3 rounded-md border border-red-100">
                 {error}
               </div>
             )}
@@ -126,7 +120,7 @@ export default function AdminLoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-bold text-white bg-[#202124] hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-all disabled:opacity-70 disabled:cursor-not-allowed group"
+                className="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-all disabled:opacity-70 disabled:cursor-not-allowed group"
               >
                 {loading ? "Memproses..." : "Masuk"}
                 {!loading && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}

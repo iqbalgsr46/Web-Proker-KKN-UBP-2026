@@ -120,10 +120,10 @@ export default function KaryaPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 md:mb-8">
         <div>
-          <h1 className="text-xl md:text-3xl font-black text-gray-900 tracking-tight">
-            Karya <span className="text-google-blue">Masuk</span>
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900">
+            Karya Masuk
           </h1>
-          <p className="text-gray-500 mt-1 font-medium text-xs md:text-sm">
+          <p className="text-gray-500 mt-1 text-sm">
             Tinjau dan kelola karya mewarnai yang dikirimkan anak-anak.
           </p>
         </div>
@@ -142,10 +142,10 @@ export default function KaryaPage() {
           <button
             key={f.key}
             onClick={() => setActiveFilter(f.key)}
-            className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all ${
+            className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium transition-all ${
               activeFilter === f.key
-                ? `${f.bg} ${f.text} ring-2 ring-offset-1 ring-current/30 shadow-sm`
-                : "bg-gray-50 text-gray-400 hover:bg-gray-100"
+                ? `${f.bg} ${f.text} border border-current/20 shadow-sm`
+                : "bg-white border border-transparent text-gray-500 hover:bg-gray-50"
             }`}
           >
             {f.label}
@@ -182,7 +182,7 @@ export default function KaryaPage() {
             const isProcessing = actionLoading === sub.id;
 
             return (
-              <div key={sub.id} className={`bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden group ${isProcessing ? "opacity-50 pointer-events-none" : ""}`}>
+              <div key={sub.id} className={`bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden group ${isProcessing ? "opacity-50 pointer-events-none" : ""}`}>
                 {/* Image Preview — Click for Lightbox */}
                 <div
                   className="aspect-[4/3] bg-gray-100 relative overflow-hidden cursor-pointer"

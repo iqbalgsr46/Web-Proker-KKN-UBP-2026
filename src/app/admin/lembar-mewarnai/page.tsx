@@ -25,17 +25,17 @@ export default async function LembarMewarnaiPage() {
     <div className="p-4 md:p-8 max-w-7xl mx-auto w-full">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 md:mb-8">
         <div>
-          <h1 className="text-xl md:text-3xl font-black text-gray-900 tracking-tight">
-            Lembar <span className="text-google-blue">Mewarnai</span>
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900">
+            Lembar Mewarnai
           </h1>
-          <p className="text-gray-500 mt-1 font-medium text-xs md:text-sm">
+          <p className="text-gray-500 mt-1 text-sm">
             Kelola semua lembar mewarnai yang tersedia.
           </p>
         </div>
         {coloringPages.length > 0 && (
           <a
             href="/admin/lembar-mewarnai/tambah"
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#202124] text-white font-bold text-sm rounded-xl hover:bg-gray-800 transition-all shadow-sm w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gray-900 text-white font-medium text-sm rounded-md hover:bg-gray-800 transition-colors shadow-sm w-full sm:w-auto"
           >
             <Plus className="w-4 h-4" />
             Tambah Lembar
@@ -103,7 +103,7 @@ export default async function LembarMewarnaiPage() {
           </div>
 
           {/* Desktop: Table Layout */}
-          <div className="hidden md:block bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+          <div className="hidden md:block bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -122,7 +122,7 @@ export default async function LembarMewarnaiPage() {
                     <tr key={page.id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
                       <td className="py-4 px-6">
                         <div className="flex items-center gap-3">
-                          <div className="w-24 h-24 rounded-xl bg-white border border-gray-200 overflow-hidden flex-shrink-0">
+                          <div className="w-16 h-16 rounded-md bg-white border border-gray-200 overflow-hidden flex-shrink-0">
                             {page.thumbnailUrl ? (
                               <img src={page.thumbnailUrl} alt={page.title} className="w-full h-full object-contain p-1" />
                             ) : (
