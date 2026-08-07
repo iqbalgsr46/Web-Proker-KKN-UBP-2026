@@ -319,8 +319,8 @@ export default function TentangPage() {
               scrollHint="Scroll untuk melihat lebih dekat"
               useWindowScroll={true}
               mediaZoom={1.3}
-              startWidth={typeof window !== 'undefined' && window.innerWidth < 640 ? 85 : 50}
-              startHeight={typeof window !== 'undefined' && window.innerWidth < 640 ? 50 : 60}
+              startWidth={typeof window !== 'undefined' && window.innerWidth < 640 ? 50 : 30}
+              startHeight={typeof window !== 'undefined' && window.innerWidth < 640 ? 25 : 45}
             >
               <h2 className="text-xl sm:text-4xl md:text-5xl font-black text-white mb-2 leading-none drop-shadow-md">Perpisahan Bukan Akhir</h2>
               <p className="text-xs sm:text-xl md:text-2xl text-white/90 font-medium max-w-2xl mx-auto drop-shadow-md">Setiap sudut desa ini akan selalu menjadi bagian dari cerita perjalanan kami.</p>
