@@ -301,7 +301,8 @@ export default function TentangPage() {
               parallax={typeof window !== 'undefined' && window.innerWidth < 640 ? 0 : 0.4}
               pauseOnHover={true}
               fade={0.3}
-              overlayColor="#202124"
+              dim={1}
+              overlayColor="transparent"
             />
           </div>
         </div>
