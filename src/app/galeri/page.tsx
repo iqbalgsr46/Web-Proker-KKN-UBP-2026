@@ -190,23 +190,7 @@ export default function GaleriPage() {
           )}
         </div>
 
-        {/* Karya Info Cards - Below Masonry */}
-        {submissions.length > 0 && (
-          <div className="w-full max-w-5xl mx-auto mb-12 sm:mb-20 px-2 sm:px-4">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-              {submissions.slice(0, 8).map((sub) => (
-                <div key={sub.id} className="backdrop-blur-md bg-white/60 border border-white/60 rounded-2xl p-3 shadow-sm">
-                  <div className="aspect-square rounded-xl overflow-hidden mb-2 bg-gray-100">
-                    <img src={sub.imageUrl} alt={`Karya ${sub.childName}`} className="w-full h-full object-cover" />
-                  </div>
-                  <h4 className="text-xs sm:text-sm font-bold text-gray-900 truncate">{sub.childName}</h4>
-                  <p className="text-[10px] sm:text-xs text-gray-500 truncate">oleh {sub.submitterName}</p>
-                  <p className="text-[10px] sm:text-xs text-gray-400 truncate">{sub.coloringPage.title}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+
 
         {/* iPhone Mockup Preview Section */}
         <div className="w-full max-w-7xl mx-auto mb-16 sm:mb-24 flex flex-col items-center justify-center px-4">
