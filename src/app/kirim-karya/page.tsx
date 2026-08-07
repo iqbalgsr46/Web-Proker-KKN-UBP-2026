@@ -260,10 +260,10 @@ export default function KirimKaryaPage() {
                     <div className="flex w-full gap-3 h-full">
                       {/* Camera Button */}
                       <label className="flex-1 flex flex-col items-center justify-center bg-blue-50/40 border border-blue-100 rounded-2xl cursor-pointer hover:bg-blue-100/50 hover:border-blue-200 transition-all group shadow-sm active:scale-[0.98]">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center mb-2 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                          <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-google-blue" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center mb-2 md:mb-3 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                          <Camera className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-google-blue" strokeWidth={2.5} />
                         </div>
-                        <span className="text-xs sm:text-sm font-bold text-google-blue">Ambil Foto</span>
+                        <span className="text-xs sm:text-sm md:text-base font-bold text-google-blue">Ambil Foto</span>
                         <input
                           id="photo-upload-camera"
                           type="file"
@@ -275,10 +275,10 @@ export default function KirimKaryaPage() {
                       </label>
                       {/* Gallery Button */}
                       <label className="flex-1 flex flex-col items-center justify-center bg-yellow-50/40 border border-yellow-100 rounded-2xl cursor-pointer hover:bg-yellow-100/50 hover:border-yellow-200 transition-all group shadow-sm active:scale-[0.98]">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center mb-2 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                          <ImageIcon className="w-5 h-5 sm:w-6 sm:h-6 text-google-yellow" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center mb-2 md:mb-3 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                          <ImageIcon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-google-yellow" strokeWidth={2.5} />
                         </div>
-                        <span className="text-xs sm:text-sm font-bold text-yellow-600">Pilih Galeri</span>
+                        <span className="text-xs sm:text-sm md:text-base font-bold text-yellow-600">Pilih Galeri</span>
                         <input
                           id="photo-upload-gallery"
                           type="file"
