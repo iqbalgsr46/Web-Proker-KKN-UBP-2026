@@ -208,10 +208,10 @@ export default function KirimKaryaPage() {
             <ArrowLeft className="w-5 h-5" />
           </Link>
           <div className="w-full text-center">
-            <h1 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">
+            <h1 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight leading-tight">
               Kirim <span className="text-google-blue">Karya</span>
             </h1>
-            <p className="text-gray-500 text-xs font-medium">
+            <p className="text-gray-500 text-xs font-medium mt-1">
               Upload hasil mewarnai anak-anak
             </p>
           </div>
