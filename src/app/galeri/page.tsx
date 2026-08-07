@@ -52,6 +52,9 @@ export default function GaleriPage() {
     img: sub.imageUrl,
     url: "#",
     height: heights[idx % heights.length],
+    childName: sub.childName,
+    submitterName: sub.submitterName,
+    pageTitle: sub.coloringPage.title,
   }));
 
   return (

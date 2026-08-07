@@ -58,6 +58,9 @@ export interface Item {
   url: string;
   height: number;
   categoryName?: string;
+  childName?: string;
+  submitterName?: string;
+  pageTitle?: string;
 }
 
 interface GridItem extends Item {
@@ -271,8 +274,17 @@ const Masonry: React.FC<MasonryProps> = ({
               }
             }}
           >
-            <div className={`item-img ${isSelected ? 'ring-4 ring-google-blue rounded-[1.25rem]' : ''} transition-all duration-300 relative`} style={{ backgroundImage: `url(${item.img})` }}>
+            <div className={`item-img group ${isSelected ? 'ring-4 ring-google-blue rounded-[1.25rem]' : ''} transition-all duration-300 relative overflow-hidden`} style={{ backgroundImage: `url(${item.img})` }}>
               
+              {/* Info Overlay (Name & Submitter) */}
+              {(item.childName || item.submitterName) && (
+                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 pointer-events-none">
+                  {item.childName && <h4 className="text-white font-bold text-sm sm:text-lg truncate drop-shadow-md leading-tight">{item.childName}</h4>}
+                  {item.submitterName && <p className="text-white/90 text-[10px] sm:text-xs font-medium truncate drop-shadow-sm mt-0.5">oleh {item.submitterName}</p>}
+                  {item.pageTitle && <p className="text-white/70 text-[9px] sm:text-[10px] mt-1 truncate drop-shadow-sm">{item.pageTitle}</p>}
+                </div>
+              )}
+
               {/* Checkmark Overlay */}
               {isSelected && (
                 <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-google-blue border-2 border-[#202124] text-white rounded-full p-1 shadow-[2px_2px_0px_#202124] z-20 flex items-center justify-center animate-in zoom-in spin-in-[10deg] duration-300">
