@@ -43,8 +43,8 @@ const NAV_ITEMS = [
 export function Navbar() {
   const pathname = usePathname();
 
-  // Hide the floating dock navbar on the homepage
-  if (pathname === "/") {
+  // Hide the floating dock navbar on the homepage and kirim-karya
+  if (pathname === "/" || pathname === "/kirim-karya") {
     return null;
   }
 
