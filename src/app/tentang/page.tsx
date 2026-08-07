@@ -11,6 +11,7 @@ import { LogoMarquee } from "@/components/ui/LogoMarquee";
 import CircularGallery from "@/components/ui/CircularGallery";
 import ScrollStack from "@/components/ui/ScrollStack";
 import { ScrollStackItem } from "@/components/ui/ScrollStack";
+import DriftWall from "@/components/ui/DriftWall";
 import { TextReveal } from "@/registry/magicui/text-reveal";
 
 export default function TentangPage() {
@@ -271,6 +272,35 @@ export default function TentangPage() {
               </div>
             </ScrollStackItem>
           </ScrollStack>
+          </div>
+        </div>
+
+        {/* ========================================= */}
+        {/* DRIFT WALL SECTION (LEBIH BANYAK MOMEN) */}
+        {/* ========================================= */}
+        <div className="w-full relative z-10 max-w-7xl mx-auto px-2 sm:px-8 pt-4 sm:pt-8 pb-10 sm:pb-16">
+          <div className="text-center mb-6 sm:mb-10">
+            <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mb-1 sm:mb-2 drop-shadow-sm">Jelajahi Lebih Banyak Momen</h3>
+            <p className="text-xs sm:text-base text-gray-600 font-medium">Banyak sekali cerita berharga yang ingin kami bagikan.</p>
+          </div>
+          <div className="w-full h-[400px] sm:h-[600px] md:h-[700px] rounded-3xl overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] border border-white/40 shadow-sm bg-white/20 backdrop-blur-sm">
+            <DriftWall
+              items={Array.from({ length: 15 }, (_, i) => ({
+                image: "/images/kkn_students_placeholder.png",
+                title: `Momen KKN ${i + 1}`
+              }))}
+              columns={typeof window !== 'undefined' && window.innerWidth < 640 ? 3 : 5}
+              tileWidth={typeof window !== 'undefined' && window.innerWidth < 640 ? 120 : 200}
+              tileHeight={typeof window !== 'undefined' && window.innerWidth < 640 ? 80 : 132}
+              gap={12}
+              tilt={10}
+              perspective={1500}
+              depth={100}
+              speed={35}
+              parallax={0.4}
+              pauseOnHover={true}
+              overlayColor="#fbbc04"
+            />
           </div>
         </div>
 
