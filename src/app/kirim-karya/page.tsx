@@ -220,7 +220,7 @@ export default function KirimKaryaPage() {
         </div>
 
         {/* Form Card */}
-        <form onSubmit={handleSubmit} className="w-full max-w-3xl flex-1 md:flex-initial flex flex-col min-h-0">
+        <form onSubmit={handleSubmit} className="w-full max-w-3xl flex-shrink-0 flex flex-col min-h-0">
           <GlassCard className="!p-4 sm:!p-8 w-full !rounded-3xl sm:!rounded-[2.5rem]">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-5 sm:gap-8">
               
