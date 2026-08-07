@@ -182,21 +182,14 @@ export default function KirimKaryaPage() {
   }
 
   return (
-    <div className="h-[100dvh] w-full relative overflow-hidden bg-[#fafafa] flex flex-col">
-      {/* Background with abstract blobs */}
-      <div className="absolute inset-0 -z-10 pointer-events-none bg-white overflow-hidden">
-        <div className="absolute inset-0 blur-[120px]">
-          <AbstractBlob type="gemini-spark" color="blue" className="absolute top-[5%] left-[-5%] w-64 md:w-96 h-64 md:h-96 opacity-50 rotate-12 pointer-events-none transform-gpu" />
-          <AbstractBlob type="circle-spark" color="yellow" className="absolute top-[30%] right-[2%] w-48 h-48 opacity-60 -rotate-12 pointer-events-none transform-gpu" />
-          <AbstractBlob type="gemini-spark" color="red" className="absolute top-[60%] left-[10%] w-56 h-56 opacity-40 rotate-45 pointer-events-none transform-gpu" />
-          <AbstractBlob type="gemini-spark" color="green" className="absolute bottom-[5%] right-[15%] w-72 h-72 opacity-40 -rotate-25 pointer-events-none transform-gpu" />
-        </div>
-        <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-          <AbstractBlob type="spark" color="blue" className="absolute top-[15%] left-[8%] w-12 md:w-20 h-12 md:h-20 opacity-30 rotate-12" />
-          <AbstractBlob type="spark" color="yellow" className="absolute top-[40%] right-[12%] w-16 h-16 opacity-25 -rotate-15" />
-          <AbstractBlob type="cross" color="red" className="absolute bottom-[25%] left-[20%] w-10 h-10 opacity-40 rotate-30" />
-          <AbstractBlob type="hexagon" color="green" className="absolute top-[10%] right-[30%] w-14 h-14 opacity-30 rotate-60" />
-        </div>
+    <div className="min-h-[100dvh] w-full relative overflow-x-hidden flex flex-col bg-[#fafafa]">
+      {/* Background Ornaments (Same as Home Page for consistency) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <AbstractBlob type="hexagon" color="green" className="w-32 md:w-44 h-32 md:h-44 absolute top-[5%] left-[5%] md:top-[18%] md:left-[10%] -rotate-12 transform-gpu" />
+        <AbstractBlob type="circle-spark" color="red" className="w-20 md:w-28 h-20 md:h-28 absolute top-[10%] right-[8%] md:top-[12%] md:right-[15%] blur-[2px] rotate-45 transform-gpu" />
+        <AbstractBlob type="cross-spark" color="blue" className="w-48 md:w-72 h-48 md:h-72 absolute bottom-[5%] -left-[15%] md:bottom-[10%] md:-left-[2%] rotate-12 transform-gpu" />
+        <AbstractBlob type="cross" color="yellow" className="w-36 md:w-56 h-36 md:h-56 absolute bottom-[15%] right-[5%] md:bottom-[18%] md:right-[10%] -rotate-[25deg] transform-gpu" />
+        <AbstractBlob type="hexagon" color="blue" className="w-40 md:w-64 h-40 md:h-64 absolute top-[50%] left-[48%] -translate-x-1/2 -translate-y-1/2 rotate-[15deg] transform-gpu" />
       </div>
 
       <main className="flex-1 w-full flex flex-col items-center justify-center p-3 sm:p-6 z-10 overflow-y-auto">
