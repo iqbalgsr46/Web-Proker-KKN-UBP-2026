@@ -200,14 +200,14 @@ export default function KirimKaryaPage() {
 
       <main className="flex-1 w-full flex flex-col items-center justify-center p-3 sm:p-6 z-10 overflow-y-auto">
         {/* Header */}
-        <div className="w-full max-w-4xl flex items-center gap-2 sm:gap-3 mb-2 sm:mb-6 shrink-0">
+        <div className="w-full max-w-4xl flex items-center relative mb-4 sm:mb-6 shrink-0">
           <Link
             href="/galeri"
-            className="w-10 h-10 backdrop-blur-xl bg-white/70 border border-white/60 rounded-xl flex items-center justify-center text-gray-600 hover:bg-white/90 transition-colors shadow-sm"
+            className="absolute left-0 w-10 h-10 backdrop-blur-xl bg-white/70 border border-white/60 rounded-xl flex items-center justify-center text-gray-600 hover:bg-white/90 transition-colors shadow-sm z-10"
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>
-          <div>
+          <div className="w-full text-center">
             <h1 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">
               Kirim <span className="text-google-blue">Karya</span>
             </h1>
