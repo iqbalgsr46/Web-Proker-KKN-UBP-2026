@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Upload, Camera, User, UserCheck, Image as ImageIcon, Loader2, Send, Sparkles, CheckCircle2, X } from "lucide-react";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
+import { GlassCard } from "@/components/ui/GlassCard";
 import { supabase } from "@/lib/supabase";
 import confetti from "canvas-confetti";
 
@@ -219,8 +220,8 @@ export default function KirimKaryaPage() {
 
         {/* Form Card */}
         <form onSubmit={handleSubmit} className="w-full max-w-3xl flex-1 md:flex-initial flex flex-col min-h-0">
-          <div className="backdrop-blur-xl bg-white/70 border border-white/60 rounded-3xl sm:rounded-[2.5rem] shadow-xl overflow-hidden flex-1 flex flex-col">
-            <div className="p-4 sm:p-8 grid grid-cols-1 md:grid-cols-5 gap-5 sm:gap-8 flex-1">
+          <GlassCard className="!p-4 sm:!p-8 w-full !rounded-3xl sm:!rounded-[2.5rem]">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-5 sm:gap-8">
               
               {/* Kolom Kiri: Upload Foto */}
               <div className="flex flex-col h-full md:col-span-2">
@@ -375,7 +376,7 @@ export default function KirimKaryaPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </GlassCard>
         </form>
 
         {/* Info text */}
