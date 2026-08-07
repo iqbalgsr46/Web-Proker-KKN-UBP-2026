@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Upload, Camera, User, UserCheck, Image as ImageIcon, Loader2, Send, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, Upload, Camera, User, UserCheck, Image as ImageIcon, Loader2, Send, Sparkles, CheckCircle2, X } from "lucide-react";
 import { AbstractBlob } from "@/components/ui/AbstractBlob";
 import { supabase } from "@/lib/supabase";
 import confetti from "canvas-confetti";
@@ -230,15 +230,31 @@ export default function KirimKaryaPage() {
                 </label>
                 <div className="relative border-2 border-dashed border-gray-200 rounded-2xl p-2 sm:p-6 flex flex-col items-center justify-center text-center hover:border-google-blue hover:bg-blue-50/30 transition-all cursor-pointer bg-white/50 min-h-[5rem] md:min-h-[16rem] flex-1">
                   <input
+                    id="photo-upload"
                     type="file"
                     accept="image/*"
                     capture="environment"
                     onChange={handleImageChange}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                   />
                   {imagePreview ? (
-                    <div className="w-full max-w-[80px] md:max-w-[200px] aspect-[3/4] mb-1.5 sm:mb-3 relative rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                    <div className="w-full max-w-[80px] md:max-w-[200px] aspect-[3/4] mb-1.5 sm:mb-3 relative rounded-xl overflow-hidden border border-gray-200 shadow-sm z-20 pointer-events-none group">
                       <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setImageFile(null);
+                          setImagePreview(null);
+                          const fileInput = document.getElementById('photo-upload') as HTMLInputElement;
+                          if (fileInput) fileInput.value = '';
+                        }}
+                        className="absolute top-1 right-1 sm:top-2 sm:right-2 w-6 h-6 sm:w-8 sm:h-8 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center shadow-md transition-transform active:scale-95 pointer-events-auto opacity-90 hover:opacity-100"
+                        title="Hapus foto"
+                      >
+                        <X className="w-3 h-3 sm:w-4 sm:h-4" />
+                      </button>
                     </div>
                   ) : (
                     <div className="w-10 h-10 md:w-16 md:h-16 bg-blue-50 rounded-full flex items-center justify-center mb-1 sm:mb-3">
