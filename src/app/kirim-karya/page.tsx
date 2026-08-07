@@ -202,7 +202,7 @@ export default function KirimKaryaPage() {
 
       <main className="flex-1 w-full flex flex-col items-center justify-center p-3 sm:p-6 z-10 overflow-y-auto">
         {/* Header */}
-        <div className="w-full max-w-3xl flex items-center relative mb-4 sm:mb-6 shrink-0">
+        <div className="w-full max-w-4xl flex items-center relative mb-4 sm:mb-6 shrink-0">
           <Link
             href="/galeri"
             className="absolute left-0 w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-google-blue hover:bg-blue-50 transition-all duration-300 shadow-sm hover:shadow-md active:scale-90 z-10 border border-gray-200/60"
@@ -220,7 +220,7 @@ export default function KirimKaryaPage() {
         </div>
 
         {/* Form Card */}
-        <form onSubmit={handleSubmit} className="w-full max-w-3xl flex-shrink-0 flex flex-col min-h-0">
+        <form onSubmit={handleSubmit} className="w-full max-w-4xl flex-shrink-0 flex flex-col min-h-0">
           <GlassCard className="!p-4 sm:!p-8 w-full !rounded-3xl sm:!rounded-[2.5rem]">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-5 sm:gap-8">
               
