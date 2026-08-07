@@ -57,22 +57,32 @@ export default function GaleriPage() {
   return (
     <div className="relative w-full min-h-[100dvh] flex flex-col bg-transparent">
 
-      {/* 1. Blurred Glowing Mesh Gradient (Ambient Color) */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 blur-[80px] md:blur-[120px] opacity-70">
-        <AbstractBlob type="hexagon" color="green" className="w-[30rem] h-[30rem] absolute top-[-10%] left-[-5%] transform-gpu" />
-        <AbstractBlob type="circle-spark" color="red" className="w-[25rem] h-[25rem] absolute top-[20%] right-[-5%] transform-gpu" />
-        <AbstractBlob type="cross-spark" color="blue" className="w-[35rem] h-[35rem] absolute bottom-[-10%] left-[10%] transform-gpu" />
-        <AbstractBlob type="cross" color="yellow" className="w-[30rem] h-[30rem] absolute bottom-[10%] right-[-10%] transform-gpu" />
-        <AbstractBlob type="gemini-spark" color="blue" className="w-[20rem] h-[20rem] absolute top-[40%] left-[40%] transform-gpu" />
+      {/* 1. Blurred Glowing Mesh Gradient (Ambient Color - Sangat Rapi & Seimbang) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 blur-[100px] md:blur-[140px] opacity-75">
+        {/* Sudut Kiri Atas - Biru Lembut */}
+        <AbstractBlob type="circle-spark" color="blue" className="w-[30rem] h-[30rem] absolute -top-[10%] -left-[10%] transform-gpu" />
+        {/* Kanan Atas - Kuning Merah Hangat */}
+        <AbstractBlob type="gemini-spark" color="yellow" className="w-[35rem] h-[35rem] absolute top-[5%] -right-[15%] transform-gpu" />
+        {/* Kiri Bawah - Hijau Segar */}
+        <AbstractBlob type="cross-spark" color="green" className="w-[40rem] h-[40rem] absolute -bottom-[10%] -left-[15%] transform-gpu" />
+        {/* Kanan Bawah - Biru Dalam */}
+        <AbstractBlob type="hexagon" color="blue" className="w-[35rem] h-[35rem] absolute -bottom-[5%] -right-[5%] transform-gpu" />
+        {/* Tengah - Aksen Merah Lembut */}
+        <AbstractBlob type="circle-spark" color="red" className="w-[20rem] h-[20rem] absolute top-[45%] left-[45%] transform-gpu opacity-50" />
       </div>
 
-      {/* 2. Sharp Vector Ornaments (Solid Shapes, slightly faded) */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 opacity-40 md:opacity-50">
-        <AbstractBlob type="hexagon" color="green" className="w-32 md:w-44 h-32 md:h-44 absolute top-[10%] left-[5%] md:top-[15%] md:left-[8%] -rotate-12 transform-gpu" />
-        <AbstractBlob type="circle-spark" color="red" className="w-20 md:w-28 h-20 md:h-28 absolute top-[15%] right-[8%] md:top-[18%] md:right-[12%] blur-[2px] rotate-45 transform-gpu" />
-        <AbstractBlob type="cross-spark" color="blue" className="w-48 md:w-72 h-48 md:h-72 absolute bottom-[15%] -left-[10%] md:bottom-[20%] md:-left-[5%] rotate-12 transform-gpu" />
-        <AbstractBlob type="cross" color="yellow" className="w-36 md:w-56 h-36 md:h-56 absolute bottom-[25%] right-[5%] md:bottom-[28%] md:right-[10%] -rotate-[25deg] transform-gpu" />
-        <AbstractBlob type="hexagon" color="blue" className="w-40 md:w-64 h-40 md:h-64 absolute top-[55%] left-[48%] -translate-x-1/2 -translate-y-1/2 rotate-[15deg] transform-gpu" />
+      {/* 2. Sharp Vector Ornaments (Solid Shapes, Elegan & Minimalis) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 opacity-[0.35] md:opacity-40">
+        {/* Pojok Kiri Atas */}
+        <AbstractBlob type="hexagon" color="green" className="w-28 md:w-40 h-28 md:h-40 absolute top-[12%] left-[8%] -rotate-12 transform-gpu" />
+        {/* Pojok Kanan Atas */}
+        <AbstractBlob type="circle-spark" color="red" className="w-16 md:w-24 h-16 md:h-24 absolute top-[18%] right-[10%] blur-[1px] rotate-45 transform-gpu" />
+        {/* Kiri Bawah Tengah */}
+        <AbstractBlob type="cross-spark" color="blue" className="w-40 md:w-64 h-40 md:h-64 absolute bottom-[25%] left-[5%] rotate-12 transform-gpu" />
+        {/* Pojok Kanan Bawah */}
+        <AbstractBlob type="cross" color="yellow" className="w-32 md:w-48 h-32 md:h-48 absolute bottom-[15%] right-[8%] -rotate-[25deg] transform-gpu" />
+        {/* Mengambang di Tengah Kanan */}
+        <AbstractBlob type="hexagon" color="blue" className="w-24 md:w-36 h-24 md:h-36 absolute top-[60%] right-[15%] rotate-[15deg] transform-gpu blur-[1px]" />
       </div>
 
       <main className="flex-1 w-full flex flex-col items-center justify-start p-4 sm:p-8 mt-8 sm:mt-16 md:mt-24 z-10 overflow-hidden">
