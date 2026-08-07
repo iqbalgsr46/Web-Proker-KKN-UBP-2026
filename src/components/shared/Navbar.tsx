@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Download } from "lucide-react";
 import { Dock, DockIcon } from "@/registry/magicui/dock";
 
 // Inline SVG Icons
@@ -82,7 +83,7 @@ export function Navbar() {
               className="w-full h-full flex items-center justify-center relative group p-1.5 active:scale-90 transition-transform duration-200"
             >
               <div className="w-full h-full rounded-full bg-gradient-to-br from-google-blue via-google-green to-google-yellow flex items-center justify-center text-white shadow-md lg:group-hover:scale-110 transition-transform duration-200">
-                <DownloadIcon className="w-6 h-6" />
+                <Download className="w-[1.125rem] h-[1.125rem]" strokeWidth={3} />
               </div>
               <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 bg-gray-900 text-white text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none whitespace-nowrap shadow-md">
                 Mulai Mewarnai
