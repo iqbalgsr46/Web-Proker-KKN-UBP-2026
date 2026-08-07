@@ -57,18 +57,18 @@ export default function GaleriPage() {
   return (
     <div className="relative w-full min-h-[100dvh] flex flex-col bg-transparent">
 
-      {/* 1. Blurred Glowing Mesh Gradient (Ambient Color - Sangat Rapi & Seimbang) */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 blur-[100px] md:blur-[140px] opacity-75">
+      {/* 1. Blurred Glowing Mesh Gradient (Ambient Color - Penuh Warna 100%) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 blur-[100px] md:blur-[140px] opacity-100 mix-blend-multiply">
         {/* Sudut Kiri Atas - Biru Lembut */}
-        <AbstractBlob type="circle-spark" color="blue" className="w-[30rem] h-[30rem] absolute -top-[10%] -left-[10%] transform-gpu" />
+        <AbstractBlob type="circle-spark" color="blue" className="w-[60rem] h-[60rem] md:w-[80rem] md:h-[80rem] absolute -top-[20%] -left-[20%] transform-gpu" />
         {/* Kanan Atas - Kuning Merah Hangat */}
-        <AbstractBlob type="gemini-spark" color="yellow" className="w-[35rem] h-[35rem] absolute top-[5%] -right-[15%] transform-gpu" />
+        <AbstractBlob type="gemini-spark" color="yellow" className="w-[60rem] h-[60rem] md:w-[80rem] md:h-[80rem] absolute -top-[10%] -right-[20%] transform-gpu" />
         {/* Kiri Bawah - Hijau Segar */}
-        <AbstractBlob type="cross-spark" color="green" className="w-[40rem] h-[40rem] absolute -bottom-[10%] -left-[15%] transform-gpu" />
+        <AbstractBlob type="cross-spark" color="green" className="w-[70rem] h-[70rem] md:w-[90rem] md:h-[90rem] absolute -bottom-[20%] -left-[20%] transform-gpu" />
         {/* Kanan Bawah - Biru Dalam */}
-        <AbstractBlob type="hexagon" color="blue" className="w-[35rem] h-[35rem] absolute -bottom-[5%] -right-[5%] transform-gpu" />
-        {/* Tengah - Aksen Merah Lembut */}
-        <AbstractBlob type="circle-spark" color="red" className="w-[20rem] h-[20rem] absolute top-[45%] left-[45%] transform-gpu opacity-50" />
+        <AbstractBlob type="hexagon" color="blue" className="w-[60rem] h-[60rem] md:w-[80rem] md:h-[80rem] absolute -bottom-[10%] -right-[15%] transform-gpu" />
+        {/* Tengah - Aksen Merah Kuat */}
+        <AbstractBlob type="circle-spark" color="red" className="w-[50rem] h-[50rem] md:w-[70rem] md:h-[70rem] absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 transform-gpu" />
       </div>
 
       {/* 2. Sharp Vector Ornaments (Solid Shapes, Elegan & Minimalis) */}
