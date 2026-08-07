@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "EduColoring",
     images: [
       {
-        url: "https://educoloring.ubpkarawang.ac.id/og-image.jpg",
+        url: "https://educoloring.ubpkarawang.ac.id/og-image.png",
         width: 1200,
         height: 630,
         alt: "EduColoring Preview",
