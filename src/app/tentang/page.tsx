@@ -283,23 +283,24 @@ export default function TentangPage() {
             <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mb-1 sm:mb-2 drop-shadow-sm">Jelajahi Lebih Banyak Momen</h3>
             <p className="text-xs sm:text-base text-gray-600 font-medium">Banyak sekali cerita berharga yang ingin kami bagikan.</p>
           </div>
-          <div className="w-full h-[400px] sm:h-[600px] md:h-[700px] rounded-3xl overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] border border-white/40 shadow-sm bg-white/20 backdrop-blur-sm">
+          <div className="w-full h-[450px] sm:h-[600px] md:h-[700px] rounded-3xl overflow-hidden border border-white/40 shadow-sm bg-white/40 transform-gpu">
             <DriftWall
               items={Array.from({ length: 15 }, (_, i) => ({
                 image: "/images/kkn_students_placeholder.png",
                 title: `Momen KKN ${i + 1}`
               }))}
               columns={typeof window !== 'undefined' && window.innerWidth < 640 ? 3 : 5}
-              tileWidth={typeof window !== 'undefined' && window.innerWidth < 640 ? 120 : 200}
-              tileHeight={typeof window !== 'undefined' && window.innerWidth < 640 ? 80 : 132}
-              gap={12}
+              tileWidth={typeof window !== 'undefined' && window.innerWidth < 640 ? 96 : 200}
+              tileHeight={typeof window !== 'undefined' && window.innerWidth < 640 ? 64 : 132}
+              gap={typeof window !== 'undefined' && window.innerWidth < 640 ? 8 : 12}
               tilt={10}
-              perspective={1500}
-              depth={100}
-              speed={35}
-              parallax={0.4}
+              perspective={typeof window !== 'undefined' && window.innerWidth < 640 ? 800 : 1500}
+              depth={typeof window !== 'undefined' && window.innerWidth < 640 ? 80 : 100}
+              speed={30}
+              parallax={typeof window !== 'undefined' && window.innerWidth < 640 ? 0 : 0.4}
               pauseOnHover={true}
-              overlayColor="#fbbc04"
+              fade={0.3}
+              overlayColor="#202124"
             />
           </div>
         </div>
