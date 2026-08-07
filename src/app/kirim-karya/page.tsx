@@ -232,6 +232,7 @@ export default function KirimKaryaPage() {
                   <input
                     type="file"
                     accept="image/*"
+                    capture="environment"
                     onChange={handleImageChange}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                   />
