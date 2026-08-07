@@ -156,6 +156,10 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
       stageH = w * 0.75; // aspect ratio 4:3 or landscape-ish on mobile
       if (stageH <= 0) return;
       stage.style.height = `${stageH}px`;
+      
+      // Posisikan stage agar menempel (sticky) di tengah layar secara vertikal
+      stage.style.top = `calc(50vh - ${stageH / 2}px)`;
+
       track.style.height = `${stageH * (1 + Math.max(0, c.scrollDistance) + Math.max(0, c.holdDistance))}px`;
 
       stage.style.setProperty('--se-title-size', `${clamp(w * 0.075, 20, 84)}px`);
@@ -166,8 +170,10 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
       if (!c.enabled) return 1;
       const span = stageH * Math.max(0.01, c.scrollDistance);
       if (c.useWindowScroll) {
-        const top = track.getBoundingClientRect().top;
-        return clamp(-top / span, 0, 1);
+        const trackTop = track.getBoundingClientRect().top;
+        // Animasi dimulai ketika track menyentuh titik sticky (tengah layar)
+        const stickyTop = (window.innerHeight / 2) - (stageH / 2);
+        return clamp((stickyTop - trackTop) / span, 0, 1);
       }
       return clamp(root.scrollTop / span, 0, 1);
     };
