@@ -151,12 +151,13 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
     const measure = () => {
       const c = propsRef.current;
-      stageH = c.useWindowScroll ? window.innerHeight : root.clientHeight;
+      // Gunakan rasio lanskap 16:9 dari lebar layar (bukan tinggi layar penuh) agar hasilnya lanskap
+      const w = root.clientWidth || window.innerWidth;
+      stageH = w * 0.75; // aspect ratio 4:3 or landscape-ish on mobile
       if (stageH <= 0) return;
       stage.style.height = `${stageH}px`;
       track.style.height = `${stageH * (1 + Math.max(0, c.scrollDistance) + Math.max(0, c.holdDistance))}px`;
 
-      const w = root.clientWidth || stageH;
       stage.style.setProperty('--se-title-size', `${clamp(w * 0.075, 20, 84)}px`);
     };
 

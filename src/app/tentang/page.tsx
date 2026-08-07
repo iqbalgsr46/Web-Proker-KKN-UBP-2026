@@ -312,7 +312,7 @@ export default function TentangPage() {
         {/* SCROLL EXPAND SECTION (AKHIR PERJALANAN) */}
         {/* ========================================= */}
         <div className="w-full relative z-10 max-w-7xl mx-auto px-2 sm:px-8 pb-10 sm:pb-16 mt-4 sm:mt-8">
-          <div className="w-full h-[600px] sm:h-[800px]">
+          <div className="w-full">
             <ScrollExpand 
               src="/images/kkn_students_placeholder.png" 
               title="Kenangan Abadi" 
